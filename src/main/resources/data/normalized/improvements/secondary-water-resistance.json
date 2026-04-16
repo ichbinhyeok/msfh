@@ -1,0 +1,55 @@
+{
+  "slug": "secondary-water-resistance",
+  "routeId": "improvement-secondary-water-resistance",
+  "displayLabel": "Secondary water resistance",
+  "title": "Secondary water resistance: when roof work is really needed",
+  "description": "Use this route when SWR creates the exception question and you need to know whether broader roof work is really required.",
+  "triggerState": "roof_related_decision",
+  "contractorType": "roofing contractor",
+  "recommendationMeaning": "SWR recommendations usually mean the roof assembly needs a mitigation upgrade that can affect whether broader roof work is part of the project path. The right move is to understand the causal link before budgeting around replacement.",
+  "rightFirstProjectSignals": [
+    "The report clearly points to SWR.",
+    "The proposed roof work is being justified as necessary to complete the eligible mitigation recommendation.",
+    "You need to know whether the quote is really about mitigation or just about a general roof sale."
+  ],
+  "qualifyingScope": [
+    "SWR-related work should stay tied to the eligible recommendation.",
+    "If full roof work is proposed, the quote should explain why that scope is necessary.",
+    "You should separate eligible mitigation work from unrelated roof wish-list items."
+  ],
+  "attachedHomeCaveat": "Attached-home owners should stop and verify scope before following a roof-heavy sales path.",
+  "confusionOrDenialRisks": [
+    "Treating SWR as a blanket approval for a reroof.",
+    "Assuming reimbursement will cover every roofing line item attached to an eligible SWR job.",
+    "Starting roof work before approval."
+  ],
+  "primaryCta": {
+    "label": "Get the SWR exception checklist",
+    "href": "#lead-form"
+  },
+  "secondaryCta": {
+    "label": "Check whether SWR really justifies replacement",
+    "href": "/improvements/roof-replacement-under-swr/"
+  },
+  "relatedLinks": [
+    {
+      "label": "Broad roof-replacement guide",
+      "href": "/guides/roof-replacement-through-msfh/"
+    },
+    {
+      "label": "Choose the first project",
+      "href": "/program/choose-project/"
+    },
+    {
+      "label": "Roof-to-wall retrofit scope",
+      "href": "/improvements/roof-to-wall/"
+    }
+  ],
+  "sourceIds": [
+    "authorized-improvements",
+    "roof-replacement",
+    "grant-eligibility"
+  ],
+  "verifiedOn": "2026-04-13",
+  "nextReviewOn": "2026-05-13"
+}

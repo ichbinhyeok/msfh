@@ -1,0 +1,122 @@
+[
+  {
+    "id": "homepage",
+    "title": "My Safe Florida Home program homepage",
+    "url": "https://mysafeflhome.com/",
+    "note": "Current public workflow and report-stage framing.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "faq",
+    "title": "Program FAQ",
+    "url": "https://mysafeflhome.com/faq/",
+    "note": "Inspection and grant remain separate and contractor liability stays with the homeowner.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "support-hub",
+    "title": "MSFH Support Center hub",
+    "url": "https://support.mysafeflhome.com/en/support/solutions/156000560066",
+    "note": "Operational source of truth for post-report confusion states.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "grant-eligibility",
+    "title": "Grant eligibility",
+    "url": "https://support.mysafeflhome.com/en/support/solutions/articles/156000024911-who-is-eligible-for-a-hurricane-mitigation-grant-",
+    "note": "Confirms recommended improvements, 24-month timing, and denial risk for work started before approval.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "report-results",
+    "title": "Initial inspection report timing and contents",
+    "url": "https://support.mysafeflhome.com/en/support/solutions/articles/156000367651-where-do-i-find-the-results-from-my-initial-inspection-report-",
+    "note": "Report includes recommended improvements, cost estimates, and the 1802 summary.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "recommended-improvements",
+    "title": "Recommended improvements article",
+    "url": "https://support.mysafeflhome.com/en/support/solutions/articles/156000367652-where-do-i-find-my-recommended-improvements-on-the-initial-inspection-report-",
+    "note": "Explains where to find recommended improvements and why opening-protection scope needs careful reading.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "select-projects",
+    "title": "Review and select eligible mitigation projects",
+    "url": "https://support.mysafeflhome.com/en/support/solutions/articles/156000279740-where-do-i-review-and-select-my-eligible-mitigation-projects-in-the-applicant-portal-",
+    "note": "Attached homes treated as townhouses can be limited to opening-protection-only funding.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "authorized-improvements",
+    "title": "Authorized mitigation improvements",
+    "url": "https://support.mysafeflhome.com/support/solutions/articles/156000024215-what-improvements-are-authorized-for-mitigation-projects-",
+    "note": "Authorized improvements remain opening protection, roof-to-wall, roof deck attachment, and SWR.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "contractor-selection",
+    "title": "Choosing a licensed contractor",
+    "url": "https://support.mysafeflhome.com/support/solutions/articles/156000024208-how-do-i-choose-a-licensed-contractor-",
+    "note": "The homeowner must choose and manage the contractor.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "contractor-flyer",
+    "title": "Working with a contractor flyer",
+    "url": "https://mysafeflhome.com/wp-content/uploads/2024/06/Working-With-a-Contractor-Flyer_2-Pager_6_29_24.pdf",
+    "note": "The old authorized contractor list ended and homeowners should compare quotes and documents themselves.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "roof-replacement",
+    "title": "Can I replace my roof?",
+    "url": "https://support.mysafeflhome.com/en/support/solutions/articles/156000372425-can-i-replace-my-roof-",
+    "note": "Roof replacement may align only when required to complete recommended eligible work.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "permits",
+    "title": "Building permits responsibility",
+    "url": "https://support.mysafeflhome.com/support/solutions/articles/156000024216-who-is-responsible-for-obtaining-building-permits-",
+    "note": "Permits still need to be obtained and closed before final inspection.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "no-recommendations",
+    "title": "No recommended improvements",
+    "url": "https://support.mysafeflhome.com/support/solutions/articles/156000279688-what-if-there-are-no-recommended-improvements-on-my-initial-inspection-report-",
+    "note": "Without recommended improvements the grant path cannot proceed.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-13"
+  },
+  {
+    "id": "program-update",
+    "title": "2025 Florida Senate update",
+    "url": "https://www.flsenate.gov/PublishedContent/Offices/2024-2026/President/Documents/Update_on_the_My_Safe_Florida_Home_Program.pdf",
+    "note": "Shows recent program scale and funding movement.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-28"
+  },
+  {
+    "id": "cfo-warning",
+    "title": "Consumer alert on imposters",
+    "url": "https://myfloridacfo.com/news/newsletter/past-issues/news-details/2024/06/21/consumer-alert-cfo-jimmy-patronis--beware-of-my-safe-florida-home-program-imposters",
+    "note": "Confirms scam risk and why non-affiliation language must stay visible.",
+    "verifiedOn": "2026-04-13",
+    "nextReviewOn": "2026-05-28"
+  }
+]

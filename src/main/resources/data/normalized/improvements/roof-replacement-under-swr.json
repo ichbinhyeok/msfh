@@ -1,0 +1,56 @@
+{
+  "slug": "roof-replacement-under-swr",
+  "routeId": "improvement-roof-replacement-under-swr",
+  "displayLabel": "Roof replacement under SWR logic",
+  "title": "SWR exception: when roof replacement can qualify",
+  "description": "Use this narrow exception when SWR makes roof replacement necessary for the eligible mitigation recommendation.",
+  "triggerState": "roof_related_decision",
+  "contractorType": "roofing contractor",
+  "recommendationMeaning": "Roof replacement may align when it is required to complete the eligible mitigation recommendation, especially in SWR-related paths. It is not a blanket rule for every roof that feels due.",
+  "rightFirstProjectSignals": [
+    "The recommendation points to SWR and the report ties that exception to broader roof work.",
+    "The quote clearly explains why replacement is necessary for the eligible mitigation job.",
+    "You need a roofing quote that separates the exception scope from non-eligible extras."
+  ],
+  "qualifyingScope": [
+    "Replacement may be part of the job only when it is necessary to complete the eligible mitigation recommendation.",
+    "The budget should separate grant-aligned items from homeowner-choice extras.",
+    "Approval timing still matters before work begins."
+  ],
+  "attachedHomeCaveat": "For attached homes, this route is usually secondary because current rules can narrow grant scope before roof replacement becomes relevant.",
+  "confusionOrDenialRisks": [
+    "Reading an old roof as automatic proof of eligibility.",
+    "Letting a contractor frame a general reroof as guaranteed reimbursement.",
+    "Ignoring the need to tie the replacement scope back to the report."
+  ],
+  "primaryCta": {
+    "label": "Get the SWR exception checklist",
+    "href": "#lead-form"
+  },
+  "secondaryCta": {
+    "label": "Compare this exception against the broad roof guide",
+    "href": "/program/what-msfh-will-pay-for/"
+  },
+  "relatedLinks": [
+    {
+      "label": "Secondary water resistance narrow exception",
+      "href": "/improvements/secondary-water-resistance/"
+    },
+    {
+      "label": "Broad roof-replacement guide",
+      "href": "/guides/roof-replacement-through-msfh/"
+    },
+    {
+      "label": "Roof-to-wall retrofit scope",
+      "href": "/improvements/roof-to-wall/"
+    }
+  ],
+  "sourceIds": [
+    "roof-replacement",
+    "grant-eligibility",
+    "authorized-improvements",
+    "contractor-flyer"
+  ],
+  "verifiedOn": "2026-04-13",
+  "nextReviewOn": "2026-05-13"
+}

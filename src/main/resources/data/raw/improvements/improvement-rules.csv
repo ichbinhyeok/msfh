@@ -1,0 +1,6 @@
+slug,displayLabel,contractorType,sourceIds
+opening-protection,Opening protection,opening-protection contractor,recommended-improvements|select-projects|authorized-improvements
+roof-to-wall,Roof-to-wall attachment,roof retrofit specialist,authorized-improvements|contractor-selection
+roof-deck-attachment,Roof deck attachment,roof retrofit specialist,authorized-improvements|grant-eligibility
+secondary-water-resistance,Secondary water resistance,roofing contractor,roof-replacement|grant-eligibility
+roof-replacement-under-swr,Roof replacement under SWR logic,roofing contractor,roof-replacement|grant-eligibility|authorized-improvements

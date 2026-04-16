@@ -1,0 +1,56 @@
+{
+  "slug": "roof-to-wall",
+  "routeId": "improvement-roof-to-wall",
+  "displayLabel": "Roof-to-wall attachment",
+  "title": "Roof-to-wall retrofit scope after an MSFH report",
+  "description": "Use this route to separate a real roof-to-wall retrofit recommendation from a broad reroof pitch.",
+  "triggerState": "roof_related_decision",
+  "contractorType": "roof retrofit specialist",
+  "recommendationMeaning": "A roof-to-wall recommendation usually means the connection between the roof structure and the wall needs mitigation attention. The next step is to verify whether a specialist retrofit path or a broader roofing path is actually required.",
+  "rightFirstProjectSignals": [
+    "The report specifically calls out roof-to-wall attachment.",
+    "The recommendation can be handled without turning into a full roof replacement scenario.",
+    "You need a contractor who understands retrofit scope, not just general roofing sales."
+  ],
+  "qualifyingScope": [
+    "The eligible scope should stay anchored to the report recommendation.",
+    "Some homes may need focused retrofit work rather than a broad reroof proposal.",
+    "Quote detail matters because license fit and scope fit both affect the next step."
+  ],
+  "attachedHomeCaveat": "Attached-home owners should verify scope first because townhouse treatment can narrow what the grant will support.",
+  "confusionOrDenialRisks": [
+    "Letting a roofer turn a narrow attachment recommendation into a generic roof package.",
+    "Skipping license-fit checks for retrofit-specific work.",
+    "Assuming every roof-related recommendation means the same project path."
+  ],
+  "primaryCta": {
+    "label": "Get the roof-to-wall quote checklist",
+    "href": "#lead-form"
+  },
+  "secondaryCta": {
+    "label": "Pressure-test reroof logic before you expand scope",
+    "href": "/improvements/roof-replacement-under-swr/"
+  },
+  "relatedLinks": [
+    {
+      "label": "Choose the first project after the report",
+      "href": "/program/choose-project/"
+    },
+    {
+      "label": "Contractor quote checklist",
+      "href": "/guides/msfh-contractor-quote-checklist/"
+    },
+    {
+      "label": "Roof deck attachment scope",
+      "href": "/improvements/roof-deck-attachment/"
+    }
+  ],
+  "sourceIds": [
+    "authorized-improvements",
+    "select-projects",
+    "contractor-selection",
+    "contractor-flyer"
+  ],
+  "verifiedOn": "2026-04-13",
+  "nextReviewOn": "2026-05-13"
+}

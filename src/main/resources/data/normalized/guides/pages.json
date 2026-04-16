@@ -1,0 +1,192 @@
+{
+  "pages": [
+    {
+      "slug": "msfh-inspection-report-what-next",
+      "routeId": "guide-msfh-inspection-report-what-next",
+      "title": "After your MSFH inspection report: first project checklist",
+      "description": "A practical checklist for turning the report into one clear first project and quote path.",
+      "triggerState": "report_received_need_next_step",
+      "quickAnswer": "Read the recommended improvements and cost sections first, then choose the first project before you collect broad quotes.",
+      "whatNotToAssume": [
+        "Do not assume the report alone means reimbursement is secure.",
+        "Do not assume the first contractor who mentions the program is the right next step.",
+        "Do not assume attached-home rules match detached-home scope."
+      ],
+      "keyTakeaways": [
+        "The report is the roadmap, not the approval.",
+        "The first useful choice is usually between improvement paths, not between contractors.",
+        "Attached-home owners should branch early because scope can narrow."
+      ],
+      "nextSteps": [
+        "Confirm what the recommendation actually says.",
+        "Choose the likely first project.",
+        "Collect the right quote checklist before you sign."
+      ],
+      "primaryCta": {
+        "label": "Get the after-report checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Use the report to choose the first project",
+        "href": "/program/choose-project/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Inspection report route",
+          "href": "/program/inspection-report/"
+        },
+        {
+          "label": "Quote checklist before signing",
+          "href": "/program/contractor-quotes/"
+        }
+      ],
+      "sourceIds": [
+        "report-results",
+        "recommended-improvements",
+        "grant-eligibility"
+      ]
+    },
+    {
+      "slug": "impact-windows-vs-shutters",
+      "routeId": "guide-impact-windows-vs-shutters",
+      "title": "Impact windows vs shutters after an MSFH report",
+      "description": "Use this guide when opening protection is recommended but the quote path is still unclear.",
+      "triggerState": "opening_protection_decision",
+      "quickAnswer": "Do not choose between windows and shutters until you understand which openings the report is actually pushing you to protect.",
+      "whatNotToAssume": [
+        "Do not assume every opening must be replaced.",
+        "Do not assume a window-heavy sales pitch matches the report.",
+        "Do not assume attached homes can skip the scope check."
+      ],
+      "keyTakeaways": [
+        "Opening protection is a category, not a single purchase.",
+        "Some homes need narrower scope than the first sales pitch suggests.",
+        "Attached-home owners should verify whether opening protection is the only grant-aligned path."
+      ],
+      "nextSteps": [
+        "Read the opening-protection recommendation carefully.",
+        "Break out which openings need proof or pricing.",
+        "Use a quote checklist that matches the report."
+      ],
+      "primaryCta": {
+        "label": "Get the opening-protection checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Go to the opening-protection decision page",
+        "href": "/improvements/opening-protection/"
+      },
+      "relatedLinks": [
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        },
+        {
+          "label": "Contractor quote route",
+          "href": "/program/contractor-quotes/"
+        }
+      ],
+      "sourceIds": [
+        "recommended-improvements",
+        "select-projects",
+        "contractor-selection"
+      ]
+    },
+    {
+      "slug": "msfh-contractor-quote-checklist",
+      "routeId": "guide-msfh-contractor-quote-checklist",
+      "title": "MSFH quote signing checklist: questions to ask before you sign",
+      "description": "A stripped-down checklist for license fit, scope fit, timing, and permit handling before you sign.",
+      "triggerState": "contractor_confirmation_needed",
+      "quickAnswer": "Match the recommendation to the contractor type first, then verify license, permit responsibility, documentation, and scope before you treat the quote as safe.",
+      "whatNotToAssume": [
+        "Do not assume any quote mentioning the program is grant-aligned.",
+        "Do not assume permit closeout will take care of itself.",
+        "Do not assume a generic roofer and a retrofit specialist solve the same problem."
+      ],
+      "keyTakeaways": [
+        "The homeowner still owns contractor choice.",
+        "The program does not maintain an authorized contractor list.",
+        "A clean quote explains the eligible scope instead of burying it."
+      ],
+      "nextSteps": [
+        "Verify the recommendation category.",
+        "Check license fit and permit handling.",
+        "Separate eligible mitigation work from optional extras."
+      ],
+      "primaryCta": {
+        "label": "Get the signing checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Open the contractor quote route",
+        "href": "/program/contractor-quotes/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Roof-related decision routes",
+          "href": "/improvements/roof-to-wall/"
+        },
+        {
+          "label": "Opening-protection route",
+          "href": "/improvements/opening-protection/"
+        }
+      ],
+      "sourceIds": [
+        "contractor-selection",
+        "contractor-flyer",
+        "permits"
+      ]
+    },
+    {
+      "slug": "roof-replacement-through-msfh",
+      "routeId": "guide-roof-replacement-through-msfh",
+      "title": "Does your MSFH recommendation really require roof replacement?",
+      "description": "A broad guide for homeowners deciding whether roof replacement is truly required by the eligible mitigation path.",
+      "triggerState": "roof_related_decision",
+      "quickAnswer": "Roof replacement may fit only when it is required to complete the eligible recommendation. The quote should explain that link clearly before you budget around reimbursement.",
+      "whatNotToAssume": [
+        "Do not assume roof age alone creates eligibility.",
+        "Do not assume SWR language means every reroof line item is reimbursable.",
+        "Do not assume attached-home cases follow detached-home roof logic."
+      ],
+      "keyTakeaways": [
+        "SWR logic matters more than generic roof age.",
+        "Eligible mitigation scope should stay visible in the quote.",
+        "Attached-home owners should verify scope before following roof-heavy messaging."
+      ],
+      "nextSteps": [
+        "Confirm whether the report ties replacement to eligible work.",
+        "Review SWR and related roof recommendations.",
+        "Use a roofing quote checklist before signing."
+      ],
+      "primaryCta": {
+        "label": "Get the broad roof-replacement checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Check the narrow SWR exception page",
+        "href": "/improvements/roof-replacement-under-swr/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Secondary water resistance exception",
+          "href": "/improvements/secondary-water-resistance/"
+        },
+        {
+          "label": "Roof-to-wall retrofit scope",
+          "href": "/improvements/roof-to-wall/"
+        },
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        }
+      ],
+      "sourceIds": [
+        "roof-replacement",
+        "grant-eligibility",
+        "authorized-improvements"
+      ]
+    }
+  ]
+}

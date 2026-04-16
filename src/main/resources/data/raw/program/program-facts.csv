@@ -1,0 +1,5 @@
+key,value,sourceId
+inspection_grant_separate,true,faq
+grant_window_months,24,grant-eligibility
+authorized_improvement_categories,opening protection|roof-to-wall|roof deck attachment|secondary water resistance,authorized-improvements
+attached_home_scope_note,attached homes may be treated as townhouses for grant scope,select-projects

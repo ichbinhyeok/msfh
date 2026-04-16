@@ -1,0 +1,55 @@
+{
+  "slug": "roof-deck-attachment",
+  "routeId": "improvement-roof-deck-attachment",
+  "displayLabel": "Roof deck attachment",
+  "title": "Roof deck attachment retrofit scope",
+  "description": "Use this route when the report points to roof deck attachment and you need to know whether the next move is focused retrofit work or a broader roof conversation.",
+  "triggerState": "roof_related_decision",
+  "contractorType": "roof retrofit specialist",
+  "recommendationMeaning": "Roof deck attachment recommendations usually point to fastening or structural mitigation detail, not to a blank check for every roof line item.",
+  "rightFirstProjectSignals": [
+    "The report is specific about roof deck attachment.",
+    "The recommendation appears without a clear reason for full roof replacement.",
+    "You need a scope-aware quote before you compare prices."
+  ],
+  "qualifyingScope": [
+    "The project path should stay tied to the eligible recommendation.",
+    "Quote detail should distinguish deck attachment work from unrelated roofing items.",
+    "If broader roof work is proposed, the contractor should explain why that work is necessary to complete the eligible recommendation."
+  ],
+  "attachedHomeCaveat": "Attached-home rules can narrow the answer before roof deck work becomes a realistic grant-backed first project.",
+  "confusionOrDenialRisks": [
+    "Assuming a deck attachment note automatically justifies reroofing.",
+    "Using a quote that hides the eligible mitigation scope inside a generic roofing package.",
+    "Skipping the attached-home scope branch."
+  ],
+  "primaryCta": {
+    "label": "Get the roof-deck quote checklist",
+    "href": "#lead-form"
+  },
+  "secondaryCta": {
+    "label": "Check whether the contractor scope actually fits",
+    "href": "/program/contractor-quotes/"
+  },
+  "relatedLinks": [
+    {
+      "label": "Broad roof-replacement guide",
+      "href": "/guides/roof-replacement-through-msfh/"
+    },
+    {
+      "label": "Roof-to-wall retrofit scope",
+      "href": "/improvements/roof-to-wall/"
+    },
+    {
+      "label": "What the program may pay for",
+      "href": "/program/what-msfh-will-pay-for/"
+    }
+  ],
+  "sourceIds": [
+    "authorized-improvements",
+    "grant-eligibility",
+    "contractor-selection"
+  ],
+  "verifiedOn": "2026-04-13",
+  "nextReviewOn": "2026-05-13"
+}

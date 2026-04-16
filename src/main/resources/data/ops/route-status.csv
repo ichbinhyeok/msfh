@@ -1,0 +1,13 @@
+routeId,routePath,routeFamily,scope,phase,indexStatus,sourceFreshnessStatus,last28DayImpressions,last28DayClicks,last28DayCtr,last28DayCtaClicks,last28DayLeadOpens,last28DayLeadSubmissions,dominantImprovementType,promotionRecommendation,recommendationReason,reviewedOn,nextReviewOn
+program-inspection-report,/program/inspection-report/,program,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,,hold,pre-launch seed route,2026-04-13,2026-04-27
+program-choose-project,/program/choose-project/,program,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,,hold,pre-launch seed route,2026-04-13,2026-04-27
+program-contractor-quotes,/program/contractor-quotes/,program,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,,hold,pre-launch seed route,2026-04-13,2026-04-27
+program-what-msfh-will-pay-for,/program/what-msfh-will-pay-for/,program,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,,hold,pre-launch seed route,2026-04-13,2026-04-27
+improvement-opening-protection,/improvements/opening-protection/,improvement,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,opening-protection,hold,pre-launch seed route,2026-04-13,2026-04-27
+improvement-roof-to-wall,/improvements/roof-to-wall/,improvement,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,roof-to-wall,hold,pre-launch seed route,2026-04-13,2026-04-27
+improvement-roof-deck-attachment,/improvements/roof-deck-attachment/,improvement,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,roof-deck-attachment,hold,pre-launch seed route,2026-04-13,2026-04-27
+improvement-secondary-water-resistance,/improvements/secondary-water-resistance/,improvement,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,secondary-water-resistance,hold,pre-launch seed route,2026-04-13,2026-04-27
+improvement-roof-replacement-under-swr,/improvements/roof-replacement-under-swr/,improvement,florida,phase_1_public,index,fresh,0,0,0.0,0,0,0,roof-replacement-under-swr,hold,pre-launch seed route,2026-04-13,2026-04-27
+program-no-recommended-improvements,/program/no-recommended-improvements/,program,florida,held_support,noindex,fresh,0,0,0.0,0,0,0,,hold,support route stays held before demand appears,2026-04-13,2026-04-27
+program-group-5,/program/group-5/,program,florida,held_support,noindex,fresh,0,0,0.0,0,0,0,,hold,status route stays held before demand appears,2026-04-13,2026-04-27
+program-rfi,/program/rfi/,program,florida,held_support,noindex,fresh,0,0,0.0,0,0,0,,hold,status route stays held before demand appears,2026-04-13,2026-04-27

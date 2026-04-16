@@ -1,0 +1,361 @@
+{
+  "pages": [
+    {
+      "slug": "inspection-report",
+      "routeId": "program-inspection-report",
+      "title": "How to read an MSFH inspection report before you choose a project",
+      "description": "Use the report to confirm the recommendation, the cost notes, and the 1802 summary before you choose a project or compare quotes.",
+      "triggerState": "report_received_need_next_step",
+      "quickAnswer": "Start with the recommended improvements section, the estimated costs, and the 1802 summary. That tells you which program route is open before you jump to contractor shopping.",
+      "workflowMeaning": "This page owns the program-side handoff between inspection and grant. It is not approval by itself, and it is not the moment to sign the first contractor quote you receive.",
+      "coverageNotes": [
+        "The report may list recommended improvements, cost estimates, and the 1802 summary.",
+        "The grant and inspection remain separate applications.",
+        "Only recommended or later observed improvements should move forward."
+      ],
+      "attachedHomeCaveat": "If your home is attached or treated like a townhouse, check scope before assuming roof-related work is eligible.",
+      "whatNotToAssume": [
+        "Do not assume the most expensive project is the best first project.",
+        "Do not assume every opening or every roof element automatically qualifies.",
+        "Do not assume the report alone means reimbursement is locked in."
+      ],
+      "primaryCta": {
+        "label": "Confirm the report route before you shop quotes",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Check which work is actually reimbursable",
+        "href": "/program/what-msfh-will-pay-for/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Choose the first project after the report",
+          "href": "/program/choose-project/"
+        },
+        {
+          "label": "Use the quote checklist after this report step",
+          "href": "/program/contractor-quotes/"
+        }
+      ],
+      "sourceIds": [
+        "homepage",
+        "report-results",
+        "recommended-improvements",
+        "grant-eligibility"
+      ]
+    },
+    {
+      "slug": "choose-project",
+      "routeId": "program-choose-project",
+      "title": "Which MSFH project should go first?",
+      "description": "Choose the first project by grant alignment, recommendation strength, and what the quote path actually needs next.",
+      "triggerState": "comparing_recommended_improvements",
+      "quickAnswer": "The best first project is usually the recommendation that is both clearly eligible and most likely to unblock the grant path without unnecessary extra scope.",
+      "workflowMeaning": "Project choice should stay tied to what the report actually recommended, not to whichever contractor pitch feels largest or fastest.",
+      "coverageNotes": [
+        "Opening protection can be the clearest first path when the report makes the opening scope explicit.",
+        "Roof-related work may be right first only when the eligible recommendation truly depends on it.",
+        "Grant alignment matters more than generic home-improvement value."
+      ],
+      "attachedHomeCaveat": "Attached-home cases should pause before assuming roof replacement is the first answer because program scope can narrow sharply.",
+      "whatNotToAssume": [
+        "Do not assume roof replacement is covered just because the roof is old.",
+        "Do not assume every recommendation can be bundled into one reimbursable project.",
+        "Do not assume your attached home follows the same scope rules as a detached home."
+      ],
+      "primaryCta": {
+        "label": "Compare likely project paths before you commit",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Pressure-test opening protection as the first project",
+        "href": "/improvements/opening-protection/"
+      },
+      "relatedLinks": [
+        {
+          "label": "How the inspection report feeds project choice",
+          "href": "/program/inspection-report/"
+        },
+        {
+          "label": "When roof replacement becomes the first project",
+          "href": "/improvements/roof-replacement-under-swr/"
+        }
+      ],
+      "sourceIds": [
+        "recommended-improvements",
+        "authorized-improvements",
+        "select-projects",
+        "grant-eligibility"
+      ]
+    },
+    {
+      "slug": "contractor-quotes",
+      "routeId": "program-contractor-quotes",
+      "title": "How to vet an MSFH contractor quote before you sign",
+      "description": "Use the quote stage to verify contractor fit, permit responsibility, and scope before you confirm or sign anything.",
+      "triggerState": "contractor_confirmation_needed",
+      "quickAnswer": "Match the contractor type to the recommendation first, then verify license, permit responsibility, and whether the quoted scope lines up with the report before you sign.",
+      "workflowMeaning": "This page owns the program-side quote handoff. The homeowner still owns contractor choice and project management, but the route keeps you from turning a recommendation into a denial risk.",
+      "coverageNotes": [
+        "The program no longer provides an authorized contractor list.",
+        "The contractor should fit the actual mitigation recommendation, not just the broad category.",
+        "Permit handling and final closeout still matter."
+      ],
+      "attachedHomeCaveat": "If the home is attached, verify that the quoted scope does not drift past opening-protection-only funding before you commit.",
+      "whatNotToAssume": [
+        "Do not assume the first quote is safe just because the contractor mentions the program.",
+        "Do not assume a general roofing quote is the same thing as an SWR-aligned quote path.",
+        "Do not assume the program will fix documentation gaps later."
+      ],
+      "primaryCta": {
+        "label": "Confirm the quote route for your recommendation",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Pressure-test any roof-heavy quote first",
+        "href": "/improvements/roof-to-wall/"
+      },
+      "relatedLinks": [
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        },
+        {
+          "label": "Opening protection decision page",
+          "href": "/improvements/opening-protection/"
+        }
+      ],
+      "sourceIds": [
+        "contractor-selection",
+        "contractor-flyer",
+        "permits",
+        "faq"
+      ]
+    },
+    {
+      "slug": "what-msfh-will-pay-for",
+      "routeId": "program-what-msfh-will-pay-for",
+      "title": "What the program may pay for under current MSFH rules",
+      "description": "Stay close to the authorized improvement list and the actual recommendation before you budget around reimbursement.",
+      "triggerState": "comparing_recommended_improvements",
+      "quickAnswer": "The program may pay only for recommended or later observed eligible improvements, and roof-related reimbursement usually needs to stay tied to that eligible scope.",
+      "workflowMeaning": "This page exists to separate grant-aligned work from broad home-improvement wish lists before the quote stage gets expensive.",
+      "coverageNotes": [
+        "Authorized categories remain opening protection, roof-to-wall, roof deck attachment, and SWR-related work.",
+        "Matching grants and low-income grants are different paths under the current rules.",
+        "Work started before approval may be denied."
+      ],
+      "attachedHomeCaveat": "Attached homes may see the answer narrow to opening protection even when a detached-home owner would read the same report differently.",
+      "whatNotToAssume": [
+        "Do not assume a general reroof is automatically reimbursable.",
+        "Do not assume the grant covers every construction line item attached to an eligible project.",
+        "Do not assume the same scope rule applies to detached and attached homes."
+      ],
+      "primaryCta": {
+        "label": "See what the safest next step looks like",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Check when roof replacement is actually allowed",
+        "href": "/improvements/roof-replacement-under-swr/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Choose the first project after eligibility is clear",
+          "href": "/program/choose-project/"
+        },
+        {
+          "label": "Opening protection details",
+          "href": "/improvements/opening-protection/"
+        }
+      ],
+      "sourceIds": [
+        "grant-eligibility",
+        "authorized-improvements",
+        "roof-replacement",
+        "select-projects"
+      ]
+    },
+    {
+      "slug": "no-recommended-improvements",
+      "routeId": "program-no-recommended-improvements",
+      "title": "MSFH report says no recommended improvements",
+      "description": "If the report shows no recommended improvements, the next step is usually clarification, not immediate contractor shopping.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "When the report shows no recommended improvements, the grant path usually does not move forward. Verify the result before spending on quotes.",
+      "workflowMeaning": "This support-state route explains the dead end clearly and sends you back to the main decision wedge only if your facts change.",
+      "coverageNotes": [
+        "No recommended improvements usually means there is nothing eligible to submit right now.",
+        "This is not the moment to buy generic mitigation work and hope it qualifies later."
+      ],
+      "attachedHomeCaveat": "Attached-home rules do not change the basic no-recommendation outcome.",
+      "whatNotToAssume": [
+        "Do not assume you can self-select a project and recover reimbursement later.",
+        "Do not assume a contractor can convert a no-recommendation report into a grant path by itself."
+      ],
+      "primaryCta": {
+        "label": "See the no-recommendation next step",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Go back and confirm the report result",
+        "href": "/program/inspection-report/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Inspection report route",
+          "href": "/program/inspection-report/"
+        }
+      ],
+      "sourceIds": [
+        "no-recommendations",
+        "support-hub"
+      ]
+    },
+    {
+      "slug": "group-5",
+      "routeId": "program-group-5",
+      "title": "MSFH Group 5 status and timing block",
+      "description": "Use this route when Group 5 is blocking prioritization or access timing and you need the next action spelled out.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "Group 5 is a status-layer issue, not a project-selection answer. The next step is usually to find out whether you can proceed at all before collecting quotes or planning a grant-backed job.",
+      "workflowMeaning": "This page keeps support-state confusion away from the main wedge around recommendations and contractor choice.",
+      "coverageNotes": [
+        "Portal group timing can block or delay the practical next step.",
+        "This status does not create new eligible improvements by itself."
+      ],
+      "attachedHomeCaveat": "Attached-home scope rules still matter later, but Group 5 is primarily an access-timing issue.",
+      "whatNotToAssume": [
+        "Do not assume a delayed group status means contractor work should start anyway.",
+        "Do not assume support-state frustration changes reimbursement rules."
+      ],
+      "primaryCta": {
+        "label": "See the Group 5 next step",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Go back to project choice only if timing clears",
+        "href": "/program/choose-project/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Portal statuses that change the next move",
+          "href": "/program/portal-statuses/"
+        }
+      ],
+      "sourceIds": [
+        "support-hub",
+        "homepage"
+      ]
+    },
+    {
+      "slug": "rfi",
+      "routeId": "program-rfi",
+      "title": "MSFH RFI request blocking your file",
+      "description": "Use this route when an RFI is holding the file and you need the corrective path before you sign or start work.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "An RFI usually means the file needs more information before it can move. Resolve the missing item before treating the project as approved or reimbursable.",
+      "workflowMeaning": "This page stays corrective rather than expansive so support-state confusion does not turn into premature contractor action.",
+      "coverageNotes": [
+        "RFI responses should be handled before you treat the grant path as secure.",
+        "Documentation gaps can slow or block the project path."
+      ],
+      "attachedHomeCaveat": "Attached-home scope does not override missing information requests.",
+      "whatNotToAssume": [
+        "Do not assume an RFI is a minor clerical note with no project consequence.",
+        "Do not assume you should sign or start work while the request is unresolved."
+      ],
+      "primaryCta": {
+        "label": "See the RFI next step",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Re-check eligible work before you reply",
+        "href": "/program/what-msfh-will-pay-for/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Contractor quote route after the file clears",
+          "href": "/program/contractor-quotes/"
+        }
+      ],
+      "sourceIds": [
+        "support-hub",
+        "grant-eligibility"
+      ]
+    },
+    {
+      "slug": "portal-statuses",
+      "routeId": "program-portal-statuses",
+      "title": "MSFH portal statuses and what they change",
+      "description": "Use this route when status language changes the practical next step for a homeowner already moving through the program.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "Status pages are useful only if they change what you should do next. If the status does not unlock a recommendation or a quote path yet, treat it as operational context rather than a sign to start work.",
+      "workflowMeaning": "This support route sends the user back to the main decision wedge once the status question is clear enough.",
+      "coverageNotes": [
+        "Portal language can explain timing or missing-file issues.",
+        "Status visibility does not replace grant-aligned project selection."
+      ],
+      "attachedHomeCaveat": "Scope rules still apply after the status question is resolved.",
+      "whatNotToAssume": [
+        "Do not assume any portal status is the same thing as reimbursement certainty.",
+        "Do not assume a status label tells you which contractor type to hire."
+      ],
+      "primaryCta": {
+        "label": "See the status-specific next step",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Go back to the report path once status is clear",
+        "href": "/program/inspection-report/"
+      },
+      "relatedLinks": [
+        {
+          "label": "What to do after the report",
+          "href": "/program/inspection-report/"
+        }
+      ],
+      "sourceIds": [
+        "support-hub",
+        "homepage"
+      ]
+    },
+    {
+      "slug": "final-inspection-and-draw-request",
+      "routeId": "program-final-inspection-and-draw-request",
+      "title": "MSFH final inspection and draw request after work is done",
+      "description": "Use this route when work is complete and you need the closeout sequence for final inspection and draw payment.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "Final inspection and draw-request work happen after project execution, so the right move is usually to verify permit closeout and file readiness rather than reopen project selection.",
+      "workflowMeaning": "This route stays corrective. It does not replace the earlier decision work around recommendation interpretation, quote fit, or grant-aligned scope.",
+      "coverageNotes": [
+        "Permit closeout still matters before final inspection.",
+        "Operational timing after project completion can affect reimbursement flow."
+      ],
+      "attachedHomeCaveat": "Attached-home rules matter earlier in the workflow; this page is mostly about completion-stage operations.",
+      "whatNotToAssume": [
+        "Do not assume completion-stage paperwork fixes a bad earlier scope decision.",
+        "Do not assume every contractor handles the closeout details for you."
+      ],
+      "primaryCta": {
+        "label": "See the closeout next step",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Go back to quote prep if closeout is still unclear",
+        "href": "/program/contractor-quotes/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Contractor quote checklist",
+          "href": "/guides/msfh-contractor-quote-checklist/"
+        }
+      ],
+      "sourceIds": [
+        "permits",
+        "support-hub",
+        "grant-eligibility"
+      ]
+    }
+  ]
+}

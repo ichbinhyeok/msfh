@@ -1,0 +1,52 @@
+{
+  "slug": "opening-protection",
+  "routeId": "improvement-opening-protection",
+  "displayLabel": "Opening protection",
+  "title": "Opening protection scope after an MSFH report",
+  "description": "Use this route when the report points toward windows, shutters, doors, or garage-door scope and you need to know what should be priced first.",
+  "triggerState": "opening_protection_decision",
+  "contractorType": "opening-protection contractor",
+  "recommendationMeaning": "Opening protection usually means the report found exposed openings that still need qualifying protection. The right first move is to understand exactly which openings matter before a contractor expands the scope.",
+  "rightFirstProjectSignals": [
+    "The report makes opening protection explicit.",
+    "The home is attached and current scope rules likely narrow to opening protection.",
+    "You need the cleanest quote path with the least risk of non-eligible add-ons."
+  ],
+  "qualifyingScope": [
+    "Windows, shutters, exterior doors, and garage doors may need different proof and pricing.",
+    "Not every opening is necessarily in scope just because the category appears in the report.",
+    "The quote should mirror the actual recommendation instead of bundling unrelated work."
+  ],
+  "attachedHomeCaveat": "If the home is attached or treated like a townhouse, opening protection may be the only grant-aligned path even when roof questions feel urgent.",
+  "confusionOrDenialRisks": [
+    "Assuming every opening must be replaced when the report is narrower.",
+    "Using a quote that does not break out the actual protected openings.",
+    "Treating generic impact-window marketing as a substitute for report-based scope."
+  ],
+  "primaryCta": {
+    "label": "Get the opening-protection quote checklist",
+    "href": "#lead-form"
+  },
+  "secondaryCta": {
+    "label": "Check contractor fit before pricing openings",
+    "href": "/program/contractor-quotes/"
+  },
+  "relatedLinks": [
+    {
+      "label": "Impact windows vs shutters",
+      "href": "/guides/impact-windows-vs-shutters/"
+    },
+    {
+      "label": "What the program may pay for",
+      "href": "/program/what-msfh-will-pay-for/"
+    }
+  ],
+  "sourceIds": [
+    "recommended-improvements",
+    "select-projects",
+    "authorized-improvements",
+    "contractor-selection"
+  ],
+  "verifiedOn": "2026-04-13",
+  "nextReviewOn": "2026-05-13"
+}

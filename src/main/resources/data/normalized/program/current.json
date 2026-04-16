@@ -1,0 +1,37 @@
+{
+  "versionNotes": "Phase 1 uses a statewide Florida snapshot grounded in current official pages and support-center articles.",
+  "workflowNotes": [
+    "Create an account and complete the prioritization questionnaire before the inspection application.",
+    "The free wind-mitigation inspection and the grant application stay separate.",
+    "The initial report should surface recommended improvements and cost estimates before the project-choice step.",
+    "Only recommended or later observed improvements should move into the grant workflow."
+  ],
+  "keyGrantRules": [
+    "The grant may reimburse up to 2-to-1 matching funds up to $10,000 under the current public rules.",
+    "Low-income households may qualify for up to $10,000 without a homeowner match.",
+    "Work started before grant approval may be denied.",
+    "The grant application window can close 24 months after the initial inspection."
+  ],
+  "prioritizationNotes": [
+    "Group and portal timing can affect when a homeowner can proceed.",
+    "Support-state routes exist, but they stay behind the core decision wedge in phase 1."
+  ],
+  "contractorResponsibilityNotes": [
+    "The homeowner is responsible for choosing, documenting, and managing the contractor.",
+    "The program no longer maintains an authorized contractor list for homeowners to rely on.",
+    "Permit responsibility still needs to be handled and closed out before final inspection."
+  ],
+  "attachedHomeScopeNotes": [
+    "Attached single-family homes can be treated as townhouses for grant scope.",
+    "Townhouse treatment can narrow eligible grant work to opening protection."
+  ],
+  "sourceIds": [
+    "homepage",
+    "faq",
+    "grant-eligibility",
+    "select-projects",
+    "contractor-selection"
+  ],
+  "verifiedOn": "2026-04-13",
+  "nextReviewOn": "2026-05-13"
+}

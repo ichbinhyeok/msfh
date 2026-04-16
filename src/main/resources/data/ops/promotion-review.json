@@ -1,0 +1,31 @@
+{
+  "reviewDate": "2026-04-13",
+  "dataWindow": "pre-launch seed state",
+  "agentSummary": "The first release should keep support-state routes held while the report, project-choice, contractor-quote, and improvement routes prove traction.",
+  "promotedCandidateRoutes": [],
+  "heldRoutesStillNotReady": [
+    {
+      "routeId": "program-no-recommended-improvements",
+      "decision": "hold",
+      "reason": "Useful support route but not part of the first commercial wedge.",
+      "blockers": [
+        "no decision value beyond corrective explanation yet",
+        "no CTA evidence yet"
+      ]
+    },
+    {
+      "routeId": "program-group-5",
+      "decision": "hold",
+      "reason": "Status route should wait for repeated demand evidence.",
+      "blockers": [
+        "support-layer route",
+        "no search or lead evidence yet"
+      ]
+    }
+  ],
+  "routesToDemoteOrMerge": [],
+  "blockers": [
+    "no live route-level metrics yet",
+    "support routes need stronger decision evidence before promotion"
+  ]
+}

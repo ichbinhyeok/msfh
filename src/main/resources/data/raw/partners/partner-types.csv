@@ -1,0 +1,4 @@
+slug,displayLabel,triggerState,leadPriority
+opening-protection-contractor,Opening-protection contractor,opening_protection_decision,high
+roofing-contractor,Roofing contractor,roof_related_decision,high
+roof-retrofit-specialist,Roof retrofit specialist,roof_related_decision,medium_high

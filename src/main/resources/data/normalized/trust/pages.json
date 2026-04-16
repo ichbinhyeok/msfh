@@ -1,0 +1,236 @@
+{
+  "pages": [
+    {
+      "slug": "about",
+      "routeId": "trust-about",
+      "title": "About this decision site",
+      "description": "Why this site exists and what problem it is trying to solve for Florida homeowners after the report arrives.",
+      "quickAnswer": "This site exists for the gap between the report arriving and the homeowner choosing the safest next project and contractor path, with a transparent virtual editorial team keeping the route logic narrow.",
+      "intro": "This site is built for the moment after the inspection report arrives and the homeowner still has to decide what to do next without mistaking editorial guidance for official approval.",
+      "whatNotToAssume": [
+        "Do not assume this site is the program.",
+        "Do not assume the goal is broad eligibility traffic.",
+        "Do not assume contractor routing comes before recommendation clarity."
+      ],
+      "primaryCta": {
+        "label": "Read the inspection-report route",
+        "href": "/program/inspection-report/"
+      },
+      "secondaryCta": {
+        "label": "Review the rule-review method",
+        "href": "/methodology/"
+      },
+      "sourceIds": [
+        "homepage",
+        "faq",
+        "support-hub"
+      ],
+      "bodySections": [
+        "The goal is to explain what a recommendation likely means, what the current program rules appear to support, and which contractor type to vet first.",
+        "The site is not a contractor directory pretending to be editorial. It is a decision layer between the report and a real quote decision.",
+        "The first launch surface stays narrow on inspection-report interpretation, project choice, quote preparation, and the main eligible improvement categories.",
+        "A transparent virtual editorial team checks rule freshness, route clarity, and homeowner risk. It is an internal QA framework, not a licensed review board."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Methodology",
+          "href": "/methodology/"
+        },
+        {
+          "label": "Non-affiliation notice",
+          "href": "/not-government-affiliated/"
+        }
+      ]
+    },
+    {
+      "slug": "methodology",
+      "routeId": "trust-methodology",
+      "title": "Methodology",
+      "description": "How the site handles current rules, source freshness, and route promotion discipline.",
+      "quickAnswer": "Current official pages and support-center articles win, and the virtual editorial team uses rule freshness, route clarity, and homeowner risk lanes to block sloppy promotion.",
+      "intro": "The site reads current official pages and support-center articles first, then uses older PDFs only for background and runs each route through a transparent virtual editorial checklist.",
+      "whatNotToAssume": [
+        "Do not assume old PDFs outrank current support articles.",
+        "Do not assume a held route should auto-promote because it exists.",
+        "Do not assume stale source support is safe enough for expansion."
+      ],
+      "primaryCta": {
+        "label": "See what the program may pay for",
+        "href": "/program/what-msfh-will-pay-for/"
+      },
+      "secondaryCta": {
+        "label": "Go back to the report decision path",
+        "href": "/program/inspection-report/"
+      },
+      "sourceIds": [
+        "homepage",
+        "support-hub",
+        "cfo-warning"
+      ],
+      "bodySections": [
+        "Program rules are separated from contractor routing so the site does not imply approval certainty or official control over contractor outcomes.",
+        "Each route keeps a source stack, a verified date, and a next review date so stale source support can block promotion.",
+        "The virtual editorial team has three internal lanes: Rule Freshness, Route Clarity, and Homeowner Risk. These are internal QA checks, not licensed reviewers.",
+        "Support routes stay noindex until there is evidence that they add real decision value beyond the Support Center."
+      ],
+      "relatedLinks": [
+        {
+          "label": "About",
+          "href": "/about/"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact/"
+        }
+      ]
+    },
+    {
+      "slug": "contact",
+      "routeId": "trust-contact",
+      "title": "Contact",
+      "description": "How to reach the site operator without implying program affiliation.",
+      "quickAnswer": "Use this contact path for editorial corrections or a paid pilot conversation tied to one improvement route, not for official program case handling.",
+      "intro": "Use this contact page for site feedback, factual corrections, or a paid pilot inquiry tied to one improvement-specific route.",
+      "whatNotToAssume": [
+        "Do not assume this inbox can resolve an official application issue.",
+        "Do not assume partner outreach belongs on broad generic pages.",
+        "Do not assume a route should stay live if its source stack changed."
+      ],
+      "primaryCta": {
+        "label": "Return to the contractor quote route",
+        "href": "/program/contractor-quotes/"
+      },
+      "secondaryCta": {
+        "label": "Read the independent-site disclosure",
+        "href": "/not-government-affiliated/"
+      },
+      "sourceIds": [
+        "faq",
+        "support-hub",
+        "cfo-warning"
+      ],
+      "bodySections": [
+        "This inbox is for the editorial product, not for official program case management.",
+        "If a page appears stale or unclear, send the route path and the source that changed so the next review can happen quickly.",
+        "Licensed Florida contractors can use this path for a paid pilot conversation when the fit stays narrow around one route, one scope discipline, and clear county coverage.",
+        "Commercial conversations should stay tied to improvement-specific routes instead of broad directory placement."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Not government affiliated",
+          "href": "/not-government-affiliated/"
+        }
+      ]
+    },
+    {
+      "slug": "not-government-affiliated",
+      "routeId": "trust-not-government-affiliated",
+      "title": "Not government affiliated",
+      "description": "A plain-language disclosure that this site is not the program and cannot guarantee approval or reimbursement.",
+      "quickAnswer": "This is an independent editorial and routing site, not the program, the State of Florida, or an approval channel.",
+      "intro": "This site is an independent editorial and routing product. It is not the My Safe Florida Home program, the State of Florida, or an official case-management channel.",
+      "whatNotToAssume": [
+        "Do not assume any page here can approve a grant.",
+        "Do not assume any route guarantees reimbursement.",
+        "Do not assume contractor language on this site overrides official rules."
+      ],
+      "primaryCta": {
+        "label": "Read what to do after the report",
+        "href": "/program/inspection-report/"
+      },
+      "secondaryCta": {
+        "label": "See how the site verifies rules",
+        "href": "/methodology/"
+      },
+      "sourceIds": [
+        "faq",
+        "contractor-selection",
+        "cfo-warning"
+      ],
+      "bodySections": [
+        "The site does not approve grants, assign inspections, or decide reimbursement.",
+        "Any contractor or checklist guidance here should still be verified against your report and the current official program rules.",
+        "No page should be read as a promise of approval, reimbursement, or savings."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Methodology",
+          "href": "/methodology/"
+        }
+      ]
+    },
+    {
+      "slug": "privacy",
+      "routeId": "trust-privacy",
+      "title": "Privacy",
+      "description": "Basic privacy terms for lead capture and event logging.",
+      "quickAnswer": "The site stores limited form and event data to understand which routes and recommendation types produce useful next-action signals.",
+      "intro": "The site stores the lead form fields and event data needed to understand which routes and recommendation types create useful next-action signals.",
+      "whatNotToAssume": [
+        "Do not assume phone is required.",
+        "Do not assume the form is the right place for official account credentials.",
+        "Do not assume stored route data is the same thing as official program data."
+      ],
+      "primaryCta": {
+        "label": "Review the next-step lead form",
+        "href": "/program/inspection-report/#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Read the usage limits",
+        "href": "/terms/"
+      },
+      "sourceIds": [
+        "faq",
+        "support-hub"
+      ],
+      "bodySections": [
+        "The phase-1 build is email-first and does not require a phone number.",
+        "Operational storage is file-backed in the current implementation.",
+        "Do not submit official account credentials or sensitive program documents through this form."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Terms",
+          "href": "/terms/"
+        }
+      ]
+    },
+    {
+      "slug": "terms",
+      "routeId": "trust-terms",
+      "title": "Terms",
+      "description": "Basic usage terms for the phase-1 editorial product.",
+      "quickAnswer": "Use the site as a decision aid built on current public information, not as legal, insurance, permitting, or official program advice.",
+      "intro": "The site provides scenario guidance based on current public information and does not replace legal, insurance, permitting, or official program advice.",
+      "whatNotToAssume": [
+        "Do not assume route copy is a legal guarantee.",
+        "Do not assume a recommendation page replaces permit or insurance review.",
+        "Do not assume commercial routing should happen before the recommendation is clear."
+      ],
+      "primaryCta": {
+        "label": "Choose the first project",
+        "href": "/program/choose-project/"
+      },
+      "secondaryCta": {
+        "label": "Read the data handling terms",
+        "href": "/privacy/"
+      },
+      "sourceIds": [
+        "faq",
+        "grant-eligibility",
+        "contractor-selection"
+      ],
+      "bodySections": [
+        "Use the site as a decision aid, not as a guarantee of eligibility or reimbursement.",
+        "Project choices should still be verified against your report, permit requirements, and the current official program materials.",
+        "Commercial routing should happen only after the homeowner understands the recommendation and likely scope."
+      ],
+      "relatedLinks": [
+        {
+          "label": "Privacy",
+          "href": "/privacy/"
+        }
+      ]
+    }
+  ]
+}

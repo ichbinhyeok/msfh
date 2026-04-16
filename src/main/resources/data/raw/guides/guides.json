@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "msfh-inspection-report-what-next",
+    "queryFamily": "report understanding",
+    "phase": "phase_1_public"
+  },
+  {
+    "slug": "impact-windows-vs-shutters",
+    "queryFamily": "opening protection",
+    "phase": "phase_1_public"
+  },
+  {
+    "slug": "msfh-contractor-quote-checklist",
+    "queryFamily": "contractor and quote prep",
+    "phase": "phase_1_public"
+  },
+  {
+    "slug": "roof-replacement-through-msfh",
+    "queryFamily": "roof-related",
+    "phase": "phase_1_public"
+  }
+]
