@@ -4,10 +4,10 @@
       "slug": "inspection-report",
       "routeId": "program-inspection-report",
       "title": "How to read an MSFH inspection report before you choose a project",
-      "description": "Use the report to confirm the recommendation, the cost notes, and the 1802 summary before you choose a project or compare quotes.",
+      "description": "Got the report and not sure what to read first? Start with the recommendation, the cost notes, and the 1802 summary before you call contractors.",
       "triggerState": "report_received_need_next_step",
-      "quickAnswer": "Start with the recommended improvements section, the estimated costs, and the 1802 summary. That tells you which program route is open before you jump to contractor shopping.",
-      "workflowMeaning": "This page owns the program-side handoff between inspection and grant. It is not approval by itself, and it is not the moment to sign the first contractor quote you receive.",
+      "quickAnswer": "Read the recommended improvements section, the cost notes, and the 1802 summary first. That tells you what the report is actually opening up before any quote starts widening the job.",
+      "workflowMeaning": "This is the handoff between inspection and the real decision. The report is not approval, and it is not a signal to sign the first quote that mentions the program.",
       "coverageNotes": [
         "The report may list recommended improvements, cost estimates, and the 1802 summary.",
         "The grant and inspection remain separate applications.",
@@ -48,10 +48,10 @@
       "slug": "choose-project",
       "routeId": "program-choose-project",
       "title": "Which MSFH project should go first?",
-      "description": "Choose the first project by grant alignment, recommendation strength, and what the quote path actually needs next.",
+      "description": "If the report lists more than one path, use this page to decide which project should go first before a contractor decides for you.",
       "triggerState": "comparing_recommended_improvements",
-      "quickAnswer": "The best first project is usually the recommendation that is both clearly eligible and most likely to unblock the grant path without unnecessary extra scope.",
-      "workflowMeaning": "Project choice should stay tied to what the report actually recommended, not to whichever contractor pitch feels largest or fastest.",
+      "quickAnswer": "The best first project is usually the recommendation that is clearly supported by the report and least likely to drag you into extra non-eligible scope.",
+      "workflowMeaning": "This page exists so project choice stays tied to the report instead of drifting toward whichever contractor pitch sounds biggest or fastest.",
       "coverageNotes": [
         "Opening protection can be the clearest first path when the report makes the opening scope explicit.",
         "Roof-related work may be right first only when the eligible recommendation truly depends on it.",
@@ -96,10 +96,10 @@
       "slug": "contractor-quotes",
       "routeId": "program-contractor-quotes",
       "title": "How to vet an MSFH contractor quote before you sign",
-      "description": "Use the quote stage to verify contractor fit, permit responsibility, and scope before you confirm or sign anything.",
+      "description": "Before you sign anything, use this page to check contractor fit, scope drift, permit handling, and whether the quote still matches the recommendation.",
       "triggerState": "contractor_confirmation_needed",
-      "quickAnswer": "Match the contractor type to the recommendation first, then verify license, permit responsibility, and whether the quoted scope lines up with the report before you sign.",
-      "workflowMeaning": "This page owns the program-side quote handoff. The homeowner still owns contractor choice and project management, but the route keeps you from turning a recommendation into a denial risk.",
+      "quickAnswer": "If the recommendation is clear but the quote still feels fuzzy, do not sign yet. Match contractor type, license, permit handling, and scope to the report first.",
+      "workflowMeaning": "This is the quote checkpoint. You still choose the contractor, but this route helps you catch scope drift before it turns into denial risk or wasted spend.",
       "coverageNotes": [
         "The program no longer provides an authorized contractor list.",
         "The contractor should fit the actual mitigation recommendation, not just the broad category.",
@@ -140,10 +140,10 @@
       "slug": "what-msfh-will-pay-for",
       "routeId": "program-what-msfh-will-pay-for",
       "title": "What the program may pay for under current MSFH rules",
-      "description": "Stay close to the authorized improvement list and the actual recommendation before you budget around reimbursement.",
+      "description": "Use this page when you are trying to separate what the program may pay for from what simply ended up on the contractor estimate.",
       "triggerState": "comparing_recommended_improvements",
-      "quickAnswer": "The program may pay only for recommended or later observed eligible improvements, and roof-related reimbursement usually needs to stay tied to that eligible scope.",
-      "workflowMeaning": "This page exists to separate grant-aligned work from broad home-improvement wish lists before the quote stage gets expensive.",
+      "quickAnswer": "The program may pay for recommended eligible work, not for every construction line item that shows up once a project gets bigger.",
+      "workflowMeaning": "This page keeps reimbursement logic separate from contractor sales logic before the quote stage gets expensive.",
       "coverageNotes": [
         "Authorized categories remain opening protection, roof-to-wall, roof deck attachment, and SWR-related work.",
         "Matching grants and low-income grants are different paths under the current rules.",
@@ -224,10 +224,10 @@
       "slug": "group-5",
       "routeId": "program-group-5",
       "title": "MSFH Group 5 status and timing block",
-      "description": "Use this route when Group 5 is blocking prioritization or access timing and you need the next action spelled out.",
+      "description": "If Group 5 is what you see and you are not sure whether to wait, follow up, or keep planning, start here.",
       "triggerState": "support_state_problem",
-      "quickAnswer": "Group 5 is a status-layer issue, not a project-selection answer. The next step is usually to find out whether you can proceed at all before collecting quotes or planning a grant-backed job.",
-      "workflowMeaning": "This page keeps support-state confusion away from the main wedge around recommendations and contractor choice.",
+      "quickAnswer": "Group 5 usually means timing or access is the blocker. It does not tell you to start work, and it does not change what the program may pay for.",
+      "workflowMeaning": "This page exists so a waiting status does not get mistaken for project guidance or permission to move ahead.",
       "coverageNotes": [
         "Portal group timing can block or delay the practical next step.",
         "This status does not create new eligible improvements by itself."
@@ -249,6 +249,10 @@
         {
           "label": "Portal statuses that change the next move",
           "href": "/program/portal-statuses/"
+        },
+        {
+          "label": "Group 5 checklist guide",
+          "href": "/guides/msfh-group-5-what-next/"
         }
       ],
       "sourceIds": [
@@ -300,9 +304,9 @@
       "slug": "portal-statuses",
       "routeId": "program-portal-statuses",
       "title": "MSFH portal statuses and what they change",
-      "description": "Use this route when status language changes the practical next step for a homeowner already moving through the program.",
+      "description": "Use this route when the portal label is the only thing you have and you need to know whether it changes timing, paperwork, or nothing yet.",
       "triggerState": "support_state_problem",
-      "quickAnswer": "Status pages are useful only if they change what you should do next. If the status does not unlock a recommendation or a quote path yet, treat it as operational context rather than a sign to start work.",
+      "quickAnswer": "A portal status matters only if it changes the next action. Some labels mean wait. Some mean missing info. None of them replace the actual recommendation.",
       "workflowMeaning": "This support route sends the user back to the main decision wedge once the status question is clear enough.",
       "coverageNotes": [
         "Portal language can explain timing or missing-file issues.",
@@ -325,6 +329,10 @@
         {
           "label": "What to do after the report",
           "href": "/program/inspection-report/"
+        },
+        {
+          "label": "Portal status checklist guide",
+          "href": "/guides/msfh-portal-statuses-explained/"
         }
       ],
       "sourceIds": [
@@ -336,10 +344,10 @@
       "slug": "final-inspection-and-draw-request",
       "routeId": "program-final-inspection-and-draw-request",
       "title": "MSFH final inspection and draw request after work is done",
-      "description": "Use this route when work is complete and you need the closeout sequence for final inspection and draw payment.",
+      "description": "If the work is done and you are trying to get final inspection and draw-request paperwork right the first time, use this route.",
       "triggerState": "support_state_problem",
-      "quickAnswer": "Final inspection and draw-request work happen after project execution, so the right move is usually to verify permit closeout and file readiness rather than reopen project selection.",
-      "workflowMeaning": "This route stays corrective. It does not replace the earlier decision work around recommendation interpretation, quote fit, or grant-aligned scope.",
+      "quickAnswer": "Finished work is not the same thing as a finished file. Think permits, inspection, documents, then draw request.",
+      "workflowMeaning": "This route is about closeout, not project choice. If the work is done, the risk is usually paperwork or permit gaps rather than the recommendation itself.",
       "coverageNotes": [
         "Permit closeout still matters before final inspection.",
         "Operational timing after project completion can affect reimbursement flow."
@@ -361,6 +369,10 @@
         {
           "label": "Contractor quote checklist",
           "href": "/guides/msfh-contractor-quote-checklist/"
+        },
+        {
+          "label": "Final inspection checklist guide",
+          "href": "/guides/final-inspection-draw-request-checklist/"
         }
       ],
       "sourceIds": [

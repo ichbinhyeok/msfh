@@ -1,12 +1,24 @@
 @import owner.mysafefloridahome.pages.ProgramPageView
 @param ProgramPageView page
 !{var primaryEvent = page.page().primaryCta().href().startsWith("#") ? "lead_form_open" : "route_cta_click";}
-!{var decisionStage = page.route().path().contains("/contractor-quotes/") ? "quote" : page.route().path().contains("/choose-project/") || page.route().path().contains("/what-msfh-will-pay-for/") ? "choose" : "interpret";}
-!{var stageLabel = "quote".equals(decisionStage) ? "Quote preparation" : "choose".equals(decisionStage) ? "Project choice" : "Report interpretation";}
 !{var slug = page.page().slug();}
+!{var isSupportRoute = "no-recommended-improvements".equals(slug) || "group-5".equals(slug) || "rfi".equals(slug) || "portal-statuses".equals(slug);}
+!{var decisionStage = "final-inspection-and-draw-request".equals(slug) ? "closeout"
+        : "contractor-quotes".equals(slug) ? "quote"
+        : "choose-project".equals(slug) || "what-msfh-will-pay-for".equals(slug) ? "choose"
+        : "interpret";}
+!{var stageLabel = "quote".equals(decisionStage) ? "Quote preparation"
+        : "choose".equals(decisionStage) ? "Project choice"
+        : "closeout".equals(decisionStage) ? "Closeout"
+        : "Report interpretation";}
 !{var routePath = page.route().path();}
 !{var canonicalUrl = page.meta().canonicalUrl();}
 !{var baseUrl = canonicalUrl.substring(0, canonicalUrl.length() - routePath.length());}
+!{var heroEyebrow = "closeout".equals(decisionStage) ? "Closeout route"
+        : "quote".equals(decisionStage) ? "Quote route"
+        : "choose".equals(decisionStage) ? "Project-choice route"
+        : isSupportRoute ? "Support route"
+        : "Program route";}
 !{var panelTitle = "inspection-report".equals(slug) ? "Read the report before you price anything"
         : "choose-project".equals(slug) ? "Choose one project before scope drifts"
         : "contractor-quotes".equals(slug) ? "Check license and scope before you sign"
@@ -19,6 +31,20 @@
         : "quote".equals(decisionStage) ? "Quote only after scope is locked"
         : "choose".equals(decisionStage) ? "Choose the first project before price shopping"
         : "Confirm the recommendation before any quote";}
+!{var decisionPathTitle = "closeout".equals(decisionStage) ? "Finish the work, then close the file cleanly"
+        : isSupportRoute ? "Clear the blocker before you price or sign anything"
+        : "Interpret first, then choose, then quote";}
+!{var decisionPathIntro = "closeout".equals(decisionStage)
+        ? "This route exists for the last step: permits, inspections, and file readiness before the draw request."
+        : isSupportRoute
+                ? "This route helps you figure out whether the blocker is about timing, missing information, or the report itself before money moves."
+                : "Use this route to keep the decision moving in order instead of jumping straight into generic quote shopping.";}
+!{var rulesTitle = "closeout".equals(decisionStage) ? "What has to be true before the draw request"
+        : isSupportRoute ? "What this blocker actually changes"
+        : "Keep the next move tied to the report";}
+!{var riskTitle = "closeout".equals(decisionStage) ? "Do not treat finished work as a finished file"
+        : isSupportRoute ? "Do not let the blocker push you into the wrong next step"
+        : "Avoid the expensive shortcuts";}
 @template.layout.page(
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
@@ -51,7 +77,7 @@
                 <div class="section-shell route-hero-shell">
                     <div class="route-hero-main">
                         @template.shared.breadcrumbs(page.meta())
-                        <p class="eyebrow">Program decision route</p>
+                        <p class="eyebrow">${heroEyebrow}</p>
                         <h1>${page.page().title()}</h1>
                         <p class="lead">${page.page().description()}</p>
                         <div class="action-row">
@@ -85,7 +111,9 @@
 
             @template.shared.decisionPath(
                 currentStage = decisionStage,
-                intro = "Use this route to keep the report-stage decision moving in order instead of jumping straight into generic quote shopping."
+                title = decisionPathTitle,
+                intro = decisionPathIntro,
+                showCloseout = "closeout".equals(decisionStage)
             )
 
             <section class="section">
@@ -106,7 +134,7 @@
                     <div>
                         <div class="section-heading">
                             <p class="eyebrow">What the current rules suggest</p>
-                            <h2>Keep the next move tied to the report</h2>
+                            <h2>${rulesTitle}</h2>
                         </div>
                         <ul class="bullet-list">
                         @for(var item : page.page().coverageNotes())
@@ -126,7 +154,7 @@
                     <div>
                         <div class="section-heading">
                             <p class="eyebrow">What not to assume</p>
-                            <h2>Avoid the expensive shortcuts</h2>
+                            <h2>${riskTitle}</h2>
                         </div>
                         <ul class="bullet-list danger-list">
                         @for(var item : page.page().whatNotToAssume())

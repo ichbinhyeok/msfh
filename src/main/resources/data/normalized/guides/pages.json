@@ -4,9 +4,9 @@
       "slug": "msfh-inspection-report-what-next",
       "routeId": "guide-msfh-inspection-report-what-next",
       "title": "After your MSFH inspection report: first project checklist",
-      "description": "A practical checklist for turning the report into one clear first project and quote path.",
+      "description": "Got the report and do not know what to do first? Use this checklist to turn it into one clear next move.",
       "triggerState": "report_received_need_next_step",
-      "quickAnswer": "Read the recommended improvements and cost sections first, then choose the first project before you collect broad quotes.",
+      "quickAnswer": "Read the recommendation, the cost note, and the 1802 summary first. Then pick one project before any contractor widens the job.",
       "whatNotToAssume": [
         "Do not assume the report alone means reimbursement is secure.",
         "Do not assume the first contractor who mentions the program is the right next step.",
@@ -50,9 +50,9 @@
       "slug": "impact-windows-vs-shutters",
       "routeId": "guide-impact-windows-vs-shutters",
       "title": "Impact windows vs shutters after an MSFH report",
-      "description": "Use this guide when opening protection is recommended but the quote path is still unclear.",
+      "description": "If the report says opening protection and every quote sounds different, use this to sort the window-versus-shutter decision.",
       "triggerState": "opening_protection_decision",
-      "quickAnswer": "Do not choose between windows and shutters until you understand which openings the report is actually pushing you to protect.",
+      "quickAnswer": "Do not pick windows or shutters first. First figure out which openings the report is really pushing you to protect.",
       "whatNotToAssume": [
         "Do not assume every opening must be replaced.",
         "Do not assume a window-heavy sales pitch matches the report.",
@@ -96,9 +96,9 @@
       "slug": "msfh-contractor-quote-checklist",
       "routeId": "guide-msfh-contractor-quote-checklist",
       "title": "MSFH quote signing checklist: questions to ask before you sign",
-      "description": "A stripped-down checklist for license fit, scope fit, timing, and permit handling before you sign.",
+      "description": "Before you sign, use this checklist to catch bad license fit, scope drift, permit gaps, and buried extras.",
       "triggerState": "contractor_confirmation_needed",
-      "quickAnswer": "Match the recommendation to the contractor type first, then verify license, permit responsibility, documentation, and scope before you treat the quote as safe.",
+      "quickAnswer": "If the recommendation is clear but the quote still feels fuzzy, do not sign yet. Verify contractor type, scope, permits, and extras first.",
       "whatNotToAssume": [
         "Do not assume any quote mentioning the program is grant-aligned.",
         "Do not assume permit closeout will take care of itself.",
@@ -142,9 +142,9 @@
       "slug": "roof-replacement-through-msfh",
       "routeId": "guide-roof-replacement-through-msfh",
       "title": "Does your MSFH recommendation really require roof replacement?",
-      "description": "A broad guide for homeowners deciding whether roof replacement is truly required by the eligible mitigation path.",
+      "description": "If someone is turning your recommendation into a full reroof conversation, use this guide to see whether that jump is real.",
       "triggerState": "roof_related_decision",
-      "quickAnswer": "Roof replacement may fit only when it is required to complete the eligible recommendation. The quote should explain that link clearly before you budget around reimbursement.",
+      "quickAnswer": "A roof replacement may fit only when the eligible recommendation truly requires it. 'Old roof' by itself is not enough.",
       "whatNotToAssume": [
         "Do not assume roof age alone creates eligibility.",
         "Do not assume SWR language means every reroof line item is reimbursable.",
@@ -192,9 +192,9 @@
       "slug": "opening-protection-quote-checklist",
       "routeId": "guide-opening-protection-quote-checklist",
       "title": "Opening protection quote checklist after an MSFH recommendation",
-      "description": "Use this checklist to keep window, shutter, door, and garage-door quotes tied to the actual report scope.",
+      "description": "If a window, shutter, or door quote is getting broad fast, use this checklist to force it back to the report.",
       "triggerState": "opening_protection_decision",
-      "quickAnswer": "Break the quote out by protected opening, license fit, permit handling, and documentation before you compare price.",
+      "quickAnswer": "Before you compare price, break the quote out by opening, license fit, permits, and proof.",
       "whatNotToAssume": [
         "Do not assume every opening needs the same product or the same scope.",
         "Do not assume a window-heavy proposal matches the report recommendation.",
@@ -243,9 +243,9 @@
       "slug": "roof-to-wall-quote-checklist",
       "routeId": "guide-roof-to-wall-quote-checklist",
       "title": "Roof-to-wall quote checklist before you hire a retrofit specialist",
-      "description": "Use this checklist when a roof-to-wall recommendation needs a narrow retrofit quote instead of a broad roofing package.",
+      "description": "If a roof-to-wall recommendation is turning into a generic roofing sale, use this checklist to pull it back.",
       "triggerState": "roof_related_decision",
-      "quickAnswer": "Use a retrofit checklist before you accept any quote that turns a roof-to-wall recommendation into a general roofing package.",
+      "quickAnswer": "A roof-to-wall quote should stay retrofit-specific. If it jumps straight to broad roof work, slow it down.",
       "whatNotToAssume": [
         "Do not assume a general roofer and a retrofit specialist solve the same problem.",
         "Do not assume a broad reroof quote is required by a roof-to-wall recommendation.",
@@ -294,9 +294,9 @@
       "slug": "swr-roof-quote-checklist",
       "routeId": "guide-swr-roof-quote-checklist",
       "title": "SWR roof quote checklist before you approve broader roof work",
-      "description": "Use this checklist when an SWR recommendation is being used to justify broader roof scope or replacement.",
+      "description": "If SWR is being used to justify a much bigger roof job than you expected, use this checklist to test that leap.",
       "triggerState": "roof_related_decision",
-      "quickAnswer": "If a quote expands into broader roof work, it should explain why that scope is necessary to complete the eligible SWR recommendation before you budget around reimbursement.",
+      "quickAnswer": "If the quote gets much bigger than the recommendation, ask what part of the roof work is actually required for SWR.",
       "whatNotToAssume": [
         "Do not assume SWR means blanket reroof approval.",
         "Do not assume every roofing line item attached to the quote is reimbursable.",
@@ -345,9 +345,9 @@
       "slug": "attached-home-scope-under-msfh",
       "routeId": "guide-attached-home-scope-under-msfh",
       "title": "Attached home under MSFH: when scope narrows to opening protection",
-      "description": "Use this guide when your home is attached or treated like a townhouse and the report path feels narrower than detached-home advice.",
+      "description": "If your home is attached or townhouse-like and the advice suddenly feels narrower than everyone else's, start here.",
       "triggerState": "comparing_recommended_improvements",
-      "quickAnswer": "If your home is attached, stop before following roof-heavy advice. Current scope rules may narrow the first eligible path to opening protection.",
+      "quickAnswer": "If your home is attached, slow down before any roof quote. Current scope rules may narrow the first clean path to opening protection.",
       "whatNotToAssume": [
         "Do not assume detached-home roof logic applies to your attached home.",
         "Do not assume a contractor can widen scope just because the roof feels like the bigger project.",
@@ -395,9 +395,9 @@
       "slug": "no-recommended-improvements-what-next",
       "routeId": "guide-no-recommended-improvements-what-next",
       "title": "No recommended improvements on your MSFH report: what to do next",
-      "description": "Use this guide when the report does not recommend eligible work and you need the next move spelled out without drifting into generic contractor shopping.",
+      "description": "If the report does not recommend eligible work and you are wondering whether to stop, appeal, or keep shopping, use this guide.",
       "triggerState": "support_state_problem",
-      "quickAnswer": "If there are no recommended improvements, the grant path usually does not move forward. The right move is to confirm the report result, not to start buying work and hope it qualifies later.",
+      "quickAnswer": "If there are no recommended improvements, the grant path usually stops there. Confirm the report result before you spend money on work that may never qualify.",
       "whatNotToAssume": [
         "Do not assume you can self-select a project and recover reimbursement later.",
         "Do not assume a contractor can turn a no-recommendation report into an eligible grant path by itself.",
@@ -445,9 +445,9 @@
       "slug": "msfh-rfi-response-checklist",
       "routeId": "guide-msfh-rfi-response-checklist",
       "title": "MSFH RFI response checklist before you sign or start work",
-      "description": "Use this checklist when an RFI is blocking the file and you need to clear the missing-information issue before treating the project as safe.",
+      "description": "If an RFI is blocking the file and you are not sure whether to wait, reply, or keep planning the project, use this checklist.",
       "triggerState": "support_state_problem",
-      "quickAnswer": "An RFI is a real block. Clear the missing-information request before you sign, start work, or budget around reimbursement.",
+      "quickAnswer": "An RFI is a real block. Clear the missing-information request before you sign, start work, or plan around reimbursement.",
       "whatNotToAssume": [
         "Do not assume an RFI is minor enough to ignore while the project moves ahead.",
         "Do not assume quote timing matters more than the unresolved file issue.",
@@ -489,6 +489,154 @@
         "support-hub",
         "grant-eligibility",
         "faq"
+      ]
+    },
+    {
+      "slug": "msfh-group-5-what-next",
+      "routeId": "guide-msfh-group-5-what-next",
+      "title": "MSFH Group 5: what to do while your file is still waiting",
+      "description": "If Group 5 is what you see and you are trying to decide whether to wait, follow up, or keep planning, use this guide.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "Group 5 usually means timing or access is the blocker. It does not tell you to start work and it does not change what the program may pay for.",
+      "whatNotToAssume": [
+        "Do not assume a waiting status means you should go ahead and lock in contractor work.",
+        "Do not assume Group 5 changes the recommendation or reimbursement rules.",
+        "Do not assume quote urgency matters more than the fact that the file is still blocked."
+      ],
+      "keyTakeaways": [
+        "Group 5 is usually a timing issue, not a project-choice answer.",
+        "A waiting status should not be treated like approval.",
+        "The right move is usually to understand timing first, then return to the core route."
+      ],
+      "nextSteps": [
+        "Confirm whether the file is waiting on timing, access, or a separate support issue.",
+        "Do not start work based on the status alone.",
+        "Return to the main decision route only after the waiting issue clears."
+      ],
+      "primaryCta": {
+        "label": "Get the Group 5 checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Open the Group 5 route",
+        "href": "/program/group-5/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Group 5 route",
+          "href": "/program/group-5/"
+        },
+        {
+          "label": "Portal statuses route",
+          "href": "/program/portal-statuses/"
+        },
+        {
+          "label": "Inspection report route",
+          "href": "/program/inspection-report/"
+        }
+      ],
+      "sourceIds": [
+        "support-hub",
+        "homepage"
+      ]
+    },
+    {
+      "slug": "msfh-portal-statuses-explained",
+      "routeId": "guide-msfh-portal-statuses-explained",
+      "title": "MSFH portal statuses explained before you sign or start work",
+      "description": "If the portal label is the only thing you have and you need to know whether it changes timing, paperwork, or nothing yet, use this guide.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "A portal status matters only if it changes the next action. Some labels mean wait. Some mean missing info. None of them replace the actual recommendation.",
+      "whatNotToAssume": [
+        "Do not assume any status label is the same thing as approval.",
+        "Do not assume a portal label tells you which contractor to hire.",
+        "Do not assume a status removes the need to read the report carefully."
+      ],
+      "keyTakeaways": [
+        "Status language is operational, not strategic.",
+        "The useful question is always what the label changes right now.",
+        "Once the status is clear, the next move usually belongs to a report, project, or quote page."
+      ],
+      "nextSteps": [
+        "Figure out whether the label means timing, missing information, or another support block.",
+        "Do not start work just because the portal looks active.",
+        "Return to the main decision route once the label is no longer the blocker."
+      ],
+      "primaryCta": {
+        "label": "Get the portal-status checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Open the portal-status route",
+        "href": "/program/portal-statuses/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Portal statuses route",
+          "href": "/program/portal-statuses/"
+        },
+        {
+          "label": "RFI route",
+          "href": "/program/rfi/"
+        },
+        {
+          "label": "Inspection report route",
+          "href": "/program/inspection-report/"
+        }
+      ],
+      "sourceIds": [
+        "support-hub",
+        "homepage"
+      ]
+    },
+    {
+      "slug": "final-inspection-draw-request-checklist",
+      "routeId": "guide-final-inspection-draw-request-checklist",
+      "title": "Final inspection and draw request checklist after MSFH work is done",
+      "description": "If the work is finished and you need permits, final inspection, and draw-request paperwork to line up cleanly, use this guide.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "Finished work is not the same as a finished file. Think permits, inspection, documents, then draw request.",
+      "whatNotToAssume": [
+        "Do not assume completed work means the file is ready for the draw request.",
+        "Do not assume permit closeout will take care of itself.",
+        "Do not assume late paperwork can fix an earlier scope or documentation miss."
+      ],
+      "keyTakeaways": [
+        "Closeout is its own stage after the work is done.",
+        "Permits, inspections, and documents still have to line up cleanly.",
+        "The draw request is stronger when the file is complete before you submit it."
+      ],
+      "nextSteps": [
+        "Confirm permit and inspection status before you think about payout timing.",
+        "Make sure the file reflects the work that was actually completed.",
+        "Use the closeout route if anything still feels incomplete."
+      ],
+      "primaryCta": {
+        "label": "Get the final-inspection checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Open the final-inspection route",
+        "href": "/program/final-inspection-and-draw-request/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Final inspection route",
+          "href": "/program/final-inspection-and-draw-request/"
+        },
+        {
+          "label": "Contractor quote checklist",
+          "href": "/guides/msfh-contractor-quote-checklist/"
+        },
+        {
+          "label": "Contractor quote route",
+          "href": "/program/contractor-quotes/"
+        }
+      ],
+      "sourceIds": [
+        "permits",
+        "support-hub",
+        "grant-eligibility"
       ]
     }
   ]

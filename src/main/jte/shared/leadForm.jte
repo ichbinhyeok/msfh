@@ -6,8 +6,8 @@
         <div class="section-heading">
             <p class="eyebrow">Next action</p>
             <h2>${leadForm.primaryCtaLabel()}</h2>
-            <p>Stay email-first. Use this to lock the next decision and contractor path before generic quote shopping takes over.</p>
-            <p class="meta-line">Independent route desk. The form stores limited route inputs and contact details to deliver or improve next-step guidance. Do not submit account credentials or official program documents. <a class="meta-link" href="/privacy/">Privacy</a> <a class="meta-link" href="/terms/">Terms</a></p>
+            <p>Use this if you want a cleaner next step before you collect more quotes or sign anything.</p>
+            <p class="meta-line">Independent guidance. The form stores limited page context and contact details so the next-step reply stays tied to this route. Do not submit account credentials or official program documents. <a class="meta-link" href="/privacy/">Privacy</a> <a class="meta-link" href="/terms/">Terms</a></p>
         </div>
         @if("success".equals(leadStatus))
             <div class="flash success">The next-step route was saved with the recommendation context.</div>
@@ -78,7 +78,7 @@
                 <input type="checkbox" name="consent" value="true" required>
                 <span>I understand this site is not the program and may use these details only for next-step guidance, route QA, and follow-up tied to this route.</span>
             </label>
-            <button class="primary-button" type="submit">Save this next-step route</button>
+            <button class="primary-button" type="submit">Save my next step</button>
         </form>
     </div>
 </section>

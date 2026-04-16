@@ -336,6 +336,42 @@
     "summary": "Checklist for resolving missing-information requests before treating the file as safe."
   },
   {
+    "routeId": "guide-msfh-group-5-what-next",
+    "path": "/guides/msfh-group-5-what-next/",
+    "family": "guide",
+    "title": "MSFH Group 5: what to do while your file is still waiting",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "",
+    "triggerState": "support_state_problem",
+    "summary": "Guide for homeowners trying to interpret a Group 5 waiting state without starting the wrong work."
+  },
+  {
+    "routeId": "guide-msfh-portal-statuses-explained",
+    "path": "/guides/msfh-portal-statuses-explained/",
+    "family": "guide",
+    "title": "MSFH portal statuses explained before you sign or start work",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "",
+    "triggerState": "support_state_problem",
+    "summary": "Guide for figuring out whether a portal label changes timing, paperwork, or nothing yet."
+  },
+  {
+    "routeId": "guide-final-inspection-draw-request-checklist",
+    "path": "/guides/final-inspection-draw-request-checklist/",
+    "family": "guide",
+    "title": "Final inspection and draw request checklist after MSFH work is done",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "",
+    "triggerState": "support_state_problem",
+    "summary": "Guide for permits, inspections, and paperwork before the draw request after the work is complete."
+  },
+  {
     "routeId": "trust-about",
     "path": "/about/",
     "family": "trust",

@@ -52,6 +52,9 @@ Only these route families should index in the first release:
 22. `/guides/attached-home-scope-under-msfh/`
 23. `/guides/no-recommended-improvements-what-next/`
 24. `/guides/msfh-rfi-response-checklist/`
+25. `/guides/msfh-group-5-what-next/`
+26. `/guides/msfh-portal-statuses-explained/`
+27. `/guides/final-inspection-draw-request-checklist/`
 
 ## First `noindex` support surface
 - `/program/no-recommended-improvements/`
