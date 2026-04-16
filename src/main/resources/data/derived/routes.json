@@ -264,6 +264,42 @@
     "summary": "Broad guide for deciding whether a recommendation truly requires roof replacement."
   },
   {
+    "routeId": "guide-opening-protection-quote-checklist",
+    "path": "/guides/opening-protection-quote-checklist/",
+    "family": "guide",
+    "title": "Opening protection quote checklist after an MSFH recommendation",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "opening-protection",
+    "triggerState": "opening_protection_decision",
+    "summary": "Checklist for keeping window, shutter, door, and garage-door quotes tied to the report."
+  },
+  {
+    "routeId": "guide-roof-to-wall-quote-checklist",
+    "path": "/guides/roof-to-wall-quote-checklist/",
+    "family": "guide",
+    "title": "Roof-to-wall quote checklist before you hire a retrofit specialist",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "roof-to-wall",
+    "triggerState": "roof_related_decision",
+    "summary": "Checklist for keeping a roof-to-wall recommendation narrow and retrofit-specific."
+  },
+  {
+    "routeId": "guide-swr-roof-quote-checklist",
+    "path": "/guides/swr-roof-quote-checklist/",
+    "family": "guide",
+    "title": "SWR roof quote checklist before you approve broader roof work",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "roof-replacement-under-swr",
+    "triggerState": "roof_related_decision",
+    "summary": "Checklist for deciding whether an SWR recommendation really justifies broader roof scope."
+  },
+  {
     "routeId": "trust-about",
     "path": "/about/",
     "family": "trust",

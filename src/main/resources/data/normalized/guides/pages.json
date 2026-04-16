@@ -187,6 +187,159 @@
         "grant-eligibility",
         "authorized-improvements"
       ]
+    },
+    {
+      "slug": "opening-protection-quote-checklist",
+      "routeId": "guide-opening-protection-quote-checklist",
+      "title": "Opening protection quote checklist after an MSFH recommendation",
+      "description": "Use this checklist to keep window, shutter, door, and garage-door quotes tied to the actual report scope.",
+      "triggerState": "opening_protection_decision",
+      "quickAnswer": "Break the quote out by protected opening, license fit, permit handling, and documentation before you compare price.",
+      "whatNotToAssume": [
+        "Do not assume every opening needs the same product or the same scope.",
+        "Do not assume a window-heavy proposal matches the report recommendation.",
+        "Do not assume an attached home can drift into unrelated roof work just because the sales pitch widens."
+      ],
+      "keyTakeaways": [
+        "Opening-protection quotes should stay opening-by-opening instead of broad and vague.",
+        "The contractor should separate recommended mitigation work from optional upgrades.",
+        "Attached-home cases should stay narrow before pricing expands."
+      ],
+      "nextSteps": [
+        "Match each opening in the quote to the report recommendation.",
+        "Verify license fit, permit responsibility, and documentation handling.",
+        "Keep non-eligible upgrades separate before you sign."
+      ],
+      "primaryCta": {
+        "label": "Get the opening-protection routing checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Return to the opening-protection decision page",
+        "href": "/improvements/opening-protection/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Opening-protection decision page",
+          "href": "/improvements/opening-protection/"
+        },
+        {
+          "label": "Contractor quote route",
+          "href": "/program/contractor-quotes/"
+        },
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        }
+      ],
+      "sourceIds": [
+        "recommended-improvements",
+        "select-projects",
+        "contractor-selection",
+        "contractor-flyer"
+      ]
+    },
+    {
+      "slug": "roof-to-wall-quote-checklist",
+      "routeId": "guide-roof-to-wall-quote-checklist",
+      "title": "Roof-to-wall quote checklist before you hire a retrofit specialist",
+      "description": "Use this checklist when a roof-to-wall recommendation needs a narrow retrofit quote instead of a broad roofing package.",
+      "triggerState": "roof_related_decision",
+      "quickAnswer": "Use a retrofit checklist before you accept any quote that turns a roof-to-wall recommendation into a general roofing package.",
+      "whatNotToAssume": [
+        "Do not assume a general roofer and a retrofit specialist solve the same problem.",
+        "Do not assume a broad reroof quote is required by a roof-to-wall recommendation.",
+        "Do not assume license fit is obvious from sales language alone."
+      ],
+      "keyTakeaways": [
+        "Roof-to-wall work should stay tied to the report recommendation.",
+        "Retrofit license fit and scope detail matter more than a broad package price.",
+        "A quote should explain why any wider roof work is necessary."
+      ],
+      "nextSteps": [
+        "Confirm the report points to roof-to-wall, not generic roof work.",
+        "Ask how the quoted scope completes the eligible retrofit.",
+        "Separate retrofit work from optional roofing extras before signing."
+      ],
+      "primaryCta": {
+        "label": "Get the roof-to-wall routing checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Return to the roof-to-wall decision page",
+        "href": "/improvements/roof-to-wall/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Roof-to-wall decision page",
+          "href": "/improvements/roof-to-wall/"
+        },
+        {
+          "label": "Contractor quote route",
+          "href": "/program/contractor-quotes/"
+        },
+        {
+          "label": "Roof deck attachment scope",
+          "href": "/improvements/roof-deck-attachment/"
+        }
+      ],
+      "sourceIds": [
+        "authorized-improvements",
+        "select-projects",
+        "contractor-selection",
+        "contractor-flyer"
+      ]
+    },
+    {
+      "slug": "swr-roof-quote-checklist",
+      "routeId": "guide-swr-roof-quote-checklist",
+      "title": "SWR roof quote checklist before you approve broader roof work",
+      "description": "Use this checklist when an SWR recommendation is being used to justify broader roof scope or replacement.",
+      "triggerState": "roof_related_decision",
+      "quickAnswer": "If a quote expands into broader roof work, it should explain why that scope is necessary to complete the eligible SWR recommendation before you budget around reimbursement.",
+      "whatNotToAssume": [
+        "Do not assume SWR means blanket reroof approval.",
+        "Do not assume every roofing line item attached to the quote is reimbursable.",
+        "Do not assume the contractor has already separated eligible scope from optional extras."
+      ],
+      "keyTakeaways": [
+        "SWR logic matters only when the broader roof scope is truly necessary.",
+        "A clean quote ties replacement language back to the report recommendation.",
+        "Work timing and approval still matter before the job starts."
+      ],
+      "nextSteps": [
+        "Confirm the report actually points to SWR.",
+        "Ask which line items are required to complete the eligible mitigation work.",
+        "Separate grant-aligned scope from homeowner-choice roof upgrades."
+      ],
+      "primaryCta": {
+        "label": "Get the SWR roof routing checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Return to the SWR exception route",
+        "href": "/improvements/roof-replacement-under-swr/"
+      },
+      "relatedLinks": [
+        {
+          "label": "SWR exception route",
+          "href": "/improvements/roof-replacement-under-swr/"
+        },
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        },
+        {
+          "label": "Contractor quote route",
+          "href": "/program/contractor-quotes/"
+        }
+      ],
+      "sourceIds": [
+        "roof-replacement",
+        "grant-eligibility",
+        "authorized-improvements",
+        "contractor-selection"
+      ]
     }
   ]
 }
