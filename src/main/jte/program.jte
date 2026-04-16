@@ -93,15 +93,15 @@
                         <p class="route-hero-panel__summary">${page.page().quickAnswer()}</p>
                         <div class="route-hero-facts">
                             <div class="route-hero-fact">
-                                <span>Decision stage</span>
+                                <span>Best used at</span>
                                 <strong>${stageLabel}</strong>
                             </div>
                             <div class="route-hero-fact">
-                                <span>Primary move</span>
+                                <span>Do this now</span>
                                 <strong>${page.page().primaryCta().label()}</strong>
                             </div>
                             <div class="route-hero-fact route-hero-fact--wide">
-                                <span>Scope note</span>
+                                <span>Keep in mind</span>
                                 <p>${page.page().attachedHomeCaveat()}</p>
                             </div>
                         </div>
@@ -123,11 +123,19 @@
                         <p class="big-answer">${page.page().quickAnswer()}</p>
                     </div>
                     <div class="info-panel">
-                        <p class="eyebrow">What this means in the workflow</p>
+                        <p class="eyebrow">Why this page matters</p>
                         <p>${page.page().workflowMeaning()}</p>
                     </div>
                 </div>
             </section>
+
+            @if(page.page().actionChecklist() != null)
+                @template.shared.actionChecklist(checklist = page.page().actionChecklist())
+            @endif
+
+            @if(page.page().decisionTable() != null)
+                @template.shared.decisionTable(table = page.page().decisionTable())
+            @endif
 
             <section class="section">
                 <div class="section-shell two-column">

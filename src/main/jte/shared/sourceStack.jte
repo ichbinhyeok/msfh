@@ -6,26 +6,26 @@
     <div class="section-shell">
         <div class="two-column">
             <div class="info-panel emphasis">
-                <p class="eyebrow">Virtual editorial team</p>
-                <h2>Three internal review lanes check this page</h2>
+                <p class="eyebrow">Why this page is careful</p>
+                <h2>Built from current official pages, then narrowed to one safer next step</h2>
                 <ul class="bullet-list">
-                    <li><strong>Rule freshness desk:</strong> current official pages outrank stale PDFs.</li>
-                    <li><strong>Route clarity desk:</strong> one homeowner question should map to one owner page.</li>
-                    <li><strong>Homeowner risk desk:</strong> quote shopping slows down when scope or eligibility is still unclear.</li>
+                    <li><strong>Fresh rules first:</strong> current official pages beat stale PDFs and old flyers.</li>
+                    <li><strong>One page, one question:</strong> each page should solve one homeowner decision cleanly.</li>
+                    <li><strong>Risk check:</strong> when scope is fuzzy, the page slows the decision down instead of pushing a sale.</li>
                 </ul>
             </div>
             <div class="info-panel">
-                <p class="eyebrow">Transparency</p>
-                <h3>Internal framework, not licensed reviewers</h3>
-                <p>This virtual team is an internal editorial QA system. It is not the program, not a government office, and not legal, insurance, or contractor advice.</p>
+                <p class="eyebrow">What this page is not</p>
+                <h3>Independent guidance, not official approval</h3>
+                <p>This page is an independent guide. It is not the program, not a government office, and not legal, insurance, or contractor advice.</p>
                 @if(reviewedOn != null)
-                    <p class="meta-line">Latest page review signal: ${reviewedOn}</p>
+                    <p class="meta-line">Last reviewed against the source stack: ${reviewedOn}</p>
                 @endif
             </div>
         </div>
         <div class="section-heading">
             <p class="eyebrow">Official source stack</p>
-            <h2>Current sources behind this page</h2>
+            <h2>Current official sources behind this page</h2>
         </div>
         <div class="source-list">
         @for(var source : sources)

@@ -2,14 +2,14 @@
 @param String title = "Interpret the recommendation, then choose the next move"
 @param String intro = "Move in order: understand what the recommendation means, choose the first project, then prepare the quote path."
 @param boolean showCloseout = false
-!{var interpretTag = "interpret".equals(currentStage) ? "Current focus" : "Step 1";}
-!{var chooseTag = "choose".equals(currentStage) ? "Current focus" : "Step 2";}
-!{var quoteTag = "quote".equals(currentStage) ? "Current focus" : "Step 3";}
-!{var closeoutTag = "closeout".equals(currentStage) ? "Current focus" : "Step 4";}
+!{var interpretTag = "interpret".equals(currentStage) ? "You are here" : "First";}
+!{var chooseTag = "choose".equals(currentStage) ? "You are here" : "Next";}
+!{var quoteTag = "quote".equals(currentStage) ? "You are here" : "After that";}
+!{var closeoutTag = "closeout".equals(currentStage) ? "You are here" : "Last";}
 <section class="section">
     <div class="section-shell">
         <div class="section-heading">
-            <p class="eyebrow">Decision engine</p>
+            <p class="eyebrow">How to use this page</p>
             <h2>${title}</h2>
             <p>${intro}</p>
         </div>

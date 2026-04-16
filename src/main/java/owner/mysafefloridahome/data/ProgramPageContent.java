@@ -13,6 +13,8 @@ public record ProgramPageContent(
         List<String> coverageNotes,
         String attachedHomeCaveat,
         List<String> whatNotToAssume,
+        ActionChecklist actionChecklist,
+        DecisionTable decisionTable,
         ActionLink primaryCta,
         ActionLink secondaryCta,
         List<ActionLink> relatedLinks,

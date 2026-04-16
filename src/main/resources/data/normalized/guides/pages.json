@@ -114,6 +114,21 @@
         "Check license fit and permit handling.",
         "Separate eligible mitigation work from optional extras."
       ],
+      "actionChecklist": {
+        "eyebrow": "Ask these before you sign",
+        "title": "Questions that should have clean answers on a real quote",
+        "intro": "If the contractor cannot answer these clearly, the quote is not ready to sign yet.",
+        "items": [
+          "Which exact recommendation on my report is this quote solving?",
+          "Which line items are required for the eligible mitigation work, and which ones are optional?",
+          "What license fits this scope, and who will actually pull the permit?",
+          "Who is responsible for inspections, permit closeout, and any final paperwork tied to payout?",
+          "What part of this price is for mitigation work versus upgrades I chose for myself?",
+          "If the home is attached, what keeps this quote inside the narrower attached-home scope?",
+          "What documents will I have in hand when the work is done?",
+          "What would make this scope expand later, and where would that change order show up?"
+        ]
+      },
       "primaryCta": {
         "label": "Get the signing checklist",
         "href": "#lead-form"
@@ -562,6 +577,38 @@
         "Do not start work just because the portal looks active.",
         "Return to the main decision route once the label is no longer the blocker."
       ],
+      "decisionTable": {
+        "eyebrow": "Portal wording guide",
+        "title": "Translate the label into an actual next move",
+        "intro": "Use the wording family, not the exact portal phrase, because labels can change over time.",
+        "columns": [
+          "Portal wording",
+          "Do not assume",
+          "Safest next move"
+        ],
+        "rows": [
+          {
+            "first": "Waitlist, queue, Group 5, or scheduling wording",
+            "second": "This is not approval and it is not a green light to start work.",
+            "third": "Treat it as a timing issue, then go back to the report path when the wait clears."
+          },
+          {
+            "first": "Missing information, upload request, or RFI wording",
+            "second": "The file is not clean enough yet for contractor action.",
+            "third": "Fix the missing item first and do not sign or start work in the meantime."
+          },
+          {
+            "first": "In review, processing, or active wording",
+            "second": "The portal is telling you status, not which project should go first.",
+            "third": "Use the report and recommendation to make the project decision."
+          },
+          {
+            "first": "Closed, denied, or no-recommendation wording",
+            "second": "A contractor quote will not rescue a stopped path by itself.",
+            "third": "Verify the outcome before you spend money or widen scope."
+          }
+        ]
+      },
       "primaryCta": {
         "label": "Get the portal-status checklist",
         "href": "#lead-form"
@@ -611,6 +658,18 @@
         "Make sure the file reflects the work that was actually completed.",
         "Use the closeout route if anything still feels incomplete."
       ],
+      "actionChecklist": {
+        "eyebrow": "Closeout documents",
+        "title": "What the final-inspection file should include before you submit the draw request",
+        "intro": "The exact mix can vary, but this is the practical pack most homeowners should expect to line up.",
+        "items": [
+          "Final permit status or proof that the permit is actually ready for final inspection.",
+          "Inspection result or final sign-off that matches the work that was completed.",
+          "Contractor invoice or completion paperwork that describes the same scope as the file.",
+          "Any product or scope documentation needed to show what was installed.",
+          "A quick internal check that the report, approved scope, invoice, and permit story all match."
+        ]
+      },
       "primaryCta": {
         "label": "Get the final-inspection checklist",
         "href": "#lead-form"

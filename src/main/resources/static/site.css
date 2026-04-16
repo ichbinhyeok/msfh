@@ -484,6 +484,63 @@ p {
   margin-top: 10px;
 }
 
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.checklist-item {
+  padding: 22px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(215, 235, 229, 0.3));
+  box-shadow: 0 16px 30px rgba(0, 32, 70, 0.035);
+}
+
+.checklist-item p:last-child {
+  margin-bottom: 0;
+  color: var(--text-heading);
+  line-height: 1.62;
+}
+
+.decision-table-wrap {
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 16px 30px rgba(0, 32, 70, 0.035);
+}
+
+.decision-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.decision-table th,
+.decision-table td {
+  padding: 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(12, 39, 67, 0.08);
+}
+
+.decision-table th {
+  color: var(--text-heading);
+  font-family: "Manrope", "Inter", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(215, 235, 229, 0.28);
+}
+
+.decision-table td {
+  color: var(--muted-strong);
+  line-height: 1.58;
+}
+
+.decision-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
 .danger-list li::marker {
   color: var(--warning);
 }
@@ -1523,6 +1580,7 @@ th {
   .card-grid,
   .decision-grid,
   .two-column,
+  .checklist-grid,
   .image-band-shell,
   .lead-form,
   .decision-form,

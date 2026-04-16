@@ -12,6 +12,8 @@ public record GuideContent(
         List<String> whatNotToAssume,
         List<String> keyTakeaways,
         List<String> nextSteps,
+        ActionChecklist actionChecklist,
+        DecisionTable decisionTable,
         ActionLink primaryCta,
         ActionLink secondaryCta,
         List<ActionLink> relatedLinks,

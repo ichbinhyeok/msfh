@@ -19,6 +19,18 @@
         "Do not assume every opening or every roof element automatically qualifies.",
         "Do not assume the report alone means reimbursement is locked in."
       ],
+      "actionChecklist": {
+        "eyebrow": "Read these first",
+        "title": "What to check in the report before you call a contractor",
+        "intro": "Do these in order. The goal is to leave the report with one clear category, one likely first project, and one thing you still need to verify.",
+        "items": [
+          "Find the exact recommended-improvements wording first. That is the category the rest of the decision should stay tied to.",
+          "Read the cost note as context, not approval. It can help you size the project, but it does not lock reimbursement.",
+          "Check the 1802 summary and any wind-mitigation detail that explains why the recommendation exists.",
+          "Look for anything that narrows scope, such as only certain openings, only one roof detail, or no recommended improvements at all.",
+          "If the home is attached or townhouse-like, stop and confirm scope before you treat roof work as the obvious answer."
+        ]
+      },
       "primaryCta": {
         "label": "Confirm the report route before you shop quotes",
         "href": "#lead-form"
@@ -111,6 +123,18 @@
         "Do not assume a general roofing quote is the same thing as an SWR-aligned quote path.",
         "Do not assume the program will fix documentation gaps later."
       ],
+      "actionChecklist": {
+        "eyebrow": "Before you sign",
+        "title": "Five checks that should happen before any deposit or signature",
+        "intro": "If you cannot answer these cleanly from the quote, slow the job down.",
+        "items": [
+          "Make the contractor say which recommendation category the quote is actually solving.",
+          "Check that the license fit matches the work being sold, not just the biggest line item on the page.",
+          "Confirm who is handling permits, inspections, and closeout instead of assuming they are bundled in.",
+          "Separate eligible mitigation work from optional upgrades, financing items, and convenience add-ons.",
+          "If the home is attached, ask what keeps the quoted scope inside attached-home funding limits."
+        ]
+      },
       "primaryCta": {
         "label": "Confirm the quote route for your recommendation",
         "href": "#lead-form"
@@ -317,6 +341,38 @@
         "Do not assume any portal status is the same thing as reimbursement certainty.",
         "Do not assume a status label tells you which contractor type to hire."
       ],
+      "decisionTable": {
+        "eyebrow": "Status translator",
+        "title": "How to sort a portal label before it creates the wrong next step",
+        "intro": "Portal wording changes, so use the label family rather than assuming one exact phrase will stay forever.",
+        "columns": [
+          "If the status looks like",
+          "What it usually means",
+          "What to do now"
+        ],
+        "rows": [
+          {
+            "first": "Waiting, queued, Group 5, or scheduling language",
+            "second": "Timing or access is the blocker. The file is not telling you to start work.",
+            "third": "Wait for the timing issue to clear, then return to the report or project route."
+          },
+          {
+            "first": "Missing information, document request, or RFI-style language",
+            "second": "The file still needs something before it can move safely.",
+            "third": "Clear the missing item before you sign, start work, or plan around reimbursement."
+          },
+          {
+            "first": "Active, in review, or processing language",
+            "second": "The file is moving, but the label still does not replace the actual recommendation.",
+            "third": "Use the report and recommendation to make project decisions, not the portal label by itself."
+          },
+          {
+            "first": "Closed, denied, or no recommendation outcome",
+            "second": "The clean project path may have stopped or changed materially.",
+            "third": "Verify the outcome before you spend money on quotes or mitigation work."
+          }
+        ]
+      },
       "primaryCta": {
         "label": "See the status-specific next step",
         "href": "#lead-form"
@@ -357,6 +413,18 @@
         "Do not assume completion-stage paperwork fixes a bad earlier scope decision.",
         "Do not assume every contractor handles the closeout details for you."
       ],
+      "actionChecklist": {
+        "eyebrow": "Closeout sequence",
+        "title": "What should be true before you expect the draw request to go smoothly",
+        "intro": "Treat this like a closeout pack, not a victory lap.",
+        "items": [
+          "Confirm the work that was completed still matches the recommendation and approved scope.",
+          "Make sure permits are really finaled or ready for final inspection instead of still sitting open.",
+          "Collect the documents you will need for closeout while the contractor is still responsive.",
+          "Check that inspection results, permit records, and invoices all describe the same finished work.",
+          "Only submit the draw-request paperwork after the file looks complete end to end."
+        ]
+      },
       "primaryCta": {
         "label": "See the closeout next step",
         "href": "#lead-form"

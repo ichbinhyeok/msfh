@@ -57,7 +57,7 @@ class SiteControllerTests {
         assertThat(html).contains("Use the report, the home type, and the recommendation together");
         assertThat(html).doesNotContain("Start with opening protection before a roof-heavy quote");
         assertThat(html).contains("Official source stack");
-        assertThat(html).contains("Virtual editorial team");
+        assertThat(html).contains("Why this page is careful");
     }
 
     @Test
@@ -182,6 +182,7 @@ class SiteControllerTests {
         assertThat(guide).contains("What not to assume");
         assertThat(guide).contains("Official source stack");
         assertThat(guide).contains("Get the signing checklist");
+        assertThat(guide).contains("Questions that should have clean answers on a real quote");
 
         String trust = mockMvc.perform(get("/methodology/"))
                 .andExpect(status().isOk())
@@ -191,6 +192,7 @@ class SiteControllerTests {
         assertThat(trust).contains("Quick answer");
         assertThat(trust).contains("Official source stack");
         assertThat(trust).contains("See what the program may pay for");
+        assertThat(trust).contains("This site checks current official MSFH pages first");
 
         String contact = mockMvc.perform(get("/contact/"))
                 .andExpect(status().isOk())
@@ -275,6 +277,31 @@ class SiteControllerTests {
 
             assertThat(html).as(route.path()).contains("/program/");
         }
+    }
+
+    @Test
+    void keyRoutesRenderConcreteChecklistsAndStatusTables() throws Exception {
+        String reportRoute = mockMvc.perform(get("/program/inspection-report/"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        assertThat(reportRoute).contains("What to check in the report before you call a contractor");
+
+        String statusGuide = mockMvc.perform(get("/guides/msfh-portal-statuses-explained/"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        assertThat(statusGuide).contains("Translate the label into an actual next move");
+        assertThat(statusGuide).contains("Portal wording");
+
+        String closeoutGuide = mockMvc.perform(get("/guides/final-inspection-draw-request-checklist/"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        assertThat(closeoutGuide).contains("What the final-inspection file should include before you submit the draw request");
     }
 
     @Test

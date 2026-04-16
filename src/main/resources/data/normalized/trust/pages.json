@@ -5,8 +5,8 @@
       "routeId": "trust-about",
       "title": "About this decision site",
       "description": "Why this site exists and what problem it is trying to solve for Florida homeowners after the report arrives.",
-      "quickAnswer": "This site exists for the gap between the report arriving and the homeowner choosing the safest next project and contractor path, with a transparent virtual editorial team keeping the route logic narrow.",
-      "intro": "This site is built for the moment after the inspection report arrives and the homeowner still has to decide what to do next without mistaking editorial guidance for official approval.",
+      "quickAnswer": "Use this site when the report has arrived and you still need a safer next step before you call contractors or sign anything.",
+      "intro": "The point of this site is to turn a confusing report into one clear next move without pretending to be the program.",
       "whatNotToAssume": [
         "Do not assume this site is the program.",
         "Do not assume the goal is broad eligibility traffic.",
@@ -26,10 +26,10 @@
         "support-hub"
       ],
       "bodySections": [
-        "The goal is to explain what a recommendation likely means, what the current program rules appear to support, and which contractor type to vet first.",
-        "The site is not a contractor directory pretending to be editorial. It is a decision layer between the report and a real quote decision.",
-        "The first launch surface stays narrow on inspection-report interpretation, project choice, quote preparation, and the main eligible improvement categories.",
-        "A transparent virtual editorial team checks rule freshness, route clarity, and homeowner risk. It is an internal QA framework, not a licensed review board."
+        "It focuses on the gap between the inspection report, the first project choice, and the first real quote.",
+        "Each page is supposed to answer one homeowner question at a time and then send you back to the main route.",
+        "The site checks current official program pages before it updates route copy or expands a claim.",
+        "It is not a contractor directory dressed up as advice."
       ],
       "relatedLinks": [
         {
@@ -47,8 +47,8 @@
       "routeId": "trust-methodology",
       "title": "Methodology",
       "description": "How the site handles current rules, source freshness, and route promotion discipline.",
-      "quickAnswer": "Current official pages and support-center articles win, and the virtual editorial team uses rule freshness, route clarity, and homeowner risk lanes to block sloppy promotion.",
-      "intro": "The site reads current official pages and support-center articles first, then uses older PDFs only for background and runs each route through a transparent virtual editorial checklist.",
+      "quickAnswer": "This site checks current official MSFH pages first, shows the source stack on each route, and stays narrow when the rule support is weak or stale.",
+      "intro": "Newer official pages and support articles win. Older PDFs are background only.",
       "whatNotToAssume": [
         "Do not assume old PDFs outrank current support articles.",
         "Do not assume a held route should auto-promote because it exists.",
@@ -68,10 +68,10 @@
         "cfo-warning"
       ],
       "bodySections": [
-        "Program rules are separated from contractor routing so the site does not imply approval certainty or official control over contractor outcomes.",
-        "Each route keeps a source stack, a verified date, and a next review date so stale source support can block promotion.",
-        "The virtual editorial team has three internal lanes: Rule Freshness, Route Clarity, and Homeowner Risk. These are internal QA checks, not licensed reviewers.",
-        "Support routes stay noindex until there is evidence that they add real decision value beyond the Support Center."
+        "Every route keeps the official sources that support it, plus a review date so stale pages can be caught quickly.",
+        "If the rule support is unclear or stale, the page should stay narrow or hold back instead of expanding claims.",
+        "Program rules are kept separate from contractor and quote guidance so the site does not imply approval.",
+        "Support-state pages stay cautious because portal language can change faster than project rules."
       ],
       "relatedLinks": [
         {
