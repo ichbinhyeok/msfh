@@ -1,0 +1,21 @@
+services:
+  app:
+    image: ${IMAGE_NAME:-shinhyeok22/scopeverdict:latest}
+    container_name: scopeverdict
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8098}:8080"
+    mem_limit: 512m
+    environment:
+      SERVER_PORT: 8080
+      APP_BASE_URL: ${APP_BASE_URL:-https://scopeverdict.com}
+      APP_STORAGE_LEADS_PATH: /app/storage/leads/leads.csv
+      APP_STORAGE_EVENTS_PATH: /app/storage/leads/lead_events.csv
+      APP_STORAGE_PARTNER_INQUIRIES_PATH: /app/storage/leads/partner_inquiries.csv
+      APP_ADMIN_USERNAME: ${APP_ADMIN_USERNAME:-}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-}
+      GG_JTE_DEVELOPMENT_MODE: "false"
+      GG_JTE_USE_PRECOMPILED_TEMPLATES: "true"
+      JAVA_OPTS: ${JAVA_OPTS:--XX:+UseG1GC -Xms256m -Xmx384m -Xss512k -Djava.security.egd=file:/dev/./urandom}
+    volumes:
+      - ./storage:/app/storage

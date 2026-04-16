@@ -163,13 +163,13 @@
       "slug": "privacy",
       "routeId": "trust-privacy",
       "title": "Privacy",
-      "description": "Basic privacy terms for lead capture and event logging.",
-      "quickAnswer": "The site stores limited form and event data to understand which routes and recommendation types produce useful next-action signals.",
-      "intro": "The site stores the lead form fields and event data needed to understand which routes and recommendation types create useful next-action signals.",
+      "description": "Privacy terms for route guidance, partner inquiries, and event logging.",
+      "quickAnswer": "The site stores submitted form fields and route-event data only for route guidance, editorial review, partner pilot review, and limited follow-up tied to this product.",
+      "intro": "The site collects the fields you submit in homeowner and partner forms, plus route-event data used to understand which decision paths are useful and where route copy needs review.",
       "whatNotToAssume": [
-        "Do not assume phone is required.",
-        "Do not assume the form is the right place for official account credentials.",
-        "Do not assume stored route data is the same thing as official program data."
+        "Do not submit account credentials, grant portal logins, Social Security numbers, insurance policy numbers, or permit documents.",
+        "Do not assume stored route data is the same thing as official program data.",
+        "Do not assume a partner inquiry creates placement, endorsement, or guaranteed volume."
       ],
       "primaryCta": {
         "label": "Review the next-step lead form",
@@ -184,11 +184,18 @@
         "support-hub"
       ],
       "bodySections": [
-        "The phase-1 build is email-first and does not require a phone number.",
-        "Operational storage is file-backed in the current implementation.",
-        "Do not submit official account credentials or sensitive program documents through this form."
+        "The site stores the form fields you enter, including contact details, route context, and the message or route focus you submit.",
+        "The site also stores route-event data such as CTA clicks and form opens so the route logic can be reviewed and improved.",
+        "Submissions are used for next-step guidance, editorial corrections, route QA, and route-specific partner pilot review. They are not used for official program case handling.",
+        "This phase-1 build uses file-backed operational storage. Access should stay limited to the operator and authorized service providers needed to host or maintain the site.",
+        "If you need a correction or deletion review for data you submitted, use the contact path and identify the email address used in the submission so the request can be reviewed manually.",
+        "Some page assets or infrastructure providers may receive standard browser request data such as IP address, user agent, and referrer when the page loads."
       ],
       "relatedLinks": [
+        {
+          "label": "Contact",
+          "href": "/contact/"
+        },
         {
           "label": "Terms",
           "href": "/terms/"
@@ -199,13 +206,13 @@
       "slug": "terms",
       "routeId": "trust-terms",
       "title": "Terms",
-      "description": "Basic usage terms for the phase-1 editorial product.",
-      "quickAnswer": "Use the site as a decision aid built on current public information, not as legal, insurance, permitting, or official program advice.",
-      "intro": "The site provides scenario guidance based on current public information and does not replace legal, insurance, permitting, or official program advice.",
+      "description": "Usage terms for the independent editorial product and paid pilot inquiry lane.",
+      "quickAnswer": "Use the site as an independent decision aid, not as legal, insurance, permitting, contractor, or official program advice.",
+      "intro": "The site provides route guidance built from current public materials and internal editorial logic. It does not replace official program instructions or professional advice.",
       "whatNotToAssume": [
-        "Do not assume route copy is a legal guarantee.",
-        "Do not assume a recommendation page replaces permit or insurance review.",
-        "Do not assume commercial routing should happen before the recommendation is clear."
+        "Do not assume any page guarantees eligibility, reimbursement, placement, or contractor volume.",
+        "Do not assume partner pilot review creates endorsement, exclusivity, or approval.",
+        "Do not assume route copy replaces permit, insurance, pricing, or legal review."
       ],
       "primaryCta": {
         "label": "Choose the first project",
@@ -221,11 +228,17 @@
         "contractor-selection"
       ],
       "bodySections": [
-        "Use the site as a decision aid, not as a guarantee of eligibility or reimbursement.",
-        "Project choices should still be verified against your report, permit requirements, and the current official program materials.",
-        "Commercial routing should happen only after the homeowner understands the recommendation and likely scope."
+        "Use the site as a decision aid only. Verify project choices against your report, current official materials, permit rules, insurer requirements, and contractor documents.",
+        "You are responsible for the information you submit and for the decisions you make after reading the site.",
+        "Commercial routing and partner review stay discretionary and route-specific. No page or inquiry creates a promise of placement, exclusivity, or lead volume.",
+        "The site may change route copy, source support, pricing, and pilot availability as the program or editorial review changes.",
+        "Questions about privacy, corrections, or route-specific issues should be sent through the contact path."
       ],
       "relatedLinks": [
+        {
+          "label": "Contact",
+          "href": "/contact/"
+        },
         {
           "label": "Privacy",
           "href": "/privacy/"

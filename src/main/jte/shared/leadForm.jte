@@ -20,6 +20,12 @@
             <input type="hidden" name="routeFamily" value="${leadForm.routeFamily()}">
             <input type="hidden" name="scenario" value="${leadForm.scenario()}">
             <input type="hidden" name="improvementType" value="${leadForm.improvementType()}">
+            <div class="field-trap" aria-hidden="true">
+                <label>
+                    Website
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </label>
+            </div>
             <label>
                 County
                 <input type="text" name="county" required placeholder="Miami-Dade">

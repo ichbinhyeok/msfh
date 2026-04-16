@@ -1,0 +1,14 @@
+.git
+.github
+.idea
+.vscode
+.playwright-cli
+target
+tmp
+test-results
+jte-classes
+storage
+*.log
+*.out.log
+*.err.log
+msfh-run-root*.txt

@@ -122,6 +122,28 @@ class LeadControllerTests {
     }
 
     @Test
+    void leadCaptureRejectsFilledHoneypotField() throws Exception {
+        mockMvc.perform(post("/api/leads/capture")
+                        .param("originPath", "/program/inspection-report/")
+                        .param("routePath", "/program/inspection-report/")
+                        .param("routeFamily", "program")
+                        .param("scenario", "report_received_need_next_step")
+                        .param("county", "Miami-Dade")
+                        .param("zip", "33101")
+                        .param("reportReceived", "yes")
+                        .param("homeType", "detached")
+                        .param("budgetRange", "5k-10k")
+                        .param("timeline", "within-30-days")
+                        .param("email", "person@example.com")
+                        .param("website", "https://spam.example")
+                        .param("consent", "true"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/program/inspection-report/?lead=error#lead-form"));
+
+        assertThat(Files.exists(Path.of("target/test-data/leads.csv"))).isFalse();
+    }
+
+    @Test
     void maliciousOriginPathFallsBackToRoot() throws Exception {
         mockMvc.perform(post("/api/leads/capture")
                         .param("originPath", "//evil.test")
@@ -138,6 +160,50 @@ class LeadControllerTests {
                         .param("consent", "true"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/?lead=success#lead-form"));
+    }
+
+    @Test
+    void crossSiteLeadCaptureRequestIsRejected() throws Exception {
+        mockMvc.perform(post("/api/leads/capture")
+                        .header("Origin", "https://evil.example")
+                        .param("originPath", "/program/inspection-report/")
+                        .param("routePath", "/program/inspection-report/")
+                        .param("routeFamily", "program")
+                        .param("scenario", "report_received_need_next_step")
+                        .param("county", "Miami-Dade")
+                        .param("zip", "33101")
+                        .param("reportReceived", "yes")
+                        .param("homeType", "detached")
+                        .param("budgetRange", "5k-10k")
+                        .param("timeline", "within-30-days")
+                        .param("email", "person@example.com")
+                        .param("consent", "true"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/program/inspection-report/?lead=error#lead-form"));
+
+        assertThat(Files.exists(Path.of("target/test-data/leads.csv"))).isFalse();
+    }
+
+    @Test
+    void leadCaptureEscapesSpreadsheetFormulaPrefixes() throws Exception {
+        mockMvc.perform(post("/api/leads/capture")
+                        .param("originPath", "/program/inspection-report/")
+                        .param("routePath", "/program/inspection-report/")
+                        .param("routeFamily", "program")
+                        .param("scenario", "report_received_need_next_step")
+                        .param("county", "=cmd|' /C calc'!A0")
+                        .param("zip", "33101")
+                        .param("reportReceived", "yes")
+                        .param("homeType", "detached")
+                        .param("budgetRange", "5k-10k")
+                        .param("timeline", "within-30-days")
+                        .param("email", "person@example.com")
+                        .param("consent", "true"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/program/inspection-report/?lead=success#lead-form"));
+
+        String leads = Files.readString(Path.of("target/test-data/leads.csv"), StandardCharsets.UTF_8);
+        assertThat(leads).contains("'=cmd|' /C calc'!A0");
     }
 
     @Test
@@ -187,6 +253,27 @@ class LeadControllerTests {
         assertThat(inquiries).contains("Coastal Retrofit Group");
         assertThat(inquiries).contains("roof-to-wall");
         assertThat(events).contains("partner_inquiry_submit_success");
+    }
+
+    @Test
+    void partnerInquiryEscapesSpreadsheetFormulaPrefixes() throws Exception {
+        mockMvc.perform(post("/api/contact/capture")
+                        .param("originPath", "/contact/")
+                        .param("inquiryType", "partner_pilot")
+                        .param("routeFocus", "roof-to-wall")
+                        .param("contactName", "Jordan Lee")
+                        .param("company", "@malicious-sheet-link")
+                        .param("email", "partner@example.com")
+                        .param("phone", "")
+                        .param("licenseNumber", "CCC1333333")
+                        .param("countiesServed", "Miami-Dade, Broward")
+                        .param("message", "We handle retrofit-only roof-to-wall projects and stay inside report scope.")
+                        .param("consent", "true"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/contact/?partner=success#partner-inquiry"));
+
+        String inquiries = Files.readString(Path.of("target/test-data/partner-inquiries.csv"), StandardCharsets.UTF_8);
+        assertThat(inquiries).contains("'@malicious-sheet-link");
     }
 
     @Test

@@ -1,11 +1,12 @@
 package owner.mysafefloridahome.web;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import owner.mysafefloridahome.leads.LeadCaptureRequest;
 import owner.mysafefloridahome.leads.LeadEventRequest;
-import owner.mysafefloridahome.leads.PartnerInquiryRequest;
 import owner.mysafefloridahome.leads.PartnerRoutingService;
 import owner.mysafefloridahome.leads.LeadStorageService;
+import owner.mysafefloridahome.leads.PartnerInquiryRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -20,14 +21,21 @@ public class LeadController {
 
     private final LeadStorageService leadStorageService;
     private final PartnerRoutingService partnerRoutingService;
+    private final RequestAbuseProtectionService requestAbuseProtectionService;
 
-    public LeadController(LeadStorageService leadStorageService, PartnerRoutingService partnerRoutingService) {
+    public LeadController(LeadStorageService leadStorageService, PartnerRoutingService partnerRoutingService,
+            RequestAbuseProtectionService requestAbuseProtectionService) {
         this.leadStorageService = leadStorageService;
         this.partnerRoutingService = partnerRoutingService;
+        this.requestAbuseProtectionService = requestAbuseProtectionService;
     }
 
     @PostMapping("/api/leads/capture")
-    public String captureLead(@Valid LeadCaptureRequest request, BindingResult bindingResult) {
+    public String captureLead(@Valid LeadCaptureRequest request, BindingResult bindingResult,
+            HttpServletRequest httpServletRequest) {
+        if (!requestAbuseProtectionService.allowLeadForm(httpServletRequest)) {
+            return "redirect:" + safeOrigin(request.getOriginPath()) + "?lead=error#lead-form";
+        }
         if (!request.isConsent()) {
             bindingResult.rejectValue("consent", "required", "Consent is required");
         }
@@ -43,7 +51,11 @@ public class LeadController {
     }
 
     @PostMapping("/api/contact/capture")
-    public String capturePartnerInquiry(@Valid PartnerInquiryRequest request, BindingResult bindingResult) {
+    public String capturePartnerInquiry(@Valid PartnerInquiryRequest request, BindingResult bindingResult,
+            HttpServletRequest httpServletRequest) {
+        if (!requestAbuseProtectionService.allowPartnerForm(httpServletRequest)) {
+            return "redirect:" + safeOrigin(request.getOriginPath()) + "?partner=error#partner-inquiry";
+        }
         if (!request.isConsent()) {
             bindingResult.rejectValue("consent", "required", "Consent is required");
         }
@@ -59,7 +71,10 @@ public class LeadController {
     @ResponseBody
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PostMapping(value = "/api/leads/event", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void captureEvent(@Valid @RequestBody LeadEventRequest request) {
+    public void captureEvent(@Valid @RequestBody LeadEventRequest request, HttpServletRequest httpServletRequest) {
+        if (!requestAbuseProtectionService.allowEventCapture(httpServletRequest)) {
+            return;
+        }
         leadStorageService.logEvent(request);
     }
 

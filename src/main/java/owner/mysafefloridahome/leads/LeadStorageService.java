@@ -208,6 +208,15 @@ public class LeadStorageService {
         if (value == null) {
             return "";
         }
-        return value.replace(",", " ").replace("\r", " ").replace("\n", " ").trim();
+        String sanitized = value.replace(",", " ").replace("\r", " ").replace("\n", " ").trim();
+        if (sanitized.isEmpty()) {
+            return sanitized;
+        }
+        char firstCharacter = sanitized.charAt(0);
+        if (firstCharacter == '=' || firstCharacter == '+' || firstCharacter == '-'
+                || firstCharacter == '@') {
+            return "'" + sanitized;
+        }
+        return sanitized;
     }
 }

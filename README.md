@@ -109,11 +109,32 @@ Current official and quasi-official program materials indicate:
 - Runtime CSV data should not live inside the deployed release folder.
 - For an Oracle VM, use absolute paths outside the app directory, such as `/var/lib/mysafefloridahome/...`.
 - The app now accepts storage paths through environment variables:
+  - `APP_BASE_URL=https://scopeverdict.com`
   - `APP_STORAGE_LEADS_PATH`
   - `APP_STORAGE_EVENTS_PATH`
   - `APP_STORAGE_PARTNER_INQUIRIES_PATH`
 - Keep GitHub Actions deploy output under something like `/opt/mysafefloridahome/current`, but keep CSV files under `/var/lib/mysafefloridahome`.
 - Detailed server notes: `ops/oracle_vm_persistent_storage_2026-04-14.md`
+
+## GitHub Actions Docker deploy
+- This repo now includes `.github/workflows/deploy.yml` for `main` branch deploys.
+- Docker image target: `shinhyeok22/scopeverdict`
+- The workflow runs tests, builds an ARM64 image, pushes `latest` and `${github.sha}`, then deploys to OCI over SSH.
+- Required GitHub repository secrets:
+  - `DOCKERHUB_USERNAME`
+  - `DOCKERHUB_TOKEN`
+  - `OCI_HOST`
+  - `OCI_USERNAME`
+  - `OCI_KEY`
+  - `APP_ADMIN_USERNAME`
+  - `APP_ADMIN_PASSWORD`
+- The OCI host deploy path is `~/deploy/scopeverdict`.
+- The OCI host container port mapping should use `8098 -> 8080`.
+- The container uses `docker-compose.yml` and persists CSV files under `~/deploy/scopeverdict/storage/leads`.
+- Production should run with:
+  - `APP_BASE_URL=https://scopeverdict.com`
+  - `GG_JTE_DEVELOPMENT_MODE=false`
+  - `GG_JTE_USE_PRECOMPILED_TEMPLATES=true`
 
 ## Recommended launch geography
 Start with `Florida` statewide routes only.

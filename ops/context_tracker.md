@@ -14,6 +14,7 @@
 - County overlays should only ship when contractor density, local threshold differences, or measured demand justify them.
 - Phase 1 implementation will stay file-backed with `storage/leads/*.csv` for submissions and events before any database is introduced.
 - Held support routes can render now, but they remain `noindex` until promotion evidence exists.
+- Purchased production domain is `scopeverdict.com`, and production canonical URLs should resolve through `APP_BASE_URL=https://scopeverdict.com`.
 
 ## What changed this session
 - Scaffolded the Spring Boot `4.0.5` plus `jte` application with Maven wrapper under `owner.mysafefloridahome`.

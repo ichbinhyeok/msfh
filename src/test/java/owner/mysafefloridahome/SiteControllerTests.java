@@ -37,6 +37,9 @@ class SiteControllerTests {
     @Autowired
     private ContentRepository contentRepository;
 
+    @Autowired
+    private AppProperties appProperties;
+
     @Test
     void homePageRendersCoreDecisionCopy() throws Exception {
         String html = mockMvc.perform(get("/"))
@@ -135,6 +138,38 @@ class SiteControllerTests {
 
         assertThat(sitemap).contains("http://localhost/program/inspection-report/");
         assertThat(sitemap).doesNotContain("http://localhost/program/group-5/");
+    }
+
+    @Test
+    void configuredBaseUrlOverridesRequestHostForCanonicalMetadata() throws Exception {
+        String originalBaseUrl = appProperties.getBaseUrl();
+        appProperties.setBaseUrl("https://scopeverdict.com");
+        try {
+            String html = mockMvc.perform(get("/program/inspection-report/"))
+                    .andExpect(status().isOk())
+                    .andReturn()
+                    .getResponse()
+                    .getContentAsString();
+
+            assertThat(html).contains("link rel=\"canonical\" href=\"https://scopeverdict.com/program/inspection-report/\"");
+            assertThat(html).contains("\"item\": \"https:\\/\\/scopeverdict.com\\/program\\/\"");
+            assertThat(html).contains("\"url\": \"https:\\/\\/scopeverdict.com\\/\"");
+
+            mockMvc.perform(get("/robots.txt"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().string(org.hamcrest.Matchers.containsString("Sitemap: https://scopeverdict.com/sitemap.xml")));
+
+            String sitemap = mockMvc.perform(get("/sitemap.xml"))
+                    .andExpect(status().isOk())
+                    .andReturn()
+                    .getResponse()
+                    .getContentAsString();
+
+            assertThat(sitemap).contains("https://scopeverdict.com/program/inspection-report/");
+            assertThat(sitemap).doesNotContain("http://localhost/program/inspection-report/");
+        } finally {
+            appProperties.setBaseUrl(originalBaseUrl);
+        }
     }
 
     @Test

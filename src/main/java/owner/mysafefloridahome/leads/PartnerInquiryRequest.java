@@ -38,6 +38,9 @@ public class PartnerInquiryRequest {
     @Size(max = 600)
     private String message;
 
+    @Size(max = 0)
+    private String website;
+
     private boolean consent;
 
     public String getOriginPath() {
@@ -118,6 +121,14 @@ public class PartnerInquiryRequest {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public boolean isConsent() {

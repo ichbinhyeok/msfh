@@ -48,6 +48,9 @@ public class LeadCaptureRequest {
     @Size(max = 40)
     private String phone;
 
+    @Size(max = 0)
+    private String website;
+
     private boolean consent;
 
     public String getOriginPath() {
@@ -160,6 +163,14 @@ public class LeadCaptureRequest {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public boolean isConsent() {

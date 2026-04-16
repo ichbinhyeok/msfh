@@ -42,6 +42,12 @@
             <form class="lead-form partner-form" method="post" action="/api/contact/capture" data-partner-form="true" data-route-path="/contact/" data-route-family="trust" data-scenario="partner_pilot" data-improvement-type="">
                 <input type="hidden" name="originPath" value="/contact/">
                 <input type="hidden" name="inquiryType" value="partner_pilot">
+                <div class="field-trap" aria-hidden="true">
+                    <label>
+                        Website
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </label>
+                </div>
                 <label>
                     Route focus
                     <select name="routeFocus" required>
