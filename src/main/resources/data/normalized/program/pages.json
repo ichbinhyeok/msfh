@@ -77,6 +77,10 @@
           "href": "/program/inspection-report/"
         },
         {
+          "label": "Attached-home scope guide",
+          "href": "/guides/attached-home-scope-under-msfh/"
+        },
+        {
           "label": "When roof replacement becomes the first project",
           "href": "/improvements/roof-replacement-under-swr/"
         }
@@ -205,6 +209,10 @@
         {
           "label": "Inspection report route",
           "href": "/program/inspection-report/"
+        },
+        {
+          "label": "No-recommendation checklist guide",
+          "href": "/guides/no-recommended-improvements-what-next/"
         }
       ],
       "sourceIds": [
@@ -277,6 +285,10 @@
         {
           "label": "Contractor quote route after the file clears",
           "href": "/program/contractor-quotes/"
+        },
+        {
+          "label": "RFI response checklist guide",
+          "href": "/guides/msfh-rfi-response-checklist/"
         }
       ],
       "sourceIds": [

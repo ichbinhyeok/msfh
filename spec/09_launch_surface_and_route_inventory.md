@@ -49,6 +49,9 @@ Only these route families should index in the first release:
 19. `/guides/opening-protection-quote-checklist/`
 20. `/guides/roof-to-wall-quote-checklist/`
 21. `/guides/swr-roof-quote-checklist/`
+22. `/guides/attached-home-scope-under-msfh/`
+23. `/guides/no-recommended-improvements-what-next/`
+24. `/guides/msfh-rfi-response-checklist/`
 
 ## First `noindex` support surface
 - `/program/no-recommended-improvements/`

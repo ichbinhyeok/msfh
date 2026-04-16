@@ -300,6 +300,42 @@
     "summary": "Checklist for deciding whether an SWR recommendation really justifies broader roof scope."
   },
   {
+    "routeId": "guide-attached-home-scope-under-msfh",
+    "path": "/guides/attached-home-scope-under-msfh/",
+    "family": "guide",
+    "title": "Attached home under MSFH: when scope narrows to opening protection",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "",
+    "triggerState": "comparing_recommended_improvements",
+    "summary": "Guide for attached-home owners when townhouse-style scope changes the first project path."
+  },
+  {
+    "routeId": "guide-no-recommended-improvements-what-next",
+    "path": "/guides/no-recommended-improvements-what-next/",
+    "family": "guide",
+    "title": "No recommended improvements on your MSFH report: what to do next",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "",
+    "triggerState": "support_state_problem",
+    "summary": "Guide for homeowners whose report does not open an eligible improvement path."
+  },
+  {
+    "routeId": "guide-msfh-rfi-response-checklist",
+    "path": "/guides/msfh-rfi-response-checklist/",
+    "family": "guide",
+    "title": "MSFH RFI response checklist before you sign or start work",
+    "phase": "phase_1_public",
+    "indexStatus": "index",
+    "sourceFreshnessStatus": "fresh",
+    "dominantImprovementType": "",
+    "triggerState": "support_state_problem",
+    "summary": "Checklist for resolving missing-information requests before treating the file as safe."
+  },
+  {
     "routeId": "trust-about",
     "path": "/about/",
     "family": "trust",

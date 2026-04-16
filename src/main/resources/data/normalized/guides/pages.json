@@ -340,6 +340,156 @@
         "authorized-improvements",
         "contractor-selection"
       ]
+    },
+    {
+      "slug": "attached-home-scope-under-msfh",
+      "routeId": "guide-attached-home-scope-under-msfh",
+      "title": "Attached home under MSFH: when scope narrows to opening protection",
+      "description": "Use this guide when your home is attached or treated like a townhouse and the report path feels narrower than detached-home advice.",
+      "triggerState": "comparing_recommended_improvements",
+      "quickAnswer": "If your home is attached, stop before following roof-heavy advice. Current scope rules may narrow the first eligible path to opening protection.",
+      "whatNotToAssume": [
+        "Do not assume detached-home roof logic applies to your attached home.",
+        "Do not assume a contractor can widen scope just because the roof feels like the bigger project.",
+        "Do not assume attached-home rules disappear once a quote is in front of you."
+      ],
+      "keyTakeaways": [
+        "Attached-home owners need a scope check earlier than most detached-home owners.",
+        "Opening protection may be the only clean first path even when roof questions feel urgent.",
+        "The safest quote path usually starts narrow and report-based."
+      ],
+      "nextSteps": [
+        "Confirm whether the program is treating the home like a townhouse or other attached structure.",
+        "Read the recommendation before collecting broad roof quotes.",
+        "Use an opening-protection or project-choice route before you commit."
+      ],
+      "primaryCta": {
+        "label": "Get the attached-home scope checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Return to project choice",
+        "href": "/program/choose-project/"
+      },
+      "relatedLinks": [
+        {
+          "label": "Choose the first project",
+          "href": "/program/choose-project/"
+        },
+        {
+          "label": "Opening-protection decision page",
+          "href": "/improvements/opening-protection/"
+        },
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        }
+      ],
+      "sourceIds": [
+        "select-projects",
+        "grant-eligibility",
+        "recommended-improvements"
+      ]
+    },
+    {
+      "slug": "no-recommended-improvements-what-next",
+      "routeId": "guide-no-recommended-improvements-what-next",
+      "title": "No recommended improvements on your MSFH report: what to do next",
+      "description": "Use this guide when the report does not recommend eligible work and you need the next move spelled out without drifting into generic contractor shopping.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "If there are no recommended improvements, the grant path usually does not move forward. The right move is to confirm the report result, not to start buying work and hope it qualifies later.",
+      "whatNotToAssume": [
+        "Do not assume you can self-select a project and recover reimbursement later.",
+        "Do not assume a contractor can turn a no-recommendation report into an eligible grant path by itself.",
+        "Do not assume this is a pricing problem when it is really a recommendation problem."
+      ],
+      "keyTakeaways": [
+        "No recommended improvements is usually a hard stop, not a shopping prompt.",
+        "This state needs clarification or a changed fact pattern before money should move.",
+        "The site should route you back to report confirmation, not into broad mitigation sales."
+      ],
+      "nextSteps": [
+        "Re-check the report result and where the recommendation section points.",
+        "Use the support explanation route before collecting contractor quotes.",
+        "Only return to project-choice content if a real recommendation exists."
+      ],
+      "primaryCta": {
+        "label": "Get the no-recommendation checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Open the no-recommendation route",
+        "href": "/program/no-recommended-improvements/"
+      },
+      "relatedLinks": [
+        {
+          "label": "No-recommended-improvements route",
+          "href": "/program/no-recommended-improvements/"
+        },
+        {
+          "label": "Inspection report route",
+          "href": "/program/inspection-report/"
+        },
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        }
+      ],
+      "sourceIds": [
+        "no-recommendations",
+        "report-results",
+        "support-hub"
+      ]
+    },
+    {
+      "slug": "msfh-rfi-response-checklist",
+      "routeId": "guide-msfh-rfi-response-checklist",
+      "title": "MSFH RFI response checklist before you sign or start work",
+      "description": "Use this checklist when an RFI is blocking the file and you need to clear the missing-information issue before treating the project as safe.",
+      "triggerState": "support_state_problem",
+      "quickAnswer": "An RFI is a real block. Clear the missing-information request before you sign, start work, or budget around reimbursement.",
+      "whatNotToAssume": [
+        "Do not assume an RFI is minor enough to ignore while the project moves ahead.",
+        "Do not assume quote timing matters more than the unresolved file issue.",
+        "Do not assume the program will fix missing information after work starts."
+      ],
+      "keyTakeaways": [
+        "RFI means the file is not clean enough yet.",
+        "The safest next step is corrective paperwork, not contractor acceleration.",
+        "Once the file clears, the user should return to the route that owns the actual project decision."
+      ],
+      "nextSteps": [
+        "Identify exactly what information the file is missing.",
+        "Resolve the missing item before signing or starting work.",
+        "Return to the program route that matches the recommendation after the hold clears."
+      ],
+      "primaryCta": {
+        "label": "Get the RFI response checklist",
+        "href": "#lead-form"
+      },
+      "secondaryCta": {
+        "label": "Open the RFI route",
+        "href": "/program/rfi/"
+      },
+      "relatedLinks": [
+        {
+          "label": "RFI route",
+          "href": "/program/rfi/"
+        },
+        {
+          "label": "Contractor quote route after the file clears",
+          "href": "/program/contractor-quotes/"
+        },
+        {
+          "label": "What the program may pay for",
+          "href": "/program/what-msfh-will-pay-for/"
+        }
+      ],
+      "sourceIds": [
+        "support-hub",
+        "grant-eligibility",
+        "faq"
+      ]
     }
   ]
 }
