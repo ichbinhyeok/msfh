@@ -46,6 +46,9 @@
         : isSupportRoute ? "Do not let the blocker push you into the wrong next step"
         : "Avoid the expensive shortcuts";}
 !{var showQuotePrepBridge = "contractor-quotes".equals(slug);}
+!{var quotePrepBuilderHref = "/tools/opening-protection/quote-prep-brief/build/?reportPageReceived=true&compareQuotesRequested=true&homeType=detached&scopeLane=mixed&recommendationLine=Opening+protection+recommendation+from+the+report";}
+!{var routeNeed = page.page().coverageNotes().isEmpty() ? stageLabel : page.page().coverageNotes().get(0);}
+!{var routeAvoid = page.page().whatNotToAssume().isEmpty() ? "Do not widen the scope before the recommendation is clear." : page.page().whatNotToAssume().get(0);}
 @template.layout.page(
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
@@ -89,21 +92,21 @@
                         </div>
                     </div>
                     <aside class="route-hero-panel">
-                        <p class="micro-tag">Route summary</p>
+                        <p class="micro-tag">In your situation</p>
                         <h2>${panelTitle}</h2>
                         <p class="route-hero-panel__summary">${page.page().quickAnswer()}</p>
                         <div class="route-hero-facts">
                             <div class="route-hero-fact">
-                                <span>Best used at</span>
-                                <strong>${stageLabel}</strong>
-                            </div>
-                            <div class="route-hero-fact">
-                                <span>Do this now</span>
+                                <span>Do now</span>
                                 <strong>${page.page().primaryCta().label()}</strong>
                             </div>
+                            <div class="route-hero-fact">
+                                <span>Have ready</span>
+                                <strong>${routeNeed}</strong>
+                            </div>
                             <div class="route-hero-fact route-hero-fact--wide">
-                                <span>Keep in mind</span>
-                                <p>${page.page().attachedHomeCaveat()}</p>
+                                <span>Do not do yet</span>
+                                <p>${routeAvoid}</p>
                             </div>
                         </div>
                     </aside>
@@ -138,7 +141,7 @@
                             <h2>When the quote is really about openings, lock the first request before you compare price</h2>
                             <p>This route helps you vet any estimate. When the recommendation points to windows, doors, shutters, or garage openings, use the quote-prep brief so every contractor reacts to the same first scope instead of a broad package.</p>
                             <div class="action-row">
-                                <a class="primary-button" href="/tools/opening-protection/quote-prep-brief/">Open the Quote-Prep Brief</a>
+                                <a class="primary-button" href="${quotePrepBuilderHref}">Open a Prefilled Quote-Prep Brief</a>
                                 <a class="secondary-button" href="/improvements/opening-protection/">Read the Opening-Protection Route</a>
                             </div>
                         </div>

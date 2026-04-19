@@ -94,6 +94,16 @@ The main product should stay homeowner-first.
 - First workflow asset: homeowner-built opening-protection quote-prep brief
 - Optional layer: contractor-office reuse of the same brief when an office wants a customer-facing first-send asset
 
+## Interaction rule
+The product should feel like a next-step assistant, not an organized information shelf.
+
+- The first screen should answer `what do I do now?`
+- The second answer should be `what do I need ready?`
+- The third answer should be `what should I not do yet?`
+- When the answer is `start quote prep`, the product should carry the known context forward so the homeowner does not have to restate the same report, home-type, or scope cues
+- Longer explanation, source proof, and route comparison belong underneath the immediate action guidance
+- If a page leads with taxonomy, summaries, or route jargon instead of a clear next move, the page is still too editorial
+
 This means the product should not behave like a broad contractor suite.
 
 - The homeowner should be able to build and carry the brief without vendor setup.

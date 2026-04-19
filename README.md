@@ -104,6 +104,8 @@ Current official and quasi-official program materials indicate:
 - Acceptance pass tightened around phase-1 route coverage, partner-type routing, source-stack presence, and route-health review
 - Acceptance coverage now sweeps all non-admin public routes, event context storage, error-state rendering, stale-source fail-closed behavior, and redirect safety
 - Home, program, improvement, and guide routes now share an explicit decision-engine frame: interpret, choose, then prepare the quote path
+- Home plus core program and improvement routes now open with assistant-style next-move guidance: `do now`, `have ready`, and `do not do yet` come before the longer explanation
+- Home now uses a progressive four-step intake on the live page, and opening-protection decision results can hand off directly into a prefilled quote-prep builder instead of making the homeowner restate the same context
 - Home, the `contractor-quotes` program route, and the opening-protection improvement route now all link into a B2C-facing `quote-prep brief` utility for narrowing the first contractor request
 - The quote-prep entry, builder, result, shareable brief, and PDF export are intentionally `noindex` utility surfaces and stay out of the public sitemap
 - Vendor-era helper functions still exist behind the scenes: internal office record, estimator handoff worksheet, quote boundary worksheet, office preset storage, and event-backed reply-quality metrics remain live

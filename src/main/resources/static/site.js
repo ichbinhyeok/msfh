@@ -864,10 +864,19 @@
   document.querySelectorAll("[data-home-tool='true']").forEach(function (form) {
     var reportState = form.querySelector("select[name='reportState']");
     var recommendationType = form.querySelector("select[name='recommendationType']");
+    var homeType = form.querySelector("select[name='homeType']");
     var priority = form.querySelector("select[name='priority']");
-    if (!reportState || !recommendationType || !priority) {
+    var steps = Array.prototype.slice.call(form.querySelectorAll("[data-home-step]"));
+    var progressItems = Array.prototype.slice.call(form.querySelectorAll("[data-home-progress-item]"));
+    var stepCopy = form.querySelector("[data-home-step-copy='true']");
+    var nextButton = form.querySelector("[data-home-next='true']");
+    var backButton = form.querySelector("[data-home-back='true']");
+    var submitButton = form.querySelector(".console-submit");
+    if (!reportState || !recommendationType || !homeType || !priority) {
       return;
     }
+    var reviewMode = globalSearchParams.toString().length > 0;
+    var currentStep = 0;
 
     function syncHomeToolState() {
       var state = reportState.value;
@@ -890,8 +899,67 @@
       }
     }
 
+    function renderAssistantSteps() {
+      if (!steps.length || !nextButton || !backButton || !submitButton) {
+        return;
+      }
+      if (reviewMode) {
+        steps.forEach(function (step) {
+          step.hidden = false;
+        });
+        progressItems.forEach(function (item) {
+          item.classList.add("is-complete");
+          item.classList.remove("is-active");
+        });
+        nextButton.hidden = true;
+        backButton.hidden = true;
+        submitButton.hidden = false;
+        if (stepCopy) {
+          stepCopy.textContent = "Review and change any answer, then run the guide again.";
+        }
+        return;
+      }
+
+      steps.forEach(function (step, index) {
+        step.hidden = index !== currentStep;
+      });
+      progressItems.forEach(function (item, index) {
+        item.classList.toggle("is-active", index === currentStep);
+        item.classList.toggle("is-complete", index < currentStep);
+      });
+      backButton.disabled = currentStep === 0;
+      nextButton.hidden = currentStep === steps.length - 1;
+      submitButton.hidden = currentStep !== steps.length - 1;
+      if (stepCopy) {
+        stepCopy.textContent = "Step " + (currentStep + 1) + " of " + steps.length;
+      }
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener("click", function () {
+        if (currentStep < steps.length - 1) {
+          currentStep += 1;
+          renderAssistantSteps();
+        }
+      });
+    }
+
+    if (backButton) {
+      backButton.addEventListener("click", function () {
+        if (currentStep > 0) {
+          currentStep -= 1;
+          renderAssistantSteps();
+        }
+      });
+    }
+
+    form.addEventListener("submit", function () {
+      sendEvent(payloadFrom(form, "home_tool_submit"));
+    });
+
     reportState.addEventListener("change", syncHomeToolState);
     recommendationType.addEventListener("change", syncHomeToolState);
     syncHomeToolState();
+    renderAssistantSteps();
   });
 })();

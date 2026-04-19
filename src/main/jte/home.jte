@@ -1,19 +1,23 @@
 @import owner.mysafefloridahome.pages.HomePageView
 @param HomePageView page
-!{var verdictTitle = page.decisionResult() != null ? page.decisionResult().title() : "Use the report, the home type, and the recommendation together";}
-!{var verdictSummary = page.decisionResult() != null ? page.decisionResult().summary() : "The goal is to leave this step with one clear route, one likely contractor type, and one mistake you will not make.";}
+!{var verdictTitle = page.decisionResult() != null ? page.decisionResult().title() : "Get one next step before you ask anyone for price";}
+!{var verdictSummary = page.decisionResult() != null ? page.decisionResult().summary() : "Answer four questions and this guide will tell you what to do now, what to prepare, and what not to do yet.";}
 !{var contractorType = page.decisionResult() != null ? page.decisionResult().contractorTypeLabel() : "Determined after the four inputs";}
 !{var priorityRoute = page.decisionResult() != null ? page.decisionResult().primaryAction().label() : "Interpret before quote prep";}
 !{var officialSummary = page.decisionResult() != null ? page.decisionResult().evidence().summary() : "Current program guidance, support-center rules, and route logic keep the decision path narrow.";}
 !{var mistakeTitle = page.decisionResult() != null ? page.decisionResult().mistakeToAvoid() : "Do not let quote shopping outrun recommendation clarity.";}
 !{var sourcePreviewCount = Math.min(3, page.sourceStack().size());}
-!{var decisionMode = page.decisionInput().userInput() ? "Personalized route" : "Default route";}
-!{var routeState = page.decisionResult() != null ? "Next move selected" : "Ready for four inputs";}
+!{var decisionMode = page.decisionInput().userInput() ? "Personalized next move" : "Default next move";}
+!{var routeState = page.decisionResult() != null ? "Next move ready" : "Waiting for your inputs";}
 !{var sourceCoverage = sourcePreviewCount + (sourcePreviewCount == 1 ? " verified source" : " verified sources");}
 !{var branchTitle = page.decisionResult() != null ? "Why this route is next" : "How the route guide branches";}
 !{var branchIntro = page.decisionResult() != null
         ? "Read the branch in order: act now, hold the companion route nearby, and avoid the expensive detour."
         : "The default wedge is simple: read the report, choose the first project, then enter quote prep only after scope is clear.";}
+!{var nextMoveAction = page.decisionResult() != null ? page.decisionResult().primaryAction().label() : "Answer the four questions below";}
+!{var nextMovePrep = page.decisionResult() != null ? contractorType : "Your report state, the closest recommendation, your home type, and the question blocking you";}
+!{var nextMoveAvoid = page.decisionResult() != null ? mistakeTitle : "Do not compare contractors before the recommendation and first project are clear.";}
+!{var quickStartAction = page.decisionResult() != null ? page.decisionResult().quickStartAction() : null;}
 @template.layout.page(
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
@@ -30,14 +34,21 @@
                 <div class="section-shell console-grid ${page.decisionInput().userInput() ? "decision-tool--focused" : ""}">
                     <div class="console-input-column">
                         <div class="console-heading">
-                            <p class="console-label">Report decision guide</p>
-                            <h1>Route your next step</h1>
-                            <p class="lead">Use the report state, the closest recommendation, the home type, and your current question to get the safest next route.</p>
+                            <p class="console-label">Next-step assistant</p>
+                            <h1>Find the one thing to do next</h1>
+                            <p class="lead">Answer four questions. You will get one next move, what to prepare, and what not to do yet before you talk to a contractor.</p>
                             <p class="meta-line">Independent decision aid for Florida homeowners. This site is not the program, does not approve grants, and stores limited route inputs to improve next-step guidance. <a class="meta-link" href="/not-government-affiliated/">Why this matters</a></p>
                         </div>
                         <form class="decision-form console-form" method="get" action="/" data-home-tool="true">
-                            <label class="console-field">
-                                <span>Where are you right now?</span>
+                            <div class="assistant-progress" aria-label="Decision steps">
+                                <span class="assistant-progress__item" data-home-progress-item="0">1. Report</span>
+                                <span class="assistant-progress__item" data-home-progress-item="1">2. Recommendation</span>
+                                <span class="assistant-progress__item" data-home-progress-item="2">3. Home type</span>
+                                <span class="assistant-progress__item" data-home-progress-item="3">4. Blocker</span>
+                            </div>
+                            <p class="assistant-step-copy" data-home-step-copy="true">Step 1 of 4</p>
+                            <label class="console-field assistant-step" data-home-step="0">
+                                <span>What do you have right now?</span>
                                 <select name="reportState">
                                     <optgroup label="Most homeowners start here">
                                         <option value="received-recommendation" selected="${"received-recommendation".equals(page.decisionInput().reportState())}">I have the report and a recommendation</option>
@@ -50,8 +61,8 @@
                                 </select>
                                 <small class="console-field-note">Use the secondary paths only when the report is still missing or the file is blocked by a support-state problem.</small>
                             </label>
-                            <label class="console-field">
-                                <span>What recommendation seems closest?</span>
+                            <label class="console-field assistant-step" data-home-step="1">
+                                <span>What does the report seem to point at?</span>
                                 <select name="recommendationType">
                                     <option value="not-sure" selected="${"not-sure".equals(page.decisionInput().recommendationType())}">Not sure yet</option>
                                     <option value="opening-protection" selected="${"opening-protection".equals(page.decisionInput().recommendationType())}">Opening protection</option>
@@ -61,40 +72,58 @@
                                     <option value="roof-replacement-under-swr" selected="${"roof-replacement-under-swr".equals(page.decisionInput().recommendationType())}">Roof replacement under SWR logic</option>
                                 </select>
                             </label>
-                            <label class="console-field">
+                            <label class="console-field assistant-step" data-home-step="2">
                                 <span>Home type</span>
                                 <select name="homeType">
                                     <option value="detached" selected="${"detached".equals(page.decisionInput().homeType())}">Detached</option>
                                     <option value="attached" selected="${"attached".equals(page.decisionInput().homeType())}">Attached or townhouse</option>
                                 </select>
                             </label>
-                            <label class="console-field">
-                                <span>What do you need most right now?</span>
+                            <label class="console-field assistant-step" data-home-step="3">
+                                <span>What decision is blocking you?</span>
                                 <select name="priority">
                                     <option value="choose-project" selected="${"choose-project".equals(page.decisionInput().priority())}">Pick the first project</option>
                                     <option value="understand-report" selected="${"understand-report".equals(page.decisionInput().priority())}">Understand the report</option>
                                     <option value="compare-quotes" selected="${"compare-quotes".equals(page.decisionInput().priority())}">Compare quotes safely</option>
                                 </select>
                             </label>
-                            <button class="primary-button console-submit" type="submit">Show my next step</button>
+                            <div class="assistant-controls">
+                                <button class="secondary-button assistant-control assistant-control--back" data-home-back="true" type="button">Back</button>
+                                <button class="secondary-button assistant-control" data-home-next="true" type="button">Next</button>
+                                <button class="primary-button console-submit" type="submit">Tell me what to do next</button>
+                            </div>
                             <p class="meta-line console-note">This guide only routes you to the next page. It does not change your application status. Route inputs may be logged to improve the guide. Do not submit official credentials or documents here. <a class="meta-link" href="/privacy/">Privacy</a></p>
                         </form>
                     </div>
                     <div class="console-output-column">
                         <article class="console-verdict">
                             <div class="console-verdict__header">
-                                <p class="eyebrow">Recommended next step</p>
-                                <span class="console-stamp">Current route</span>
+                                <p class="eyebrow">Your next move</p>
+                                <span class="console-stamp">${page.decisionResult() != null ? "Ready" : "Start here"}</span>
                             </div>
                             <h2>${verdictTitle}</h2>
                             <p class="console-summary">${verdictSummary}</p>
+                            <div class="next-move-board">
+                                <article class="next-move-card">
+                                    <span>Do now</span>
+                                    <strong>${nextMoveAction}</strong>
+                                </article>
+                                <article class="next-move-card">
+                                    <span>Have ready</span>
+                                    <strong>${nextMovePrep}</strong>
+                                </article>
+                                <article class="next-move-card">
+                                    <span>Do not do yet</span>
+                                    <strong>${nextMoveAvoid}</strong>
+                                </article>
+                            </div>
                             <div class="console-verdict__signals">
                                 <div class="console-verdict__signal">
-                                    <span>Output mode</span>
+                                    <span>Guide mode</span>
                                     <strong>${decisionMode}</strong>
                                 </div>
                                 <div class="console-verdict__signal">
-                                    <span>Source stack</span>
+                                    <span>Source check</span>
                                     <strong>${sourceCoverage}</strong>
                                 </div>
                                 <div class="console-verdict__signal">
@@ -104,17 +133,20 @@
                             </div>
                             <div class="console-metrics">
                                 <div class="console-metric">
-                                    <span class="console-metric__label">First contractor type</span>
+                                    <span class="console-metric__label">First contractor to call</span>
                                     <strong>${contractorType}</strong>
                                 </div>
                                 <div class="console-metric">
-                                    <span class="console-metric__label">Priority route</span>
+                                    <span class="console-metric__label">Primary route</span>
                                     <strong>${priorityRoute}</strong>
                                 </div>
                             </div>
                             <div class="action-row console-actions">
                                 @if(page.decisionResult() != null)
                                     <a class="primary-button" href="${page.decisionResult().primaryAction().href()}">${page.decisionResult().primaryAction().label()}</a>
+                                    @if(quickStartAction != null)
+                                        <a class="secondary-button" href="${quickStartAction.href()}">${quickStartAction.label()}</a>
+                                    @endif
                                     <a class="secondary-button" href="${page.decisionResult().secondaryAction().href()}">${page.decisionResult().secondaryAction().label()}</a>
                                 @else
                                     <a class="primary-button" href="/program/inspection-report/">Read the report first</a>
@@ -122,9 +154,23 @@
                                 @endif
                             </div>
                         </article>
+                        @if(quickStartAction != null)
+                            <article class="signal-card signal-card--handoff">
+                                <p class="micro-tag">Fastest handoff</p>
+                                <h3>Start the first contractor request with these answers already carried forward</h3>
+                                <ul class="signal-list">
+                                    <li>Home type is carried into the opening-protection builder.</li>
+                                    <li>The report-backed opening path is loaded as the first quote focus.</li>
+                                    <li>The builder opens ready for a real shareable first request, not a blank form.</li>
+                                </ul>
+                                <div class="action-row">
+                                    <a class="primary-button" href="${quickStartAction.href()}">Open Prefilled Builder</a>
+                                </div>
+                            </article>
+                        @endif
                         <div class="console-aux-grid">
                             <article class="signal-card">
-                                <p class="micro-tag">Mistake to avoid</p>
+                                <p class="micro-tag">Do not do this</p>
                                 <h3>${mistakeTitle}</h3>
                                 <ul class="signal-list">
                                 @if(page.decisionResult() != null)
@@ -139,7 +185,7 @@
                                 </ul>
                             </article>
                             <article class="signal-card signal-card--official">
-                                <p class="micro-tag">Source verification</p>
+                                <p class="micro-tag">Why you can trust this</p>
                                 <h3>Current program source stack</h3>
                                 <p class="signal-card__intro">${officialSummary}</p>
                                 <div class="source-check-list">

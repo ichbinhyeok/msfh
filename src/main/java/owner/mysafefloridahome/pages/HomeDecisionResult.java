@@ -11,6 +11,7 @@ public record HomeDecisionResult(
         DecisionEvidence evidence,
         ActionLink primaryAction,
         ActionLink secondaryAction,
+        ActionLink quickStartAction,
         List<String> nextSteps,
         List<HomeRouteBranch> routeBranches) {
 }

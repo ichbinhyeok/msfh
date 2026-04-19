@@ -7,12 +7,14 @@
 !{var routePath = page.route().path();}
 !{var canonicalUrl = page.meta().canonicalUrl();}
 !{var baseUrl = canonicalUrl.substring(0, canonicalUrl.length() - routePath.length());}
+!{var quotePrepBuilderHref = "/tools/opening-protection/quote-prep-brief/build/?reportPageReceived=true&compareQuotesRequested=true&homeType=detached&scopeLane=mixed&recommendationLine=Opening+protection+recommendation+from+the+report";}
 !{var panelTitle = "opening-protection".equals(slug) ? "Identify the openings before you price them"
         : "roof-deck-attachment".equals(slug) ? "Fastening work is not a full reroof by default"
         : "roof-replacement-under-swr".equals(slug) ? "Replacement only works when SWR requires it"
         : "roof-to-wall".equals(slug) ? "Connection retrofit comes before broad roof scope"
         : "secondary-water-resistance".equals(slug) ? "SWR is a mitigation path, not generic reroof permission"
         : "Keep the quote disciplined";}
+!{var routeAvoid = page.page().confusionOrDenialRisks().isEmpty() ? "Do not widen the first quote before the recommendation is clear." : page.page().confusionOrDenialRisks().get(0);}
 @template.layout.page(
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
@@ -54,21 +56,21 @@
                         </div>
                     </div>
                     <aside class="route-hero-panel">
-                        <p class="micro-tag">Improvement summary</p>
+                        <p class="micro-tag">In your situation</p>
                         <h2>${panelTitle}</h2>
                         <p class="route-hero-panel__summary">${page.page().recommendationMeaning()}</p>
                         <div class="route-hero-facts">
                             <div class="route-hero-fact">
-                                <span>Contractor type</span>
-                                <strong>${page.page().contractorType()}</strong>
+                                <span>Do now</span>
+                                <strong>${page.page().primaryCta().label()}</strong>
                             </div>
                             <div class="route-hero-fact">
-                                <span>Review window</span>
-                                <strong>${verifiedOn}</strong>
+                                <span>Call first</span>
+                                <strong>${page.page().contractorType()}</strong>
                             </div>
                             <div class="route-hero-fact route-hero-fact--wide">
-                                <span>Attached-home caveat</span>
-                                <p>${page.page().attachedHomeCaveat()}</p>
+                                <span>Do not do yet</span>
+                                <p>${routeAvoid}</p>
                             </div>
                         </div>
                     </aside>
@@ -102,7 +104,7 @@
                             <h2>Build the opening-protection quote-prep brief</h2>
                             <p>Use the brief when the report already points to opening protection and you need one narrow contractor request before broader pricing starts.</p>
                             <div class="action-row">
-                                <a class="primary-button" href="/tools/opening-protection/quote-prep-brief/">Open the Quote-Prep Brief</a>
+                                <a class="primary-button" href="${quotePrepBuilderHref}">Open a Prefilled Quote-Prep Brief</a>
                                 <a class="secondary-button" href="/guides/opening-protection-quote-checklist/">Review the Quote Checklist</a>
                             </div>
                         </div>

@@ -18,7 +18,8 @@ This matrix defines what must work before the first public release can be consid
 
 ## Content-quality tests
 - Every public page contains:
-  - quick answer
+  - immediate next move guidance
+  - what-to-have-ready guidance
   - what-not-to-assume section
   - official source stack
   - primary CTA
@@ -38,9 +39,13 @@ This matrix defines what must work before the first public release can be consid
 
 ## Mobile and UX tests
 - home works on mobile width
+- home hero and decision output stay readable on mobile without horizontal overflow or oversized panels
+- home progressive intake shows one decision step at a time on mobile, with `next`, `back`, and final submit states behaving correctly
 - program and improvement pages keep primary CTA visible without layout breakage
+- home, core program routes, and improvement routes open with a visible `do now / have ready / do not do yet` frame before longer explanation
 - forms stay email-first and do not require phone
 - home provides a clear path into the opening-protection quote-prep tool
+- home opening-protection handoff can open the quote-prep builder with report, home-type, and scope hints already filled in
 - contractor-quotes program route provides a clear path into the same quote-prep tool when the narrow first quote is really opening protection
 - opening-protection improvement route provides a clear path into the same quote-prep tool
 - quote-prep builder, result, and share surfaces remain readable and usable without exposing internal office tools on the public-facing path

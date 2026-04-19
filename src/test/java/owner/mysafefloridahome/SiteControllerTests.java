@@ -55,15 +55,20 @@ class SiteControllerTests {
                 .getResponse()
                 .getContentAsString();
 
-        assertThat(html).contains("Route your next step");
-        assertThat(html).contains("Report decision guide");
+        assertThat(html).contains("Find the one thing to do next");
+        assertThat(html).contains("Next-step assistant");
         assertThat(html).contains("Interpret the recommendation");
         assertThat(html).contains("/program/inspection-report/");
-        assertThat(html).contains("Show my next step");
-        assertThat(html).contains("Where are you right now?");
+        assertThat(html).contains("Tell me what to do next");
+        assertThat(html).contains("What do you have right now?");
+        assertThat(html).contains("Step 1 of 4");
+        assertThat(html).contains("1. Report");
         assertThat(html).contains("Most homeowners start here");
         assertThat(html).contains("Secondary paths");
-        assertThat(html).contains("Use the report, the home type, and the recommendation together");
+        assertThat(html).contains("Get one next step before you ask anyone for price");
+        assertThat(html).contains("Your next move");
+        assertThat(html).contains("Do now");
+        assertThat(html).contains("Do not do yet");
         assertThat(html).contains("Open the Quote-Prep Brief");
         assertThat(html).contains("/tools/opening-protection/quote-prep-brief/");
         assertThat(html).contains("https://www.googletagmanager.com/gtag/js?id=G-1C3Q631V0G");
@@ -88,7 +93,9 @@ class SiteControllerTests {
         assertThat(html).contains("Start with opening protection before a roof-heavy quote");
         assertThat(html).contains("Window or shutter contractor");
         assertThat(html).contains("/improvements/opening-protection/");
-        assertThat(html).contains("Source verification");
+        assertThat(html).contains("/tools/opening-protection/quote-prep-brief/build/");
+        assertThat(html).contains("homeType=attached");
+        assertThat(html).contains("Why you can trust this");
         assertThat(html).contains("Attached homes treated as townhouses can be limited to opening-protection-only funding.");
     }
 
@@ -133,8 +140,11 @@ class SiteControllerTests {
                 .getResponse()
                 .getContentAsString();
 
+        assertThat(html).contains("In your situation");
+        assertThat(html).contains("Do now");
+        assertThat(html).contains("Do not do yet");
         assertThat(html).contains("When the quote is really about openings, lock the first request before you compare price");
-        assertThat(html).contains("Open the Quote-Prep Brief");
+        assertThat(html).contains("Open a Prefilled Quote-Prep Brief");
         assertThat(html).contains("/tools/opening-protection/quote-prep-brief/");
         assertThat(html).contains("Read the Opening-Protection Route");
         assertThat(html).contains("/improvements/opening-protection/");
@@ -277,8 +287,8 @@ class SiteControllerTests {
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        assertThat(workflow).contains("Build the opening-protection quote-prep brief before you ask contractors for price");
-        assertThat(workflow).contains("A clean first quote request has five anchors");
+        assertThat(workflow).contains("Get the first opening-protection request clear before you ask for price");
+        assertThat(workflow).contains("Five checks that keep the first request clear");
         assertThat(workflow).contains("meta name=\"robots\" content=\"noindex,nofollow\"");
         assertThat(workflow).contains("/tools/opening-protection/quote-prep-brief/build/");
         assertThat(workflow).doesNotContain("/vendor-packets/opening-protection/estimator-handoff/");
@@ -291,7 +301,7 @@ class SiteControllerTests {
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        assertThat(preQuote).contains("Build the quote-prep brief before you ask for price");
+        assertThat(preQuote).contains("Build the first quote request before you ask for price");
         assertThat(preQuote).contains("meta name=\"robots\" content=\"noindex,nofollow\"");
         assertThat(preQuote).contains("Build your shareable brief");
         assertThat(preQuote).contains("Create Quote-Prep Brief");

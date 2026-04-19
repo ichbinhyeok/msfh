@@ -25,16 +25,16 @@
                         <p class="route-hero-panel__summary">${page.quickAnswer()}</p>
                         <div class="route-hero-facts">
                             <div class="route-hero-fact">
-                                <span>Best used when</span>
-                                <strong>The report already points to opening protection</strong>
+                                <span>Do now</span>
+                                <strong>Build one shareable first request</strong>
                             </div>
                             <div class="route-hero-fact">
-                                <span>What you send</span>
-                                <strong>One shareable brief and one simple message</strong>
+                                <span>Have ready</span>
+                                <strong>The report wording, named openings, and your current quote focus</strong>
                             </div>
                             <div class="route-hero-fact route-hero-fact--wide">
-                                <span>What good looks like</span>
-                                <p>The contractor replies with a narrower scope, the right report page or photos if needed, and a cleaner first quote conversation.</p>
+                                <span>Do not do yet</span>
+                                <p>Do not let the first request drift into a whole-house package before the report-backed opening scope is readable on its own.</p>
                             </div>
                         </div>
                     </aside>
@@ -58,7 +58,7 @@
                 <div class="section-shell">
                     <div class="section-heading">
                         <p class="eyebrow">Before you ask for price</p>
-                        <h2>A clean first quote request has five anchors</h2>
+                        <h2>Five checks that keep the first request clear</h2>
                         <p>Do not share a fuzzy request. These five checks keep the first send tied to the report, the current quote focus, the home type, and the openings that actually belong in the first quote.</p>
                     </div>
                     <div class="quote-prep-anchor-board">

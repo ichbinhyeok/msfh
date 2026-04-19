@@ -6,6 +6,7 @@ import owner.mysafefloridahome.data.ContentRepository;
 import owner.mysafefloridahome.data.SourceRecord;
 import owner.mysafefloridahome.leads.PartnerRoutingService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class DecisionEngineService {
@@ -40,14 +41,15 @@ public class DecisionEngineService {
                 scenarioFor(input.recommendationType()), input.recommendationType(), input.homeType());
 
         return switch (partnerType) {
-            case "opening-protection-contractor" -> openingProtectionResult(input.priority());
+            case "opening-protection-contractor" -> openingProtectionResult(input);
             case "roof-retrofit-specialist" -> roofRetrofitResult(input.recommendationType(), input.priority());
             case "roofing-contractor" -> roofingResult(input.recommendationType(), input.priority());
             default -> unsureRecommendationResult(input.priority(), input.homeType());
         };
     }
 
-    private HomeDecisionResult openingProtectionResult(String priority) {
+    private HomeDecisionResult openingProtectionResult(HomeDecisionInput input) {
+        String priority = input.priority();
         ActionLink primary = "compare-quotes".equals(priority)
                 ? new ActionLink("Get the opening-protection quote path", "/guides/impact-windows-vs-shutters/")
                 : new ActionLink("Review opening protection first", "/improvements/opening-protection/");
@@ -62,6 +64,7 @@ public class DecisionEngineService {
                 evidence("recommended-improvements"),
                 primary,
                 secondary,
+                quotePrepQuickStart(input, "Opening protection recommendation from the report"),
                 List.of(
                         "Confirm which openings the report actually flags.",
                         "Keep the first quote tied to the eligible opening scope.",
@@ -92,6 +95,7 @@ public class DecisionEngineService {
                 evidence("authorized-improvements"),
                 "compare-quotes".equals(priority) ? quote : route,
                 "compare-quotes".equals(priority) ? route : quote,
+                null,
                 List.of(
                         "Read the exact recommendation language again.",
                         "Verify the contractor license matches the retrofit scope.",
@@ -124,6 +128,7 @@ public class DecisionEngineService {
                 evidence("roof-replacement"),
                 "compare-quotes".equals(priority) ? quote : route,
                 "compare-quotes".equals(priority) ? route : new ActionLink("See what the program may pay for", "/program/what-msfh-will-pay-for/"),
+                null,
                 List.of(
                         "Check whether the report truly ties replacement to eligible work.",
                         "Keep SWR logic visible in the first quote review.",
@@ -153,6 +158,9 @@ public class DecisionEngineService {
                 evidence("select-projects"),
                 primary,
                 new ActionLink("See what the program may pay for", "/program/what-msfh-will-pay-for/"),
+                quotePrepQuickStart(
+                        new HomeDecisionInput("received-recommendation", "opening-protection", "attached", priority),
+                        "Attached-home scope may need opening protection first before broader roof work is priced"),
                 List.of(
                         "Verify whether attached-home rules narrow the project list.",
                         "Check opening protection before you compare roof-heavy bids.",
@@ -177,6 +185,7 @@ public class DecisionEngineService {
                 evidence("no-recommendations"),
                 new ActionLink("Review the no-recommendations path", "/program/no-recommended-improvements/"),
                 new ActionLink("Return to the inspection report guide", "/program/inspection-report/"),
+                null,
                 List.of(
                         "Confirm the report result inside the portal.",
                         "Check whether anything in the record needs clarification.",
@@ -204,6 +213,7 @@ public class DecisionEngineService {
                 evidence("support-hub"),
                 new ActionLink("See what the portal status changes", "/program/portal-statuses/"),
                 new ActionLink("Review the RFI path", "/program/rfi/"),
+                null,
                 List.of(
                         "Figure out what the current status actually blocks.",
                         "Resolve missing information before treating the project as secure.",
@@ -229,6 +239,7 @@ public class DecisionEngineService {
                 evidence("report-results"),
                 new ActionLink("Start with the inspection report guide", "/program/inspection-report/"),
                 new ActionLink("See how project choice works after the report", "/program/choose-project/"),
+                null,
                 List.of(
                         "Wait for the recommended improvements section.",
                         "Use the report to narrow the first project.",
@@ -259,6 +270,7 @@ public class DecisionEngineService {
                 evidence("recommended-improvements"),
                 primary,
                 secondary,
+                null,
                 List.of(
                         "Read the recommended improvements section again.",
                         "Name the first project before you shop the quote.",
@@ -298,5 +310,25 @@ public class DecisionEngineService {
 
     private HomeRouteBranch branch(String label, ActionLink action, String note) {
         return new HomeRouteBranch(label, action, note);
+    }
+
+    private ActionLink quotePrepQuickStart(HomeDecisionInput input, String recommendationLine) {
+        UriComponentsBuilder builder = UriComponentsBuilder.fromPath("/tools/opening-protection/quote-prep-brief/build/")
+                .queryParam("homeType", input.homeType())
+                .queryParam("scopeLane", "mixed")
+                .queryParam("recommendationLine", recommendationLine);
+        if ("received-recommendation".equals(input.reportState())
+                || "received-no-recommendations".equals(input.reportState())) {
+            builder.queryParam("reportPageReceived", true);
+        }
+        if ("compare-quotes".equals(input.priority())) {
+            builder.queryParam("compareQuotesRequested", true);
+        }
+        if ("attached".equals(input.homeType())) {
+            builder.queryParam(
+                    "attachedScopeNote",
+                    "Because this home may be attached or townhouse-like, keep the first quote inside the narrower attached-home opening scope until the path is confirmed.");
+        }
+        return new ActionLink("Build the first quote request", builder.build().encode().toUriString());
     }
 }
