@@ -39,11 +39,16 @@
                             <label class="console-field">
                                 <span>Where are you right now?</span>
                                 <select name="reportState">
-                                    <option value="received-recommendation" selected="${"received-recommendation".equals(page.decisionInput().reportState())}">I have the report and a recommendation</option>
-                                    <option value="received-no-recommendations" selected="${"received-no-recommendations".equals(page.decisionInput().reportState())}">I have the report but no recommendations</option>
-                                    <option value="status-problem" selected="${"status-problem".equals(page.decisionInput().reportState())}">I am stuck on Group 5, RFI, or portal status</option>
-                                    <option value="not-yet" selected="${"not-yet".equals(page.decisionInput().reportState())}">I do not have the report yet</option>
+                                    <optgroup label="Most homeowners start here">
+                                        <option value="received-recommendation" selected="${"received-recommendation".equals(page.decisionInput().reportState())}">I have the report and a recommendation</option>
+                                        <option value="received-no-recommendations" selected="${"received-no-recommendations".equals(page.decisionInput().reportState())}">I have the report but no recommendations</option>
+                                    </optgroup>
+                                    <optgroup label="Secondary paths">
+                                        <option value="status-problem" selected="${"status-problem".equals(page.decisionInput().reportState())}">I am stuck on Group 5, RFI, or portal status</option>
+                                        <option value="not-yet" selected="${"not-yet".equals(page.decisionInput().reportState())}">I do not have the report yet</option>
+                                    </optgroup>
                                 </select>
+                                <small class="console-field-note">Use the secondary paths only when the report is still missing or the file is blocked by a support-state problem.</small>
                             </label>
                             <label class="console-field">
                                 <span>What recommendation seems closest?</span>
@@ -216,6 +221,27 @@
                 title = "Interpret first, choose second, quote third",
                 intro = "The product is strongest when it stays inside one narrow flow: report meaning, project priority, then contractor and quote preparation."
             )
+
+            <section class="section quote-prep-bridge">
+                <div class="section-shell quote-prep-bridge__layout">
+                    <div class="quote-prep-bridge__copy">
+                        <p class="eyebrow">Opening-protection quote prep</p>
+                        <h2>When the report points to opening protection, narrow the first contractor request</h2>
+                        <p>Use the quote-prep brief after the recommendation is clear and before the conversation drifts into a whole-house package, mixed project, or vague compare-pricing loop.</p>
+                        <div class="action-row">
+                            <a class="primary-button" href="/tools/opening-protection/quote-prep-brief/">Open the Quote-Prep Brief</a>
+                            <a class="secondary-button" href="/improvements/opening-protection/">Read the Opening-Protection Route</a>
+                        </div>
+                    </div>
+                    <div class="quote-prep-bridge__list-wrap">
+                        <ul class="quote-prep-bridge__list">
+                            <li>Start from one recommendation line and one narrow opening scope.</li>
+                            <li>Ask each contractor about the same windows, shutters, or doors first.</li>
+                            <li>Use the share link and PDF only after the first request is readable on its own.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
             <section class="section home-alerts">
                 <div class="section-shell">

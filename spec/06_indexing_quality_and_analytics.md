@@ -34,6 +34,20 @@ This protects the wedge while removing the need for the human to remember every 
 - pure status pages
 - partner finder pages
 - deep draw-request help pages
+- B2C utility tools that are reachable from indexed pages but are not themselves search-entry targets
+
+### Utility-surface rule
+Some routes should be easy to reach but still stay out of search.
+
+This includes:
+
+- quote-prep entry and builder tools
+- per-session or tokenized result pages
+- shareable brief views and PDF export views
+- internal office records and helper sheets
+
+These routes should be optimized for completion, clarity, and share quality, not for SERP acquisition.
+They can be linked from indexed parents such as home, the `contractor-quotes` program route, improvement pages, and evergreen guides, while still remaining `noindex` and excluded from the sitemap.
 
 ## Route promotion rules
 A route can move from `noindex` to `index` only when:
@@ -54,6 +68,14 @@ Track at minimum:
 - `lead_submit_success`
 - `lead_submit_error`
 - `partner_outbound_click`
+
+Utility flows can extend this with narrower operational events such as:
+
+- first-share creation
+- brief link copy
+- outbound message copy
+- public brief open
+- reply-quality signal logging
 
 ## Early dashboard metrics
 - indexed pages
@@ -115,6 +137,7 @@ If no route qualifies, the agent should still record `hold` with a reason so the
 - no page should be indexed without source freshness dates
 - no route family should expand before the first route in that family earns impressions
 - if a route has no meaningful decision value beyond the Support Center, keep it out of the index
+- if a route is transactional, tokenized, or acts like a utility workspace, keep it out of the index even when it is reachable from indexed pages
 
 ## Kill rules
 Kill or demote any route family that:

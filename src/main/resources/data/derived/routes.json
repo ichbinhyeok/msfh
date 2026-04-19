@@ -77,7 +77,7 @@
     "family": "program",
     "title": "MSFH report says no recommended improvements",
     "phase": "held_support",
-    "indexStatus": "index",
+    "indexStatus": "noindex",
     "sourceFreshnessStatus": "fresh",
     "dominantImprovementType": "",
     "triggerState": "support_state_problem",

@@ -177,8 +177,8 @@ public class PageService {
                         "Do not use a guide as a substitute for the main route that owns the decision.",
                         "Do not bounce across three similar guides when one page already answers the blocker.",
                         "Do not treat a checklist page like approval or reimbursement confirmation."),
-                "Decision guides",
-                "Each guide should answer one supporting question clearly, then send you back to the route that owns the real next step.",
+                "Core decision guides",
+                "Keep the guide layer close to the main wedge: report interpretation, improvement choice, quote discipline, and attached-home scope checks.",
                 detailCardsForPaths(List.of(
                         "/guides/msfh-inspection-report-what-next/",
                         "/guides/impact-windows-vs-shutters/",
@@ -187,15 +187,15 @@ public class PageService {
                         "/guides/opening-protection-quote-checklist/",
                         "/guides/roof-to-wall-quote-checklist/",
                         "/guides/swr-roof-quote-checklist/",
-                        "/guides/attached-home-scope-under-msfh/",
+                        "/guides/attached-home-scope-under-msfh/")),
+                "Support and closeout guides",
+                "Use these only when the file is blocked, the report reached a dead end, or the job is already in closeout. They should not displace the main post-report routes.",
+                detailCardsForPaths(List.of(
                         "/guides/no-recommended-improvements-what-next/",
                         "/guides/msfh-rfi-response-checklist/",
                         "/guides/msfh-group-5-what-next/",
                         "/guides/msfh-portal-statuses-explained/",
                         "/guides/final-inspection-draw-request-checklist/")),
-                "",
-                "",
-                List.of(),
                 sourceStack);
     }
 

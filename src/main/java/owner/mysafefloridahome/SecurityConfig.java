@@ -28,7 +28,12 @@ public class SecurityConfig {
                     }
                     authorize.anyRequest().permitAll();
                 })
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/leads/**", "/api/contact/**"));
+                .csrf(csrf -> csrf.ignoringRequestMatchers(
+                        "/api/leads/**",
+                        "/api/contact/**",
+                        "/tools/opening-protection/quote-prep-brief/**",
+                        "/vendor-handoffs/**",
+                        "/vendor-presets/**"));
         if (adminConfigured) {
             http.httpBasic(withDefaults());
         }

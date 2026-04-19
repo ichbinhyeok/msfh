@@ -45,6 +45,7 @@
 !{var riskTitle = "closeout".equals(decisionStage) ? "Do not treat finished work as a finished file"
         : isSupportRoute ? "Do not let the blocker push you into the wrong next step"
         : "Avoid the expensive shortcuts";}
+!{var showQuotePrepBridge = "contractor-quotes".equals(slug);}
 @template.layout.page(
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
@@ -128,6 +129,29 @@
                     </div>
                 </div>
             </section>
+
+            @if(showQuotePrepBridge)
+                <section class="section quote-prep-bridge quote-prep-bridge--route">
+                    <div class="section-shell quote-prep-bridge__layout">
+                        <div class="quote-prep-bridge__copy">
+                            <p class="eyebrow">Opening-protection quote prep</p>
+                            <h2>When the quote is really about openings, lock the first request before you compare price</h2>
+                            <p>This route helps you vet any estimate. When the recommendation points to windows, doors, shutters, or garage openings, use the quote-prep brief so every contractor reacts to the same first scope instead of a broad package.</p>
+                            <div class="action-row">
+                                <a class="primary-button" href="/tools/opening-protection/quote-prep-brief/">Open the Quote-Prep Brief</a>
+                                <a class="secondary-button" href="/improvements/opening-protection/">Read the Opening-Protection Route</a>
+                            </div>
+                        </div>
+                        <div class="quote-prep-bridge__list-wrap">
+                            <ul class="quote-prep-bridge__list">
+                                <li>Use it when the report already points to opening protection and the first send still needs cleaner boundaries.</li>
+                                <li>Keep attached-home limits visible before a whole-house proposal turns into the default.</li>
+                                <li>Compare prices only after each contractor is looking at the same openings and the same narrow first ask.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            @endif
 
             @if(page.page().actionChecklist() != null)
                 @template.shared.actionChecklist(checklist = page.page().actionChecklist())

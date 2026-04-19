@@ -94,6 +94,29 @@
                 </div>
             </section>
 
+            @if("opening-protection".equals(slug))
+                <section class="section quote-prep-bridge quote-prep-bridge--route">
+                    <div class="section-shell quote-prep-bridge__layout">
+                        <div class="quote-prep-bridge__copy">
+                            <p class="eyebrow">Next homeowner tool</p>
+                            <h2>Build the opening-protection quote-prep brief</h2>
+                            <p>Use the brief when the report already points to opening protection and you need one narrow contractor request before broader pricing starts.</p>
+                            <div class="action-row">
+                                <a class="primary-button" href="/tools/opening-protection/quote-prep-brief/">Open the Quote-Prep Brief</a>
+                                <a class="secondary-button" href="/guides/opening-protection-quote-checklist/">Review the Quote Checklist</a>
+                            </div>
+                        </div>
+                        <div class="quote-prep-bridge__list-wrap">
+                            <ul class="quote-prep-bridge__list">
+                                <li>Name the first quote focus before anyone prices the whole house.</li>
+                                <li>Keep attached-home caveats visible if the property is townhouse-like or connected.</li>
+                                <li>Use one shareable brief so every contractor is reacting to the same first scope.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            @endif
+
             <section class="section">
                 <div class="section-shell two-column">
                     <div>

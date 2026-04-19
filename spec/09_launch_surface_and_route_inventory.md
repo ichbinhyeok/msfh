@@ -66,6 +66,26 @@ Only these route families should index in the first release:
 - `/counties/{county}/roofing/`
 - partner finder pages
 
+## First `noindex` utility surface
+These routes are part of the product, not part of the indexed SERP surface.
+
+- `/tools/opening-protection/quote-prep-brief/`
+- `/tools/opening-protection/quote-prep-brief/build/`
+- `/tools/opening-protection/quote-prep-brief/result/{internalToken}/`
+- `/tools/opening-protection/quote-prep-brief/share/{publicToken}/`
+- `/tools/opening-protection/quote-prep-brief/share/{publicToken}/export/pdf/`
+- `/tools/opening-protection/quote-prep-brief/internal/{internalToken}/`
+- `/vendor-packets/opening-protection/estimator-handoff/`
+- `/vendor-packets/opening-protection/quote-boundary/`
+- `/vendor-packets/opening-protection/office-preset/`
+
+### Utility-surface purpose
+- home can send a homeowner into quote prep without turning the tool into a search landing page
+- the `contractor-quotes` program route can catch search traffic and hand opening-protection users into the same tool without indexing the tool itself
+- the opening-protection improvement route can hand off to the same tool when the recommendation is already clear
+- the public-facing utility stays narrow while internal helper routes remain available behind it
+- tokenized and operational pages stay out of the sitemap and out of index coverage
+
 ## Why this launch surface is enough
 - captures the strongest post-report trigger states
 - stays out of pure eligibility clutter

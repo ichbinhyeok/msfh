@@ -8,7 +8,9 @@ target/
 jte-classes/
 test-results/
 tmp/
+output/
 storage/leads/*.csv
+storage/vendor/*.csv
 msfh-run-root*.txt
 *.log
 *.err.log

@@ -52,6 +52,8 @@ public class AppProperties {
         private String leadsPath;
         private String eventsPath;
         private String partnerInquiriesPath;
+        private String vendorHandoffsPath;
+        private String vendorPresetsPath;
 
         public String getLeadsPath() {
             return leadsPath;
@@ -75,6 +77,22 @@ public class AppProperties {
 
         public void setPartnerInquiriesPath(String partnerInquiriesPath) {
             this.partnerInquiriesPath = partnerInquiriesPath;
+        }
+
+        public String getVendorHandoffsPath() {
+            return vendorHandoffsPath;
+        }
+
+        public void setVendorHandoffsPath(String vendorHandoffsPath) {
+            this.vendorHandoffsPath = vendorHandoffsPath;
+        }
+
+        public String getVendorPresetsPath() {
+            return vendorPresetsPath;
+        }
+
+        public void setVendorPresetsPath(String vendorPresetsPath) {
+            this.vendorPresetsPath = vendorPresetsPath;
         }
     }
 

@@ -9,6 +9,10 @@
 ## Latest decisions
 - Canonical page unit is `Florida + post-inspection decision route`.
 - Phase 1 public focus is not eligibility. It is `report understanding + project choice + quote preparation`.
+- The opening-protection packet is now a `homeowner-first quote-prep brief`, with vendor reuse kept as an optional secondary layer.
+- The main question is no longer `what should a contractor office send first?`; it is `what can a homeowner carry into the first quote conversation to keep it narrow?`
+- Opening-protection free-layer repeatability should be judged on only three signals: public brief open, brief link/message copy, and homeowner reply with the requested report page, photos, or clarified scope.
+- Ignore internal estimator navigation, boundary-sheet clicks, PDF export opens, and other secondary route activity when validating first-send repetition.
 - Current program facts should be grounded in the live website, Support Center, and recent official state materials before old PDFs.
 - Initial monetization should prioritize opening protection and roof-related contractor routing, not generic directories.
 - County overlays should only ship when contractor density, local threshold differences, or measured demand justify them.
@@ -17,6 +21,10 @@
 - Purchased production domain is `scopeverdict.com`, and production canonical URLs should resolve through `APP_BASE_URL=https://scopeverdict.com`.
 
 ## What changed this session
+- Reframed the opening-protection packet from `vendor-first pre-quote brief` into a `homeowner-first quote-prep brief`.
+- Added homeowner-first canonical tool paths while keeping old vendor paths as compatibility aliases.
+- Demoted estimator handoff, quote boundary, and office setup behind the shareable brief so the free layer stays one sendable asset.
+- Exposed first-send signals on the result surface and wired send-note copy plus brief-link copy tracking toward the same handoff record.
 - Scaffolded the Spring Boot `4.0.5` plus `jte` application with Maven wrapper under `owner.mysafefloridahome`.
 - Added normalized source, program, improvement, guide, trust, route, and ops seed files under `src/main/resources/data`.
 - Implemented server-rendered home, program, improvement, guide, trust, sitemap, robots, and admin routes.
@@ -29,11 +37,11 @@
 - Added a shared `decision engine` route module across home, program, improvement, and guide pages so the product reads as a decision system instead of a FAQ mirror.
 
 ## Next recommended tasks
+- Get one real homeowner to share the quote-prep brief with a contractor before pricing widens.
+- Confirm first-send signal in order: share-note copy or brief-link copy, then public brief open, then narrower return.
+- Hold estimator customization, quote-boundary customization, and broader setup work until repeat share evidence exists.
 - Start the app and run browser QA on mobile and desktop widths against the rendered public routes.
 - Replace seed editorial copy with reviewed production copy route by route, starting with the four public program routes.
-- Add more route-status rows for every launch route and wire admin totals to real Search Console or analytics sources later.
-- Decide whether the public-facing name should stay close to `My Safe Florida Home` or move one layer more neutral before launch.
-- Add county overlay seeds only after statewide routes show demand and partner coverage.
 
 ## Open questions
 - Should the public-facing brand reference `My Safe Florida Home` directly or stay one level more neutral to reduce trust friction?

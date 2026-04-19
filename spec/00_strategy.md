@@ -87,6 +87,19 @@ It is:
 
 `Florida post-inspection decision engine for recommended improvements, project choice, and contractor quote routing.`
 
+## Product layering
+The main product should stay homeowner-first.
+
+- Core layer: report understanding, project choice, and homeowner quote prep
+- First workflow asset: homeowner-built opening-protection quote-prep brief
+- Optional layer: contractor-office reuse of the same brief when an office wants a customer-facing first-send asset
+
+This means the product should not behave like a broad contractor suite.
+
+- The homeowner should be able to build and carry the brief without vendor setup.
+- Vendor workflow insertion is still valid, but it is secondary.
+- Internal vendor setup, presets, and handoff sheets stay behind the free homeowner brief.
+
 ## 90-day objective
 Within 90 days, the site should prove three things:
 

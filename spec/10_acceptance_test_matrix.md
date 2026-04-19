@@ -14,6 +14,7 @@ This matrix defines what must work before the first public release can be consid
 - Every held route emits `noindex`
 - Sitemap includes only indexable routes
 - Robots file blocks admin and API paths
+- Utility surfaces such as quote-prep entry, builder, result, share, and export stay `noindex` and stay out of the sitemap
 
 ## Content-quality tests
 - Every public page contains:
@@ -39,6 +40,10 @@ This matrix defines what must work before the first public release can be consid
 - home works on mobile width
 - program and improvement pages keep primary CTA visible without layout breakage
 - forms stay email-first and do not require phone
+- home provides a clear path into the opening-protection quote-prep tool
+- contractor-quotes program route provides a clear path into the same quote-prep tool when the narrow first quote is really opening protection
+- opening-protection improvement route provides a clear path into the same quote-prep tool
+- quote-prep builder, result, and share surfaces remain readable and usable without exposing internal office tools on the public-facing path
 
 ## Source freshness tests
 - stale official sources block index promotion
