@@ -23,7 +23,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/site.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1C3Q631V0G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1C3Q631V0G', { send_page_view: false });
+    </script>
     <script defer src="/site.js"></script>
+    <script defer src="/analytics.js"></script>
 </head>
 <body class="${bodyClass}">
     <header class="site-nav">
