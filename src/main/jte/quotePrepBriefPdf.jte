@@ -1,9 +1,7 @@
-@import owner.mysafefloridahome.pages.VendorHandoffDocumentPageView
-@param VendorHandoffDocumentPageView page
-!{var caseReference = page.handoff().handoffId().substring(0, 8).toUpperCase();}
-!{var preparedDate = page.handoff().createdAt().toLocalDate().toString();}
-!{var preparedBy = page.handoff().officeLabel().isBlank() ? "Homeowner-prepared brief" : page.handoff().officeLabel();}
-!{var senderName = page.handoff().senderName().isBlank() ? "Homeowner" : page.handoff().senderName();}
+@import owner.mysafefloridahome.pages.QuotePrepBriefDocumentPageView
+@param QuotePrepBriefDocumentPageView page
+!{var caseReference = page.brief().briefId().substring(0, 8).toUpperCase();}
+!{var preparedDate = page.brief().createdAt().toLocalDate().toString();}
 !{var replyGuidance = page.replyGuidance();}
 !{var missingItems = page.narrative().missingItems();}
 !{var scenarioTitles = String.join("; ", page.narrative().scenarioModules().stream().map(module -> module.title()).toList());}
@@ -11,16 +9,16 @@
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
     currentPath = "/tools/opening-protection/quote-prep-brief/",
-    bodyClass = "vendor-handoff-page vendor-handoff-page--public vendor-handoff-page--pdf",
+    bodyClass = "quote-prep-brief-page quote-prep-brief-page--public quote-prep-brief-page--pdf",
     content = @`
         <main class="brief-export">
             <div class="section-shell brief-export-shell"
-                 data-track-view="vendor_handoff_pdf_export_open"
+                 data-track-view="quote_prep_brief_pdf_export_open"
                  data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                 data-route-family="vendor-handoff"
+                 data-route-family="quote-prep-brief"
                  data-scenario="opening-protection"
                  data-improvement-type="opening-protection"
-                 data-detail="handoffId=${page.handoff().handoffId()};surface=pdf-export">
+                 data-detail="briefId=${page.brief().briefId()};surface=pdf-export">
                 <div class="brief-export-toolbar">
                     <a class="secondary-button" href="${page.publicBriefPath()}">Back to Web Brief</a>
                     <button class="primary-button" type="button" data-print-page="true">Print or Save PDF</button>
@@ -34,7 +32,7 @@
                         </div>
                         <div class="brief-export-header__title-row">
                             <div class="brief-export-header__title">
-                                <h1>${page.handoff().siteLabel()}</h1>
+                                <h1>${page.brief().siteLabel()}</h1>
                                 <p>This is a first-pass quote request tied to one MSFH report recommendation. Keep the first quote narrow before it turns into whole-house pricing.</p>
                             </div>
                             <div class="brief-export-stamp">
@@ -44,23 +42,9 @@
                         </div>
                         <div class="brief-export-meta">
                             <div class="brief-export-meta__item">
-                                <span>Prepared by</span>
-                                <strong>${preparedBy}</strong>
-                            </div>
-                            <div class="brief-export-meta__item">
-                                <span>Sender</span>
-                                <strong>${senderName}</strong>
-                            </div>
-                            <div class="brief-export-meta__item">
                                 <span>First quote focus</span>
                                 <strong>${page.narrative().scopeLaneLabel()}</strong>
                             </div>
-                            @if(!page.handoff().serviceAreaNote().isBlank())
-                                <div class="brief-export-meta__item brief-export-meta__item--wide">
-                                    <span>Coverage note</span>
-                                    <strong>${page.handoff().serviceAreaNote()}</strong>
-                                </div>
-                            @endif
                         </div>
                         <p class="brief-export-trust">This brief helps narrow the first quote. It does not approve work, confirm reimbursement, or replace official program instructions.</p>
                     </header>
@@ -76,14 +60,14 @@
                             <p class="brief-export-label">What stays outside it</p>
                             <h2>Not included yet</h2>
                             <ul class="brief-export-list">
-                                <li>${page.handoff().boundaryScopeNote().isBlank() ? "Any opening not named in this brief stays outside the first quote path until the scope is restated clearly in writing." : page.handoff().boundaryScopeNote()}</li>
-                                @if(page.handoff().broadPackageRequested())
+                                <li>${page.brief().boundaryScopeNote().isBlank() ? "Any opening not named in this brief stays outside the first quote path until the scope is restated clearly in writing." : page.brief().boundaryScopeNote()}</li>
+                                @if(page.brief().broadPackageRequested())
                                     <li>Do not compare this brief to a broad whole-house package until the narrower opening-protection scope is restated clearly in writing.</li>
                                 @endif
                             </ul>
                             <p class="brief-export-mini-label">Important limits</p>
                             <ul class="brief-export-compact-list">
-                                <li>${page.handoff().permitHandlingNote().isBlank() ? "Permit and inspection handling still need to be confirmed before signing." : page.handoff().permitHandlingNote()}</li>
+                                <li>${page.brief().permitHandlingNote().isBlank() ? "Permit and inspection handling still need to be confirmed before signing." : page.brief().permitHandlingNote()}</li>
                                 <li>This brief does not approve work or reimbursement.</li>
                                 <li>Any window or door not named for this first quote stays outside scope.</li>
                                 @if(!scenarioTitles.isBlank())

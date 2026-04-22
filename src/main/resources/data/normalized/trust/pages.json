@@ -89,11 +89,11 @@
       "routeId": "trust-contact",
       "title": "Contact",
       "description": "How to reach the site operator without implying program affiliation.",
-      "quickAnswer": "Use this contact path for editorial corrections or a paid pilot conversation tied to one improvement route, not for official program case handling.",
-      "intro": "Use this contact page for site feedback, factual corrections, or a paid pilot inquiry tied to one improvement-specific route.",
+      "quickAnswer": "Use this contact path for homeowner questions about the site's guidance, factual corrections, or editorial feedback, not for official program case handling.",
+      "intro": "Use this contact page for site feedback, factual corrections, or questions about which public route or guide to read next.",
       "whatNotToAssume": [
         "Do not assume this inbox can resolve an official application issue.",
-        "Do not assume partner outreach belongs on broad generic pages.",
+        "Do not assume this inbox can review contractor bids or approve scope.",
         "Do not assume a route should stay live if its source stack changed."
       ],
       "primaryCta": {
@@ -112,8 +112,8 @@
       "bodySections": [
         "This inbox is for the editorial product, not for official program case management.",
         "If a page appears stale or unclear, send the route path and the source that changed so the next review can happen quickly.",
-        "Licensed Florida contractors can use this path for a paid pilot conversation when the fit stays narrow around one route, one scope discipline, and clear county coverage.",
-        "Commercial conversations should stay tied to improvement-specific routes instead of broad directory placement."
+        "If you are not sure which route fits your report, explain the recommendation wording and what is blocking the next step.",
+        "Use official program support channels for application status, reimbursement, inspections, and portal-case handling."
       ],
       "relatedLinks": [
         {
@@ -163,13 +163,13 @@
       "slug": "privacy",
       "routeId": "trust-privacy",
       "title": "Privacy",
-      "description": "Privacy terms for route guidance, partner inquiries, and event logging.",
-      "quickAnswer": "The site stores submitted form fields and route-event data only for route guidance, editorial review, partner pilot review, and limited follow-up tied to this product.",
-      "intro": "The site collects the fields you submit in homeowner and partner forms, plus route-event data used to understand which decision paths are useful and where route copy needs review.",
+      "description": "Privacy terms for route guidance, homeowner submissions, and event logging.",
+      "quickAnswer": "The site stores submitted homeowner form fields and route-event data only for route guidance, editorial review, and limited follow-up tied to this product.",
+      "intro": "The site collects the fields you submit in homeowner forms, plus route-event data used to understand which decision paths are useful and where route copy needs review.",
       "whatNotToAssume": [
         "Do not submit account credentials, grant portal logins, Social Security numbers, insurance policy numbers, or permit documents.",
         "Do not assume stored route data is the same thing as official program data.",
-        "Do not assume a partner inquiry creates placement, endorsement, or guaranteed volume."
+        "Do not assume this site keeps the same records or permissions as an official program portal."
       ],
       "primaryCta": {
         "label": "Review the next-step lead form",
@@ -186,7 +186,7 @@
       "bodySections": [
         "The site stores the form fields you enter, including contact details, route context, and the message or route focus you submit.",
         "The site also stores route-event data such as CTA clicks and form opens so the route logic can be reviewed and improved.",
-        "Submissions are used for next-step guidance, editorial corrections, route QA, and route-specific partner pilot review. They are not used for official program case handling.",
+        "Submissions are used for next-step guidance, editorial corrections, and route QA. They are not used for official program case handling.",
         "This phase-1 build uses file-backed operational storage. Access should stay limited to the operator and authorized service providers needed to host or maintain the site.",
         "If you need a correction or deletion review for data you submitted, use the contact path and identify the email address used in the submission so the request can be reviewed manually.",
         "Some page assets or infrastructure providers may receive standard browser request data such as IP address, user agent, and referrer when the page loads."
@@ -206,12 +206,12 @@
       "slug": "terms",
       "routeId": "trust-terms",
       "title": "Terms",
-      "description": "Usage terms for the independent editorial product and paid pilot inquiry lane.",
+      "description": "Usage terms for the independent editorial product.",
       "quickAnswer": "Use the site as an independent decision aid, not as legal, insurance, permitting, contractor, or official program advice.",
       "intro": "The site provides route guidance built from current public materials and internal editorial logic. It does not replace official program instructions or professional advice.",
       "whatNotToAssume": [
-        "Do not assume any page guarantees eligibility, reimbursement, placement, or contractor volume.",
-        "Do not assume partner pilot review creates endorsement, exclusivity, or approval.",
+        "Do not assume any page guarantees eligibility, reimbursement, or contractor performance.",
+        "Do not assume this site endorses or assigns contractors.",
         "Do not assume route copy replaces permit, insurance, pricing, or legal review."
       ],
       "primaryCta": {
@@ -230,8 +230,7 @@
       "bodySections": [
         "Use the site as a decision aid only. Verify project choices against your report, current official materials, permit rules, insurer requirements, and contractor documents.",
         "You are responsible for the information you submit and for the decisions you make after reading the site.",
-        "Commercial routing and partner review stay discretionary and route-specific. No page or inquiry creates a promise of placement, exclusivity, or lead volume.",
-        "The site may change route copy, source support, pricing, and pilot availability as the program or editorial review changes.",
+        "The site may change route copy, source support, and availability as the program or editorial review changes.",
         "Questions about privacy, corrections, or route-specific issues should be sent through the contact path."
       ],
       "relatedLinks": [

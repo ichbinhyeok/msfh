@@ -24,7 +24,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @TestPropertySource(properties = {
         "app.storage.leads-path=target/test-data/leads.csv",
         "app.storage.events-path=target/test-data/events.csv",
-        "app.storage.partner-inquiries-path=target/test-data/partner-inquiries.csv",
         "app.admin.username=admin",
         "app.admin.password=test-admin-password"
 })
@@ -40,7 +39,6 @@ class LeadControllerTests {
     void cleanStorage() throws Exception {
         Files.deleteIfExists(Path.of("target/test-data/leads.csv"));
         Files.deleteIfExists(Path.of("target/test-data/events.csv"));
-        Files.deleteIfExists(Path.of("target/test-data/partner-inquiries.csv"));
     }
 
     @Test
@@ -231,52 +229,6 @@ class LeadControllerTests {
     }
 
     @Test
-    void partnerInquiryWritesStorageAndRedirects() throws Exception {
-        mockMvc.perform(post("/api/contact/capture")
-                        .param("originPath", "/contact/")
-                        .param("inquiryType", "partner_pilot")
-                        .param("routeFocus", "roof-to-wall")
-                        .param("contactName", "Jordan Lee")
-                        .param("company", "Coastal Retrofit Group")
-                        .param("email", "partner@example.com")
-                        .param("phone", "")
-                        .param("licenseNumber", "CCC1333333")
-                        .param("countiesServed", "Miami-Dade, Broward")
-                        .param("message", "We handle retrofit-only roof-to-wall projects and stay inside report scope.")
-                        .param("consent", "true"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/contact/?partner=success#partner-inquiry"));
-
-        String inquiries = Files.readString(Path.of("target/test-data/partner-inquiries.csv"), StandardCharsets.UTF_8);
-        String events = Files.readString(Path.of("target/test-data/events.csv"), StandardCharsets.UTF_8);
-
-        assertThat(inquiries).contains("Coastal Retrofit Group");
-        assertThat(inquiries).contains("roof-to-wall");
-        assertThat(events).contains("partner_inquiry_submit_success");
-    }
-
-    @Test
-    void partnerInquiryEscapesSpreadsheetFormulaPrefixes() throws Exception {
-        mockMvc.perform(post("/api/contact/capture")
-                        .param("originPath", "/contact/")
-                        .param("inquiryType", "partner_pilot")
-                        .param("routeFocus", "roof-to-wall")
-                        .param("contactName", "Jordan Lee")
-                        .param("company", "@malicious-sheet-link")
-                        .param("email", "partner@example.com")
-                        .param("phone", "")
-                        .param("licenseNumber", "CCC1333333")
-                        .param("countiesServed", "Miami-Dade, Broward")
-                        .param("message", "We handle retrofit-only roof-to-wall projects and stay inside report scope.")
-                        .param("consent", "true"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/contact/?partner=success#partner-inquiry"));
-
-        String inquiries = Files.readString(Path.of("target/test-data/partner-inquiries.csv"), StandardCharsets.UTF_8);
-        assertThat(inquiries).contains("'@malicious-sheet-link");
-    }
-
-    @Test
     void adminSummaryReflectsStoredLeadAndClickSignals() throws Exception {
         mockMvc.perform(post("/api/leads/capture")
                         .param("originPath", "/improvements/roof-to-wall/")
@@ -309,20 +261,6 @@ class LeadControllerTests {
                                 """))
                 .andExpect(status().isNoContent());
 
-        mockMvc.perform(post("/api/contact/capture")
-                        .param("originPath", "/contact/")
-                        .param("inquiryType", "partner_pilot")
-                        .param("routeFocus", "roof-to-wall")
-                        .param("contactName", "Jordan Lee")
-                        .param("company", "Coastal Retrofit Group")
-                        .param("email", "partner@example.com")
-                        .param("phone", "")
-                        .param("licenseNumber", "CCC1333333")
-                        .param("countiesServed", "Miami-Dade, Broward")
-                        .param("message", "We handle retrofit-only roof-to-wall projects and stay inside report scope.")
-                        .param("consent", "true"))
-                .andExpect(status().is3xxRedirection());
-
         String html = mockMvc.perform(get("/admin/")
                         .header("Authorization", ADMIN_AUTH))
                 .andExpect(status().isOk())
@@ -331,10 +269,11 @@ class LeadControllerTests {
                 .getContentAsString();
 
         assertThat(html).contains("roof-retrofit-specialist");
-        assertThat(html).contains("Stored pilot inquiries");
-        assertThat(html).contains("What contractors want to sponsor");
+        assertThat(html).contains("Leads by contractor type");
+        assertThat(html).contains("What homeowners are being pointed toward");
         assertThat(html).contains("roof-to-wall");
+        assertThat(html).contains("CTA activity");
         assertThat(html).contains("route_cta_click");
-        assertThat(html).contains("improvement");
+        assertThat(html).contains("Which route family is earning action");
     }
 }

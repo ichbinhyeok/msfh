@@ -7,7 +7,7 @@
       "description": "Got the report and not sure what to read first? Start with the recommendation, the cost notes, and the 1802 summary before you call contractors.",
       "triggerState": "report_received_need_next_step",
       "quickAnswer": "Read the recommended improvements section, the cost notes, and the 1802 summary first. That tells you what the report is actually opening up before any quote starts widening the job.",
-      "workflowMeaning": "This is the handoff between inspection and the real decision. The report is not approval, and it is not a signal to sign the first quote that mentions the program.",
+      "workflowMeaning": "This is the step between inspection and the real decision. The report is not approval, and it is not a signal to sign the first quote that mentions the program.",
       "coverageNotes": [
         "The report may list recommended improvements, cost estimates, and the 1802 summary.",
         "The grant and inspection remain separate applications.",

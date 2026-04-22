@@ -3,9 +3,9 @@ package owner.mysafefloridahome.leads;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PartnerRoutingService {
+public class ContractorTypeService {
 
-    public String resolvePartnerType(String scenario, String improvementType, String homeType) {
+    public String resolveContractorType(String scenario, String improvementType, String homeType) {
         String normalizedScenario = normalize(scenario);
         String normalizedImprovementType = normalize(improvementType);
         String normalizedHomeType = normalize(homeType);

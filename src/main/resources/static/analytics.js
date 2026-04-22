@@ -60,13 +60,8 @@
 
     [
       [/^\/tools\/opening-protection\/quote-prep-brief\/result\/[^/]+\/$/, "/tools/opening-protection/quote-prep-brief/result/"],
-      [/^\/vendor-handoffs\/opening-protection\/[^/]+\/$/, "/vendor-handoffs/opening-protection/"],
-      [/^\/tools\/opening-protection\/quote-prep-brief\/internal\/[^/]+\/$/, "/tools/opening-protection/quote-prep-brief/internal/"],
-      [/^\/vendor-handoffs\/opening-protection\/record\/[^/]+\/$/, "/vendor-handoffs/opening-protection/record/"],
       [/^\/tools\/opening-protection\/quote-prep-brief\/share\/[^/]+\/export\/pdf\/$/, "/tools/opening-protection/quote-prep-brief/share/export/pdf/"],
-      [/^\/vendor-handoffs\/opening-protection\/brief\/[^/]+\/export\/pdf\/$/, "/vendor-handoffs/opening-protection/brief/export/pdf/"],
-      [/^\/tools\/opening-protection\/quote-prep-brief\/share\/[^/]+\/$/, "/tools/opening-protection/quote-prep-brief/share/"],
-      [/^\/vendor-handoffs\/opening-protection\/brief\/[^/]+\/$/, "/vendor-handoffs/opening-protection/brief/"]
+      [/^\/tools\/opening-protection\/quote-prep-brief\/share\/[^/]+\/$/, "/tools/opening-protection/quote-prep-brief/share/"]
     ].forEach(function (entry) {
       normalized = normalized.replace(entry[0], entry[1]);
     });
@@ -100,9 +95,8 @@
       return "trust";
     }
     if (path.indexOf("/tools/opening-protection/quote-prep-brief/") === 0
-        || path.indexOf("/vendor-packets/") === 0
-        || path.indexOf("/vendor-handoffs/") === 0) {
-      return "vendor-handoff";
+        ) {
+      return "quote-prep-brief";
     }
     if (path.indexOf("/admin/") === 0) {
       return "admin";
@@ -120,11 +114,8 @@
     if (attributeValue) {
       return attributeValue;
     }
-    if (derivePageFamily(path) === "vendor-handoff") {
+    if (derivePageFamily(path) === "quote-prep-brief") {
       return "opening-protection";
-    }
-    if (path === "/contact/" && document.querySelector("[data-partner-form='true']")) {
-      return "partner_pilot";
     }
     return "";
   }
@@ -138,9 +129,7 @@
       var segments = path.split("/");
       return segments.length > 2 ? segments[2] : "";
     }
-    if (path.indexOf("opening-protection") !== -1
-        || path.indexOf("/vendor-packets/") === 0
-        || path.indexOf("/vendor-handoffs/") === 0) {
+    if (path.indexOf("opening-protection") !== -1) {
       return "opening-protection";
     }
     return "";
@@ -150,11 +139,8 @@
     if (eventName === "decision_tool_submit" || path === "/") {
       return "home_decision_tool";
     }
-    if (derivePageFamily(path) === "vendor-handoff") {
+    if (derivePageFamily(path) === "quote-prep-brief") {
       return "opening_protection_quote_prep";
-    }
-    if (path === "/contact/" && document.querySelector("[data-partner-form='true']")) {
-      return "partner_pilot_form";
     }
     if (document.querySelector("[data-lead-form='true']")) {
       return "next_step_lead_form";
@@ -247,22 +233,10 @@
       }
     }
 
-    if (query.get("partner") === "success") {
-      var partnerSuccessPayload = consumePending("partner");
-      if (partnerSuccessPayload) {
-        sendGaEvent("partner_inquiry_submit_success", partnerSuccessPayload, { form_name: "partner_pilot_form" });
-      }
-    } else if (query.get("partner") === "error") {
-      var partnerErrorPayload = consumePending("partner");
-      if (partnerErrorPayload) {
-        sendGaEvent("partner_inquiry_submit_error", partnerErrorPayload, { form_name: "partner_pilot_form" });
-      }
-    }
-
-    if (document.querySelector("[data-track-view='vendor_handoff_result_open']")) {
-      var vendorCreatedPayload = consumePending("vendor_handoff");
-      if (vendorCreatedPayload) {
-        sendGaEvent("vendor_handoff_created", vendorCreatedPayload, { tool_name: "opening_protection_quote_prep" });
+    if (document.querySelector("[data-track-view='quote_prep_brief_result_open']")) {
+      var quotePrepCreatedPayload = consumePending("quote_prep_brief");
+      if (quotePrepCreatedPayload) {
+        sendGaEvent("quote_prep_brief_created", quotePrepCreatedPayload, { tool_name: "opening_protection_quote_prep" });
       }
     }
   }
@@ -285,14 +259,6 @@
         var payload = payloadFromElement(form, "lead_submit_attempt");
         setPending("lead", payload);
         sendGaEvent("lead_submit_attempt", payload, { form_name: "next_step_lead_form" });
-      });
-    });
-
-    document.querySelectorAll("[data-partner-form='true']").forEach(function (form) {
-      form.addEventListener("submit", function () {
-        var payload = payloadFromElement(form, "partner_inquiry_submit_attempt");
-        setPending("partner", payload);
-        sendGaEvent("partner_inquiry_submit_attempt", payload, { form_name: "partner_pilot_form" });
       });
     });
   }
@@ -336,21 +302,21 @@
     });
   }
 
-  function attachVendorFlowMirror() {
-    document.querySelectorAll("[data-vendor-prequote-form='true']").forEach(function (form) {
+  function attachQuotePrepFlowMirror() {
+    document.querySelectorAll("[data-quote-prep-form='true']").forEach(function (form) {
       form.addEventListener("submit", function () {
-        setPending("vendor_handoff", {
-          eventType: "vendor_handoff_created",
+        setPending("quote_prep_brief", {
+          eventType: "quote_prep_brief_created",
           routePath: "/tools/opening-protection/quote-prep-brief/result/",
-          routeFamily: "vendor-handoff",
+          routeFamily: "quote-prep-brief",
           scenario: "opening-protection",
           improvementType: "opening-protection"
         });
 
-        sendGaEvent("vendor_handoff_submit_attempt", {
-          eventType: "vendor_handoff_submit_attempt",
+        sendGaEvent("quote_prep_brief_submit_attempt", {
+          eventType: "quote_prep_brief_submit_attempt",
           routePath: currentPagePath(),
-          routeFamily: "vendor-handoff",
+          routeFamily: "quote-prep-brief",
           scenario: "opening-protection",
           improvementType: "opening-protection"
         }, {
@@ -364,6 +330,6 @@
   attachTrackedElementMirrors();
   attachLeadFormMirrors();
   attachDecisionToolMirror();
-  attachVendorFlowMirror();
+  attachQuotePrepFlowMirror();
   handleSubmissionCompletionEvents();
 })();

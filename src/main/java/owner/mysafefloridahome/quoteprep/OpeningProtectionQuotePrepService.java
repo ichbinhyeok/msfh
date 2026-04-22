@@ -1,14 +1,12 @@
-package owner.mysafefloridahome.vendor;
+package owner.mysafefloridahome.quoteprep;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -16,32 +14,30 @@ import owner.mysafefloridahome.AppProperties;
 import owner.mysafefloridahome.leads.LeadEventRequest;
 import owner.mysafefloridahome.leads.LeadStorageService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
-public class OpeningProtectionHandoffService {
+public class OpeningProtectionQuotePrepService {
 
-    private static final String LEGACY_HANDOFFS_HEADER =
-            "handoff_id,internal_token,public_token,created_at,site_label,county_zip,home_type,recommendation_line,scope_openings,office_label,sender_name,reply_instructions,service_area_note,permit_handling_note,attached_scope_note,boundary_scope_note,report_page_received,photos_received,broad_package_requested";
-    private static final String V2_HANDOFFS_HEADER =
-            LEGACY_HANDOFFS_HEADER + ",compare_quotes_requested,reimbursement_assumed,hoa_review_likely";
-    private static final String HANDOFFS_HEADER =
-            V2_HANDOFFS_HEADER + ",scope_lane";
+    private static final String BRIEFS_HEADER =
+            "brief_id,internal_token,public_token,created_at,site_label,county_zip,home_type,recommendation_line,scope_openings,scope_lane,contact_label,sender_name,reply_instructions,service_area_note,permit_handling_note,attached_scope_note,boundary_scope_note,report_page_received,photos_received,broad_package_requested,compare_quotes_requested,reimbursement_assumed,hoa_review_likely";
+    private static final int LEGACY_BRIEF_COLUMN_COUNT = 19;
+    private static final int EXPANDED_BRIEF_COLUMN_COUNT = 22;
+    private static final int CANONICAL_BRIEF_COLUMN_COUNT = 23;
 
     private final AppProperties appProperties;
     private final LeadStorageService leadStorageService;
-    private final Path handoffsPath;
+    private final Path briefsPath;
     private final Path eventsPath;
 
-    public OpeningProtectionHandoffService(AppProperties appProperties, LeadStorageService leadStorageService) {
+    public OpeningProtectionQuotePrepService(AppProperties appProperties, LeadStorageService leadStorageService) {
         this.appProperties = appProperties;
         this.leadStorageService = leadStorageService;
-        this.handoffsPath = Path.of(appProperties.getStorage().getVendorHandoffsPath());
+        this.briefsPath = Path.of(appProperties.getStorage().getQuotePrepBriefsPath());
         this.eventsPath = Path.of(appProperties.getStorage().getEventsPath());
     }
 
-    public synchronized OpeningProtectionHandoffRecord create(OpeningProtectionHandoffRequest request) {
-        OpeningProtectionHandoffRecord record = new OpeningProtectionHandoffRecord(
+    public synchronized OpeningProtectionBriefRecord create(OpeningProtectionBriefRequest request) {
+        OpeningProtectionBriefRecord record = new OpeningProtectionBriefRecord(
                 UUID.randomUUID().toString(),
                 UUID.randomUUID().toString(),
                 UUID.randomUUID().toString(),
@@ -52,8 +48,8 @@ public class OpeningProtectionHandoffService {
                 normalize(request.getRecommendationLine(), ""),
                 normalize(request.getScopeOpenings(), ""),
                 normalizeScopeLane(request.getScopeLane()),
-                normalize(request.getOfficeLabel(), ""),
-                normalize(request.getSenderName(), ""),
+                "",
+                "",
                 normalize(request.getReplyInstructions(), ""),
                 normalize(request.getServiceAreaNote(), ""),
                 normalize(request.getPermitHandlingNote(), ""),
@@ -65,9 +61,9 @@ public class OpeningProtectionHandoffService {
                 request.isCompareQuotesRequested(),
                 request.isReimbursementAssumed(),
                 request.isHoaReviewLikely());
-        ensureFile(handoffsPath, HANDOFFS_HEADER);
-        appendRow(handoffsPath, csvRow(
-                sanitize(record.handoffId()),
+        ensureFile(briefsPath, BRIEFS_HEADER);
+        appendRow(briefsPath, csvRow(
+                sanitize(record.briefId()),
                 sanitize(record.internalToken()),
                 sanitize(record.publicToken()),
                 sanitize(record.createdAt().toString()),
@@ -77,7 +73,7 @@ public class OpeningProtectionHandoffService {
                 sanitize(record.recommendationLine()),
                 sanitize(record.scopeOpenings()),
                 sanitize(record.scopeLane()),
-                sanitize(record.officeLabel()),
+                sanitize(record.contactLabel()),
                 sanitize(record.senderName()),
                 sanitize(record.replyInstructions()),
                 sanitize(record.serviceAreaNote()),
@@ -91,13 +87,13 @@ public class OpeningProtectionHandoffService {
                 sanitize(Boolean.toString(record.reimbursementAssumed())),
                 sanitize(Boolean.toString(record.hoaReviewLikely()))));
         logEvent(
-                "vendor_handoff_created",
+                "quote_prep_brief_created",
                 resultPath(record.internalToken()),
-                "handoffId=" + record.handoffId() + ";surface=result;action=created");
+                "briefId=" + record.briefId() + ";surface=result;action=created");
         return record;
     }
 
-    public List<String> publicBriefBlockingItems(OpeningProtectionHandoffRequest request) {
+    public List<String> publicBriefBlockingItems(OpeningProtectionBriefRequest request) {
         List<String> blockingItems = new ArrayList<>();
         if (normalize(request.getRecommendationLine(), "").isBlank()) {
             blockingItems.add("the report recommendation");
@@ -112,7 +108,7 @@ public class OpeningProtectionHandoffService {
         return List.copyOf(blockingItems);
     }
 
-    private List<String> publicBriefBlockingItems(OpeningProtectionHandoffRecord record) {
+    private List<String> publicBriefBlockingItems(OpeningProtectionBriefRecord record) {
         List<String> blockingItems = new ArrayList<>();
         if (record.recommendationLine().isBlank()) {
             blockingItems.add("the report recommendation");
@@ -126,32 +122,32 @@ public class OpeningProtectionHandoffService {
         return List.copyOf(blockingItems);
     }
 
-    public Optional<OpeningProtectionHandoffRecord> findByInternalToken(String internalToken) {
+    public Optional<OpeningProtectionBriefRecord> findByInternalToken(String internalToken) {
         String normalizedToken = normalize(internalToken, "");
         if (normalizedToken.isBlank()) {
             return Optional.empty();
         }
-        return readRows(handoffsPath).stream()
+        return readRows(briefsPath).stream()
                 .map(this::toRecord)
                 .filter(record -> record.internalToken().equals(normalizedToken))
                 .findFirst();
     }
 
-    public Optional<OpeningProtectionHandoffRecord> findByPublicToken(String publicToken) {
+    public Optional<OpeningProtectionBriefRecord> findByPublicToken(String publicToken) {
         String normalizedToken = normalize(publicToken, "");
         if (normalizedToken.isBlank()) {
             return Optional.empty();
         }
-        return readRows(handoffsPath).stream()
+        return readRows(briefsPath).stream()
                 .map(this::toRecord)
                 .filter(record -> record.publicToken().equals(normalizedToken))
                 .findFirst();
     }
 
-    public OpeningProtectionHandoffNarrative narrative(OpeningProtectionHandoffRecord record) {
+    public OpeningProtectionBriefNarrative narrative(OpeningProtectionBriefRecord record) {
         List<String> missing = new ArrayList<>();
         List<String> watchouts = new ArrayList<>();
-        List<OpeningProtectionScenarioModule> scenarioModules = new ArrayList<>();
+        List<OpeningProtectionBriefScenarioModule> scenarioModules = new ArrayList<>();
         boolean scopeStillBroad = scopeLaneNeedsNarrowing(record.scopeLane());
         List<String> blockingItems = publicBriefBlockingItems(record);
 
@@ -187,7 +183,7 @@ public class OpeningProtectionHandoffService {
         }
 
         if ("attached".equals(record.homeType())) {
-            scenarioModules.add(new OpeningProtectionScenarioModule(
+            scenarioModules.add(new OpeningProtectionBriefScenarioModule(
                     "Attached-home caution",
                     "Keep this first quote inside the attached-home scope",
                     record.attachedScopeNote().isBlank()
@@ -195,25 +191,25 @@ public class OpeningProtectionHandoffService {
                             : sentence(record.attachedScopeNote())));
         }
         if (record.compareQuotesRequested()) {
-            scenarioModules.add(new OpeningProtectionScenarioModule(
+            scenarioModules.add(new OpeningProtectionBriefScenarioModule(
                     "Quote comparison",
                     "Compare only the same openings and the same exclusions",
                     "If you collect other bids now, compare only quotes that cover the same named openings, the same path, and the same exclusions."));
         }
         if (scopeStillBroad) {
-            scenarioModules.add(new OpeningProtectionScenarioModule(
+            scenarioModules.add(new OpeningProtectionBriefScenarioModule(
                     "Narrow the first quote",
                     "Narrow this before the first quote moves forward",
                     "Right now this still sounds broader than one clear windows, shutters, doors, or small mixed openings quote."));
         }
         if (record.reimbursementAssumed()) {
-            scenarioModules.add(new OpeningProtectionScenarioModule(
+            scenarioModules.add(new OpeningProtectionBriefScenarioModule(
                     "Program caution",
                     "Approval or reimbursement is still not confirmed",
                     "This brief does not confirm grant approval, reimbursement timing, or that any contractor price will be reimbursed."));
         }
         if (record.hoaReviewLikely()) {
-            scenarioModules.add(new OpeningProtectionScenarioModule(
+            scenarioModules.add(new OpeningProtectionBriefScenarioModule(
                     "Community review",
                     "HOA or condo review may still sit outside this brief",
                     "This first quote can still be useful before any HOA or condo review is finished."));
@@ -285,11 +281,11 @@ public class OpeningProtectionHandoffService {
                 "Permit and inspection note: " + permitLine,
                 "Why this brief exists: " + recommendationSummary,
                 "How to reply: " + replyInstruction(record));
-        List<String> officeSteps = List.of(
-                "Keep the shareable brief first, even if a contractor office is reusing this with homeowners.",
-                "Use the estimator handoff sheet only after the return comes back narrower with the report page, photos, and a named opening list.",
-                "Keep the quote scope boundary sheet behind the first share until a draft quote actually exists.");
-        return new OpeningProtectionHandoffNarrative(
+        List<String> followUpSteps = List.of(
+                "Keep the shareable brief focused on one first quote request.",
+                "Use the contractor reply to confirm scope before you compare prices or schedule measurements.",
+                "If the reply widens the job, go back to the brief and restate the named openings in writing.");
+        return new OpeningProtectionBriefNarrative(
                 "Opening protection quote-prep brief for " + record.siteLabel(),
                 customerSummary,
                 requestLine,
@@ -307,24 +303,12 @@ public class OpeningProtectionHandoffService {
                 List.copyOf(watchouts),
                 List.copyOf(scenarioModules),
                 customerSteps,
-                officeSteps);
+                followUpSteps);
     }
 
-    public OpeningProtectionHandoffMetrics metricsFor(String handoffId) {
+    public OpeningProtectionBriefMetrics metricsFor(String briefId) {
         List<String[]> eventRows = readRows(eventsPath);
-        return metricsFor(handoffId, eventRows);
-    }
-
-    public List<OpeningProtectionHandoffActivity> listRecentActivity(String officeLabel, int limit) {
-        List<String[]> eventRows = readRows(eventsPath);
-        String normalizedOfficeLabel = normalize(officeLabel, "");
-        return readRows(handoffsPath).stream()
-                .map(this::toRecord)
-                .filter(record -> normalizedOfficeLabel.isBlank() || record.officeLabel().equals(normalizedOfficeLabel))
-                .sorted(Comparator.comparing(OpeningProtectionHandoffRecord::createdAt).reversed())
-                .limit(limit)
-                .map(record -> toActivity(record, eventRows))
-                .toList();
+        return metricsFor(briefId, eventRows);
     }
 
     public String resultPath(String internalToken) {
@@ -339,10 +323,6 @@ public class OpeningProtectionHandoffService {
         return "/tools/opening-protection/quote-prep-brief/share/" + publicToken + "/export/pdf/";
     }
 
-    public String officeRecordPath(String internalToken) {
-        return "/tools/opening-protection/quote-prep-brief/internal/" + internalToken + "/";
-    }
-
     public String workflowEntryPath() {
         return "/tools/opening-protection/quote-prep-brief/";
     }
@@ -355,81 +335,23 @@ public class OpeningProtectionHandoffService {
         return "/guides/msfh-contractor-quote-checklist/";
     }
 
-    public String packetBuilderPath() {
+    public String briefBuilderPath() {
         return "/tools/opening-protection/quote-prep-brief/build/";
-    }
-
-    public String methodologyPath() {
-        return "/methodology/";
-    }
-
-    public String notGovernmentAffiliatedPath() {
-        return "/not-government-affiliated/";
-    }
-
-    public String estimatorSheetPath() {
-        return "/vendor-packets/opening-protection/estimator-handoff/";
-    }
-
-    public String prefilledEstimatorSheetPath(OpeningProtectionHandoffRecord record) {
-        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(estimatorSheetPath())
-                .queryParam("siteLabel", record.siteLabel())
-                .queryParam("homeType", record.homeType())
-                .queryParam("recommendationClarity", recommendationClarity(record))
-                .queryParam("reportPageReceived", record.reportPageReceived())
-                .queryParam("openingPhotosReceived", record.photosReceived())
-                .queryParam("scopeListed", !record.scopeOpenings().isBlank())
-                .queryParam("broadPackageRequested", record.broadPackageRequested())
-                .queryParam("reimbursementAssumed", record.reimbursementAssumed());
-        appendIfNotBlank(builder, "countyZip", record.countyZip());
-        appendIfNotBlank(builder, "recommendationLine", record.recommendationLine());
-        appendIfNotBlank(builder, "scopeOpenings", record.scopeOpenings());
-        appendCarryForwardOfficeParams(builder, record);
-        return builder.build().encode().toUriString();
-    }
-
-    public String quoteBoundaryPath() {
-        return "/vendor-packets/opening-protection/quote-boundary/";
-    }
-
-    public String prefilledQuoteBoundaryPath(OpeningProtectionHandoffRecord record) {
-        UriComponentsBuilder builder = UriComponentsBuilder.fromPath(quoteBoundaryPath())
-                .queryParam("productPath", "opening protection work")
-                .queryParam("permitHandlingMode", permitHandlingMode(record))
-                .queryParam("attachedCaution", "attached".equals(record.homeType()))
-                .queryParam("optionalUpgrades", false)
-                .queryParam("excludeOtherWork", true)
-                .queryParam("siteLabel", record.siteLabel())
-                .queryParam("homeType", record.homeType())
-                .queryParam("reportPageReceived", record.reportPageReceived())
-                .queryParam("openingPhotosReceived", record.photosReceived())
-                .queryParam("broadPackageRequested", record.broadPackageRequested());
-        appendIfNotBlank(builder, "countyZip", record.countyZip());
-        appendIfNotBlank(builder, "recommendationLine", record.recommendationLine());
-        appendIfNotBlank(builder, "includedOpenings", record.scopeOpenings());
-        appendCarryForwardOfficeParams(builder, record);
-        builder.queryParam("excludedOpenings", defaultExcludedOpenings(record));
-        return builder.build().encode().toUriString();
     }
 
     public String absoluteUrl(String path, String requestBaseUrl) {
         return appProperties.absoluteUrl(path, requestBaseUrl);
     }
 
-    public String outboundSubject(OpeningProtectionHandoffRecord record) {
+    public String outboundSubject(OpeningProtectionBriefRecord record) {
         return "Opening-protection quote request for " + record.siteLabel();
     }
 
-    public String outboundMessage(OpeningProtectionHandoffRecord record, String shareUrl) {
+    public String outboundMessage(OpeningProtectionBriefRecord record, String shareUrl) {
         List<String> lines = new ArrayList<>();
-        String senderLabel = senderLabel(record);
         String openingLine = "I already have the MSFH inspection report for " + record.siteLabel()
                 + " and I am trying to keep the first opening-protection quote narrow.";
-        if (!senderLabel.isBlank()) {
-            lines.add("Hi, this is " + senderLabel + ".");
-        } else {
-            lines.add("Hi,");
-        }
+        lines.add("Hi,");
         lines.add(openingLine);
         lines.add("I put the current scope, named openings, and limits in this short brief.");
         lines.add(replyInstruction(record));
@@ -437,7 +359,7 @@ public class OpeningProtectionHandoffService {
         return String.join(System.lineSeparator(), lines);
     }
 
-    public String replyGuidance(OpeningProtectionHandoffRecord record) {
+    public String replyGuidance(OpeningProtectionBriefRecord record) {
         return replyInstruction(record);
     }
 
@@ -445,38 +367,38 @@ public class OpeningProtectionHandoffService {
         LeadEventRequest event = new LeadEventRequest();
         event.setEventType(eventType);
         event.setRoutePath(routePath);
-        event.setRouteFamily("vendor-handoff");
+        event.setRouteFamily("quote-prep-brief");
         event.setScenario("opening-protection");
         event.setImprovementType("opening-protection");
         event.setDetail(detail);
         leadStorageService.logEvent(event);
     }
 
-    private long countEvents(List<String[]> rows, String handoffId, String eventType) {
+    private long countEvents(List<String[]> rows, String briefId, String eventType) {
         return rows.stream()
                 .filter(row -> eventType.equals(column(row, 1)))
-                .filter(row -> "vendor-handoff".equals(column(row, 3)))
-                .filter(row -> column(row, 6).contains("handoffId=" + handoffId))
+                .filter(row -> "quote-prep-brief".equals(column(row, 3)))
+                .filter(row -> column(row, 6).contains("briefId=" + briefId))
                 .count();
     }
 
-    private OpeningProtectionHandoffMetrics metricsFor(String handoffId, List<String[]> eventRows) {
-        long createdCount = countEvents(eventRows, handoffId, "vendor_handoff_created");
-        long resultOpenCount = countEvents(eventRows, handoffId, "vendor_handoff_result_open");
-        long publicBriefOpenCount = countEvents(eventRows, handoffId, "vendor_handoff_brief_open");
-        long officeRecordOpenCount = countEvents(eventRows, handoffId, "vendor_handoff_record_open");
-        long briefCopyCount = countEvents(eventRows, handoffId, "vendor_handoff_brief_copy");
-        long sendNoteCopyCount = countEvents(eventRows, handoffId, "vendor_handoff_send_note_copy");
-        long replyNarrowedCount = countEvents(eventRows, handoffId, "vendor_handoff_reply_narrowed");
-        long replyReportPageCount = countEvents(eventRows, handoffId, "vendor_handoff_reply_report_page");
-        long replyPhotoCount = countEvents(eventRows, handoffId, "vendor_handoff_reply_photos");
-        long recordCopyCount = countEvents(eventRows, handoffId, "vendor_handoff_record_copy");
-        long recoveryClickCount = countEvents(eventRows, handoffId, "vendor_handoff_recovery_click");
-        return new OpeningProtectionHandoffMetrics(
+    private OpeningProtectionBriefMetrics metricsFor(String briefId, List<String[]> eventRows) {
+        long createdCount = countEvents(eventRows, briefId, "quote_prep_brief_created");
+        long resultOpenCount = countEvents(eventRows, briefId, "quote_prep_brief_result_open");
+        long publicBriefOpenCount = countEvents(eventRows, briefId, "quote_prep_brief_open");
+        long recordOpenCount = countEvents(eventRows, briefId, "quote_prep_brief_record_open");
+        long briefCopyCount = countEvents(eventRows, briefId, "quote_prep_brief_copy");
+        long sendNoteCopyCount = countEvents(eventRows, briefId, "quote_prep_message_copy");
+        long replyNarrowedCount = countEvents(eventRows, briefId, "quote_prep_reply_narrowed");
+        long replyReportPageCount = countEvents(eventRows, briefId, "quote_prep_reply_report_page");
+        long replyPhotoCount = countEvents(eventRows, briefId, "quote_prep_reply_photos");
+        long recordCopyCount = countEvents(eventRows, briefId, "quote_prep_brief_record_copy");
+        long recoveryClickCount = countEvents(eventRows, briefId, "quote_prep_brief_recovery_click");
+        return new OpeningProtectionBriefMetrics(
                 createdCount,
                 resultOpenCount,
                 publicBriefOpenCount,
-                officeRecordOpenCount,
+                recordOpenCount,
                 briefCopyCount,
                 sendNoteCopyCount,
                 replyNarrowedCount,
@@ -486,43 +408,8 @@ public class OpeningProtectionHandoffService {
                 recoveryClickCount);
     }
 
-    private OpeningProtectionHandoffActivity toActivity(
-            OpeningProtectionHandoffRecord record,
-            List<String[]> eventRows) {
-        OpeningProtectionHandoffMetrics metrics = metricsFor(record.handoffId(), eventRows);
-        OpeningProtectionHandoffNarrative narrative = narrative(record);
-        String statusLine = "Public brief open signal not confirmed yet. Send or resend the brief first.";
-        if (metrics.sendNoteCopyCount() > 0) {
-            statusLine = "Share note copied. Waiting for the first public brief open.";
-        }
-        if (metrics.briefCopyCount() > 0) {
-            statusLine = "Brief link copied. Waiting for the first public brief open.";
-        }
-        if (metrics.publicBriefOpenCount() > 0) {
-            statusLine = "Public brief opened " + metrics.publicBriefOpenCount()
-                    + (metrics.publicBriefOpenCount() == 1
-                            ? " time. Watch for a narrower return next."
-                            : " times. Watch for a narrower return next.");
-        }
-        if (metrics.replyNarrowedCount() > 0
-                || metrics.replyReportPageCount() > 0
-                || metrics.replyPhotoCount() > 0) {
-            statusLine = "Return-quality signal logged. Check whether the reply is now narrower and whether the report page plus opening photos are covered.";
-        }
-        return new OpeningProtectionHandoffActivity(
-                record.handoffId(),
-                record.internalToken(),
-                record.publicToken(),
-                record.createdAt(),
-                record.siteLabel(),
-                record.officeLabel(),
-                narrative.nextAction(),
-                statusLine,
-                metrics);
-    }
-
-    private OpeningProtectionHandoffRecord toRecord(String[] row) {
-        return new OpeningProtectionHandoffRecord(
+    private OpeningProtectionBriefRecord toRecord(String[] row) {
+        return new OpeningProtectionBriefRecord(
                 column(row, 0),
                 column(row, 1),
                 column(row, 2),
@@ -565,44 +452,18 @@ public class OpeningProtectionHandoffService {
                         StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
                 return;
             }
-            if (LEGACY_HANDOFFS_HEADER.equals(lines.getFirst()) && HANDOFFS_HEADER.equals(header)) {
-                List<String> migratedLines = new ArrayList<>();
-                migratedLines.add(HANDOFFS_HEADER);
-                lines.stream()
-                        .skip(1)
-                        .forEach(line -> migratedLines.add(line + ",,,,"));
-                Files.write(path, migratedLines, StandardCharsets.UTF_8,
-                        StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-                return;
-            }
-            if (V2_HANDOFFS_HEADER.equals(lines.getFirst()) && HANDOFFS_HEADER.equals(header)) {
-                List<String> migratedLines = new ArrayList<>();
-                migratedLines.add(HANDOFFS_HEADER);
-                lines.stream()
-                        .skip(1)
-                        .forEach(line -> migratedLines.add(line + ","));
-                Files.write(path, migratedLines, StandardCharsets.UTF_8,
-                        StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
-                return;
-            }
             if (!header.equals(lines.getFirst())) {
-                Path legacyPath = legacyBackupPath(path);
-                Files.move(path, legacyPath, StandardCopyOption.REPLACE_EXISTING);
-                Files.writeString(path, header + System.lineSeparator(), StandardCharsets.UTF_8,
+                List<String> migratedLines = new ArrayList<>();
+                migratedLines.add(header);
+                normalizeStoredRows(lines).stream()
+                        .map(this::csvRow)
+                        .forEach(migratedLines::add);
+                Files.write(path, migratedLines, StandardCharsets.UTF_8,
                         StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
             }
         } catch (IOException exception) {
             throw new IllegalStateException("Failed to prepare storage file " + path, exception);
         }
-    }
-
-    private Path legacyBackupPath(Path path) {
-        String fileName = path.getFileName().toString();
-        int extensionIndex = fileName.lastIndexOf('.');
-        String baseName = extensionIndex >= 0 ? fileName.substring(0, extensionIndex) : fileName;
-        String extension = extensionIndex >= 0 ? fileName.substring(extensionIndex) : "";
-        String legacyName = baseName + ".legacy-" + System.currentTimeMillis() + extension;
-        return path.resolveSibling(legacyName);
     }
 
     private void appendRow(Path path, String row) {
@@ -618,11 +479,8 @@ public class OpeningProtectionHandoffService {
             return List.of();
         }
         try {
-            return Files.readAllLines(path, StandardCharsets.UTF_8).stream()
-                    .skip(1)
-                    .filter(line -> !line.isBlank())
-                    .map(this::parseCsvLine)
-                    .toList();
+            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
+            return normalizeStoredRows(lines);
         } catch (IOException exception) {
             throw new IllegalStateException("Failed to read storage file " + path, exception);
         }
@@ -640,6 +498,93 @@ public class OpeningProtectionHandoffService {
         return normalized.isBlank() ? fallback : normalized;
     }
 
+    private List<String[]> normalizeStoredRows(List<String> lines) {
+        if (lines.isEmpty()) {
+            return List.of();
+        }
+        int headerColumnCount = lines.getFirst().split(",", -1).length;
+        return lines.stream()
+                .skip(1)
+                .filter(line -> !line.isBlank())
+                .map(this::parseCsvLine)
+                .map(row -> normalizeStoredRow(row, headerColumnCount))
+                .toList();
+    }
+
+    private String[] normalizeStoredRow(String[] row, int headerColumnCount) {
+        return switch (headerColumnCount) {
+            case LEGACY_BRIEF_COLUMN_COUNT -> normalizeLegacyBriefRow(row);
+            case EXPANDED_BRIEF_COLUMN_COUNT -> normalizeExpandedBriefRow(row);
+            default -> padRow(row, CANONICAL_BRIEF_COLUMN_COUNT);
+        };
+    }
+
+    private String[] normalizeLegacyBriefRow(String[] row) {
+        String[] normalized = padRow(row, LEGACY_BRIEF_COLUMN_COUNT);
+        return new String[] {
+                normalized[0],
+                normalized[1],
+                normalized[2],
+                normalized[3],
+                normalized[4],
+                normalized[5],
+                normalized[6],
+                normalized[7],
+                normalized[8],
+                "",
+                normalized[9],
+                normalized[10],
+                normalized[11],
+                normalized[12],
+                normalized[13],
+                normalized[14],
+                normalized[15],
+                normalized[16],
+                normalized[17],
+                normalized[18],
+                "",
+                "",
+                ""
+        };
+    }
+
+    private String[] normalizeExpandedBriefRow(String[] row) {
+        String[] normalized = padRow(row, EXPANDED_BRIEF_COLUMN_COUNT);
+        return new String[] {
+                normalized[0],
+                normalized[1],
+                normalized[2],
+                normalized[3],
+                normalized[4],
+                normalized[5],
+                normalized[6],
+                normalized[7],
+                normalized[8],
+                "",
+                normalized[9],
+                normalized[10],
+                normalized[11],
+                normalized[12],
+                normalized[13],
+                normalized[14],
+                normalized[15],
+                normalized[16],
+                normalized[17],
+                normalized[18],
+                normalized[19],
+                normalized[20],
+                normalized[21]
+        };
+    }
+
+    private String[] padRow(String[] row, int columnCount) {
+        String[] normalized = new String[columnCount];
+        for (int index = 0; index < columnCount; index++) {
+            normalized[index] = index < row.length ? row[index] : "";
+        }
+        return normalized;
+    }
+
     private String joinWithCommas(List<String> items) {
         if (items.size() == 1) {
             return items.getFirst();
@@ -649,13 +594,6 @@ public class OpeningProtectionHandoffService {
         }
         return String.join(", ", items.subList(0, items.size() - 1))
                 + ", and " + items.getLast();
-    }
-
-    private String recommendationClarity(OpeningProtectionHandoffRecord record) {
-        if (!record.reportPageReceived() || record.recommendationLine().isBlank()) {
-            return "missing";
-        }
-        return "clear";
     }
 
     private String normalizeScopeLane(String value) {
@@ -686,7 +624,7 @@ public class OpeningProtectionHandoffService {
         };
     }
 
-    private String scopeLaneSummary(OpeningProtectionHandoffRecord record) {
+    private String scopeLaneSummary(OpeningProtectionBriefRecord record) {
         return switch (record.scopeLane()) {
             case "windows" -> "This first quote should stay focused on windows only unless the scope is restated more broadly in writing.";
             case "shutters" -> "This first quote should stay focused on shutters only unless the scope is restated more broadly in writing.";
@@ -707,13 +645,13 @@ public class OpeningProtectionHandoffService {
         };
     }
 
-    private String openingsReplyPhrase(OpeningProtectionHandoffRecord record) {
+    private String openingsReplyPhrase(OpeningProtectionBriefRecord record) {
         return record.scopeOpenings().isBlank()
                 ? "the exact openings you want quoted first"
                 : record.scopeOpenings();
     }
 
-    private String replyExample(OpeningProtectionHandoffRecord record) {
+    private String replyExample(OpeningProtectionBriefRecord record) {
         if (scopeLaneNeedsNarrowing(record.scopeLane())) {
             return "I can review this, but please send the report page, clear opening photos, and the narrowest first quote focus for "
                     + openingsReplyPhrase(record)
@@ -726,7 +664,7 @@ public class OpeningProtectionHandoffService {
                 + ". Please tell me if the report page or clearer opening photos are still needed before pricing.";
     }
 
-    private String defaultExcludedOpenings(OpeningProtectionHandoffRecord record) {
+    private String defaultExcludedOpenings(OpeningProtectionBriefRecord record) {
         if (!record.boundaryScopeNote().isBlank()) {
             return record.boundaryScopeNote();
         }
@@ -737,38 +675,14 @@ public class OpeningProtectionHandoffService {
                 + record.scopeOpenings() + ".";
     }
 
-    private String defaultPermitHandling(OpeningProtectionHandoffRecord record) {
+    private String defaultPermitHandling(OpeningProtectionBriefRecord record) {
         if (!record.permitHandlingNote().isBlank()) {
             return record.permitHandlingNote();
         }
         return "Permit and inspection handling still need to be confirmed before signing.";
     }
 
-    private String permitHandlingMode(OpeningProtectionHandoffRecord record) {
-        String normalized = defaultPermitHandling(record).trim().toLowerCase();
-        if (normalized.contains("included as stated")) {
-            return "included";
-        }
-        if (normalized.contains("not included")) {
-            return "excluded";
-        }
-        return "confirm";
-    }
-
-    private String senderLabel(OpeningProtectionHandoffRecord record) {
-        if (!record.senderName().isBlank() && !record.officeLabel().isBlank()) {
-            return record.senderName() + " with " + record.officeLabel();
-        }
-        if (!record.senderName().isBlank()) {
-            return record.senderName();
-        }
-        if (!record.officeLabel().isBlank()) {
-            return record.officeLabel();
-        }
-        return "";
-    }
-
-    private String replyInstruction(OpeningProtectionHandoffRecord record) {
+    private String replyInstruction(OpeningProtectionBriefRecord record) {
         if (!record.replyInstructions().isBlank()) {
             return sentence(record.replyInstructions());
         }
@@ -807,37 +721,16 @@ public class OpeningProtectionHandoffService {
                 + ".";
     }
 
-    private String replyStep(OpeningProtectionHandoffRecord record) {
-        return "What to do next: " + replyInstruction(record);
-    }
-
-    private String homeownerReportReplyItem(OpeningProtectionHandoffRecord record) {
+    private String homeownerReportReplyItem(OpeningProtectionBriefRecord record) {
         return record.reportPageReceived()
                 ? "Confirm the report page already shared matches this first quote, or say if you need the correct page."
                 : "Say whether you need the report page that shows the opening-protection recommendation.";
     }
 
-    private String homeownerPhotosReplyItem(OpeningProtectionHandoffRecord record) {
+    private String homeownerPhotosReplyItem(OpeningProtectionBriefRecord record) {
         return record.photosReceived()
                 ? "Confirm the listed openings match the photos already shared, or say if clearer photos are still needed."
                 : "Say whether clear photos of the openings are still needed before pricing.";
-    }
-
-    private void appendCarryForwardOfficeParams(UriComponentsBuilder builder, OpeningProtectionHandoffRecord record) {
-        appendIfNotBlank(builder, "officeLabel", record.officeLabel());
-        appendIfNotBlank(builder, "senderName", record.senderName());
-        appendIfNotBlank(builder, "replyInstructions", record.replyInstructions());
-        appendIfNotBlank(builder, "serviceAreaNote", record.serviceAreaNote());
-        appendIfNotBlank(builder, "permitHandlingNote", record.permitHandlingNote());
-        appendIfNotBlank(builder, "attachedScopeNote", record.attachedScopeNote());
-        appendIfNotBlank(builder, "boundaryScopeNote", record.boundaryScopeNote());
-    }
-
-    private void appendIfNotBlank(UriComponentsBuilder builder, String key, String value) {
-        if (value == null || value.isBlank()) {
-            return;
-        }
-        builder.queryParam(key, value);
     }
 
     private String sentence(String value) {

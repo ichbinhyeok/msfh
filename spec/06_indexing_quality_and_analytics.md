@@ -32,7 +32,7 @@ This protects the wedge while removing the need for the human to remember every 
 ## Pages that should stay `noindex` at first
 - thin county overlays
 - pure status pages
-- partner finder pages
+- contractor-directory style pages
 - deep draw-request help pages
 - B2C utility tools that are reachable from indexed pages but are not themselves search-entry targets
 
@@ -44,7 +44,7 @@ This includes:
 - quote-prep entry and builder tools
 - per-session or tokenized result pages
 - shareable brief views and PDF export views
-- internal office records and helper sheets
+- internal-only follow-up records and helper notes
 
 These routes should be optimized for completion, clarity, and share quality, not for SERP acquisition.
 They can be linked from indexed parents such as home, the `contractor-quotes` program route, improvement pages, and evergreen guides, while still remaining `noindex` and excluded from the sitemap.
@@ -67,7 +67,7 @@ Track at minimum:
 - `lead_submit_attempt`
 - `lead_submit_success`
 - `lead_submit_error`
-- `partner_outbound_click`
+- `contractor_type_cta_click`
 
 Utility flows can extend this with narrower operational events such as:
 
@@ -93,7 +93,7 @@ Every promotion review should look at:
 - CTA clicks by improvement type
 - lead submissions by improvement type
 - source freshness
-- partner availability for the route's commercial action
+- contractor-type clarity for the route's next homeowner action
 
 ## First proof-of-traction metrics
 - impressions on inspection-report and improvement pages
@@ -124,7 +124,7 @@ Recommend only when:
 Recommend only when:
 
 - statewide routes already prove demand
-- county differences materially change the answer or partner density
+- county differences materially change the answer or contractor-market conditions
 - the page can stay lean and maintained
 
 ## Agent review cadence

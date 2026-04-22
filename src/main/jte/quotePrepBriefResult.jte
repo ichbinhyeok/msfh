@@ -1,5 +1,5 @@
-@import owner.mysafefloridahome.pages.VendorHandoffResultPageView
-@param VendorHandoffResultPageView page
+@import owner.mysafefloridahome.pages.QuotePrepBriefResultPageView
+@param QuotePrepBriefResultPageView page
 !{var clarificationState = "clarification".equals(page.narrative().sendState());}
 !{var blockedState = "blocked".equals(page.narrative().sendState());}
 !{var publicBriefOpened = page.metrics().publicBriefOpenCount() > 0;}
@@ -9,18 +9,18 @@
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
     currentPath = "/tools/opening-protection/quote-prep-brief/",
-    bodyClass = "quote-prep-page quote-prep-page--result",
+    bodyClass = "quote-prep-page quote-prep-page--result quote-prep-brief-page--public",
     content = @`
         <main>
             <section class="page-hero route-hero quote-prep-hero quote-prep-hero--result">
                 <div class="section-shell route-hero-shell">
                     <div class="route-hero-main"
-                         data-track-view="vendor_handoff_result_open"
+                         data-track-view="quote_prep_brief_result_open"
                          data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                        data-route-family="vendor-handoff"
+                        data-route-family="quote-prep-brief"
                         data-scenario="opening-protection"
                         data-improvement-type="opening-protection"
-                        data-detail="handoffId=${page.handoff().handoffId()};surface=result">
+                        data-detail="briefId=${page.brief().briefId()};surface=result">
                         <div class="quote-prep-result-mark" aria-hidden="true">
                             <span>Ready</span>
                         </div>
@@ -30,27 +30,27 @@
                         <div class="action-row">
                             <a class="primary-button"
                                href="${page.publicBriefPath()}"
-                               data-track-event="vendor_handoff_recovery_click"
+                               data-track-event="quote_prep_brief_recovery_click"
                                data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                               data-route-family="vendor-handoff"
+                               data-route-family="quote-prep-brief"
                                data-scenario="opening-protection"
                                     data-improvement-type="opening-protection"
-                                    data-detail="handoffId=${page.handoff().handoffId()};surface=result;cta=open-public-brief">Open Shareable Brief</a>
+                                    data-detail="briefId=${page.brief().briefId()};surface=result;cta=open-public-brief">Open Shareable Brief</a>
                             <button class="secondary-button"
                                     type="button"
-                                    data-copy-target="handoff-share-url"
-                                    data-track-event="vendor_handoff_brief_copy"
+                                    data-copy-target="brief-share-url"
+                                    data-track-event="quote_prep_brief_copy"
                                     data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                                    data-route-family="vendor-handoff"
+                                    data-route-family="quote-prep-brief"
                                     data-scenario="opening-protection"
                                     data-improvement-type="opening-protection"
-                                    data-detail="handoffId=${page.handoff().handoffId()};surface=result;target=brief-url">Copy Brief Link</button>
-                            <a class="secondary-button" href="${page.printablePacketPath()}">Open PDF Export</a>
+                                    data-detail="briefId=${page.brief().briefId()};surface=result;target=brief-url">Copy Brief Link</button>
+                            <a class="secondary-button" href="${page.pdfExportPath()}">Open PDF Export</a>
                         </div>
                         <div class="quote-prep-result-context">
                             <div class="quote-prep-result-context__item">
                                 <span>Property</span>
-                                <strong>${page.handoff().siteLabel()}</strong>
+                                <strong>${page.brief().siteLabel()}</strong>
                             </div>
                             <div class="quote-prep-result-context__item">
                                 <span>First quote focus</span>
@@ -68,12 +68,8 @@
                         <p class="route-hero-panel__summary">${page.narrative().nextReason()}</p>
                         <div class="route-hero-facts">
                             <div class="route-hero-fact">
-                                <span>Prepared by</span>
-                                <strong>${page.handoff().officeLabel().isBlank() ? "Homeowner-prepared brief" : page.handoff().officeLabel()}</strong>
-                            </div>
-                            <div class="route-hero-fact">
                                 <span>Property</span>
-                                <strong>${page.handoff().siteLabel()}</strong>
+                                <strong>${page.brief().siteLabel()}</strong>
                             </div>
                             <div class="route-hero-fact route-hero-fact--wide">
                                 <span>Send goal</span>
@@ -91,11 +87,8 @@
                         <p class="big-answer">${clarificationState ? "Share the contractor-facing brief as a clarification pass first. The quality bar is a narrower, more organized reply before time gets spent." : "Share the contractor-facing quote-prep brief first. The quality bar is that the first reply comes back narrower and more organized, not broader and more confusing."}</p>
                     </div>
                     <div class="info-panel">
-                        <p class="eyebrow">Prepared by</p>
-                        <p>${page.handoff().officeLabel().isBlank() ? "Homeowner-prepared brief" : page.handoff().officeLabel()}${page.handoff().senderName().isBlank() ? "" : " | " + page.handoff().senderName()}</p>
-                        @if(!page.handoff().serviceAreaNote().isBlank())
-                            <p>${page.handoff().serviceAreaNote()}</p>
-                        @endif
+                        <p class="eyebrow">Prepared for</p>
+                        <p>${page.brief().siteLabel()}</p>
                     </div>
                 </div>
             </section>
@@ -111,37 +104,37 @@
                         <div class="packet-list-card quote-prep-share-card quote-prep-share-card--link">
                             <label class="console-field">
                                 <span>Shareable brief link</span>
-                                <input data-handoff-share-url="true" type="text" readonly value="${page.shareUrl()}">
+                                <input data-brief-share-url="true" type="text" readonly value="${page.shareUrl()}">
                             </label>
                             <div class="action-row packet-tool-actions">
                                 <button class="secondary-button"
                                         type="button"
-                                        data-copy-target="handoff-share-url"
-                                        data-track-event="vendor_handoff_brief_copy"
+                                        data-copy-target="brief-share-url"
+                                        data-track-event="quote_prep_brief_copy"
                                         data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                                        data-route-family="vendor-handoff"
+                                        data-route-family="quote-prep-brief"
                                         data-scenario="opening-protection"
                                         data-improvement-type="opening-protection"
-                                        data-detail="handoffId=${page.handoff().handoffId()};surface=result;target=brief-url">Copy Brief Link</button>
+                                        data-detail="briefId=${page.brief().briefId()};surface=result;target=brief-url">Copy Brief Link</button>
                                 <a class="secondary-button" href="${page.publicBriefPath()}">Open Shareable Brief</a>
                             </div>
                         </div>
                         <div class="packet-list-card quote-prep-share-card quote-prep-share-card--message">
                             <label class="console-field">
                                 <span>Message you can send with the brief</span>
-                                <textarea class="packet-output packet-output--compact" data-handoff-outbound-message="true" readonly>${page.outboundMessage()}</textarea>
+                                <textarea class="packet-output packet-output--compact" data-brief-outbound-message="true" readonly>${page.outboundMessage()}</textarea>
                             </label>
                             <div class="action-row packet-tool-actions">
                                 <button class="secondary-button"
                                         type="button"
-                                        data-copy-target="handoff-outbound-message"
-                                        data-track-event="vendor_handoff_send_note_copy"
+                                        data-copy-target="brief-outbound-message"
+                                        data-track-event="quote_prep_message_copy"
                                         data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                                        data-route-family="vendor-handoff"
+                                        data-route-family="quote-prep-brief"
                                         data-scenario="opening-protection"
                                         data-improvement-type="opening-protection"
-                                        data-detail="handoffId=${page.handoff().handoffId()};surface=result;target=send-note">Copy Message</button>
-                                <a class="secondary-button" href="${page.printablePacketPath()}">Open PDF Export</a>
+                                        data-detail="briefId=${page.brief().briefId()};surface=result;target=send-note">Copy Message</button>
+                                <a class="secondary-button" href="${page.pdfExportPath()}">Open PDF Export</a>
                             </div>
                         </div>
                     </div>
@@ -225,36 +218,36 @@
                         <div class="action-row packet-tool-actions">
                             <button class="secondary-button"
                                     type="button"
-                                    data-track-event="vendor_handoff_reply_narrowed"
+                                    data-track-event="quote_prep_reply_narrowed"
                                     data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                                    data-route-family="vendor-handoff"
+                                    data-route-family="quote-prep-brief"
                                     data-scenario="opening-protection"
                                     data-improvement-type="opening-protection"
-                                    data-detail="handoffId=${page.handoff().handoffId()};surface=result;signal=reply-narrowed"
+                                    data-detail="briefId=${page.brief().briefId()};surface=result;signal=reply-narrowed"
                                     data-signal-increment="reply-narrowed"
-                                    data-signal-status-message="Narrower response logged for this handoff.">Mark Narrower Response</button>
+                                    data-signal-status-message="Narrower response logged for this brief.">Mark Narrower Response</button>
                             <button class="secondary-button"
                                     type="button"
-                                    data-track-event="vendor_handoff_reply_report_page"
+                                    data-track-event="quote_prep_reply_report_page"
                                     data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                                    data-route-family="vendor-handoff"
+                                    data-route-family="quote-prep-brief"
                                     data-scenario="opening-protection"
                                     data-improvement-type="opening-protection"
-                                    data-detail="handoffId=${page.handoff().handoffId()};surface=result;signal=report-page"
+                                    data-detail="briefId=${page.brief().briefId()};surface=result;signal=report-page"
                                     data-signal-increment="reply-report-page"
-                                    data-signal-status-message="Report-page signal logged for this handoff.">Mark Report Page Signal</button>
+                                    data-signal-status-message="Report-page signal logged for this brief.">Mark Report Page Signal</button>
                             <button class="secondary-button"
                                     type="button"
-                                    data-track-event="vendor_handoff_reply_photos"
+                                    data-track-event="quote_prep_reply_photos"
                                     data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                                    data-route-family="vendor-handoff"
+                                    data-route-family="quote-prep-brief"
                                     data-scenario="opening-protection"
                                     data-improvement-type="opening-protection"
-                                    data-detail="handoffId=${page.handoff().handoffId()};surface=result;signal=opening-photos"
+                                    data-detail="briefId=${page.brief().briefId()};surface=result;signal=opening-photos"
                                     data-signal-increment="reply-photos"
-                                    data-signal-status-message="Opening-photo signal logged for this handoff.">Mark Opening Photo Signal</button>
+                                    data-signal-status-message="Opening-photo signal logged for this brief.">Mark Opening Photo Signal</button>
                         </div>
-                        <p class="console-field-note" data-signal-status="true">${replySignalsLogged ? "Return-quality signal already logged for this handoff. Keep checking whether all three pieces are now covered." : "No return-quality signal logged yet for this handoff."}</p>
+                        <p class="console-field-note" data-signal-status="true">${replySignalsLogged ? "Return-quality signal already logged for this brief. Keep checking whether all three pieces are now covered." : "No return-quality signal logged yet for this brief."}</p>
                     </div>
                 </div>
             </section>

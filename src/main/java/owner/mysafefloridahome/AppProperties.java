@@ -51,9 +51,7 @@ public class AppProperties {
     public static class Storage {
         private String leadsPath;
         private String eventsPath;
-        private String partnerInquiriesPath;
-        private String vendorHandoffsPath;
-        private String vendorPresetsPath;
+        private String quotePrepBriefsPath;
 
         public String getLeadsPath() {
             return leadsPath;
@@ -71,28 +69,12 @@ public class AppProperties {
             this.eventsPath = eventsPath;
         }
 
-        public String getPartnerInquiriesPath() {
-            return partnerInquiriesPath;
+        public String getQuotePrepBriefsPath() {
+            return quotePrepBriefsPath;
         }
 
-        public void setPartnerInquiriesPath(String partnerInquiriesPath) {
-            this.partnerInquiriesPath = partnerInquiriesPath;
-        }
-
-        public String getVendorHandoffsPath() {
-            return vendorHandoffsPath;
-        }
-
-        public void setVendorHandoffsPath(String vendorHandoffsPath) {
-            this.vendorHandoffsPath = vendorHandoffsPath;
-        }
-
-        public String getVendorPresetsPath() {
-            return vendorPresetsPath;
-        }
-
-        public void setVendorPresetsPath(String vendorPresetsPath) {
-            this.vendorPresetsPath = vendorPresetsPath;
+        public void setQuotePrepBriefsPath(String quotePrepBriefsPath) {
+            this.quotePrepBriefsPath = quotePrepBriefsPath;
         }
     }
 

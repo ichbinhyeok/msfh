@@ -30,10 +30,7 @@ public class SecurityConfig {
                 })
                 .csrf(csrf -> csrf.ignoringRequestMatchers(
                         "/api/leads/**",
-                        "/api/contact/**",
-                        "/tools/opening-protection/quote-prep-brief/**",
-                        "/vendor-handoffs/**",
-                        "/vendor-presets/**"));
+                        "/tools/opening-protection/quote-prep-brief/**"));
         if (adminConfigured) {
             http.httpBasic(withDefaults());
         }

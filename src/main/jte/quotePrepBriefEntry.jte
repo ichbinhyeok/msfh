@@ -1,5 +1,5 @@
-@import owner.mysafefloridahome.pages.VendorWorkflowPageView
-@param VendorWorkflowPageView page
+@import owner.mysafefloridahome.pages.QuotePrepBriefEntryPageView
+@param QuotePrepBriefEntryPageView page
 @template.layout.page(
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
@@ -79,7 +79,7 @@
                     <div>
                         <div class="section-heading">
                             <p class="eyebrow">What you send</p>
-                            <h2>Start with one shareable brief, not a bigger workflow</h2>
+                            <h2>Start with one shareable brief, not a bigger process</h2>
                             <p>The win here is not more process. The win is that the first contractor reply comes back narrower and easier to compare.</p>
                         </div>
                         <a class="route-detail-card quote-prep-entry-card" href="${page.artifactCards().get(0).href()}">
@@ -151,7 +151,7 @@
                     </div>
                     <div class="quote-prep-bridge__list-wrap">
                         <ul class="quote-prep-bridge__list">
-                            <li>Start from one report recommendation line, not a full packet or a whole-house package.</li>
+                            <li>Start from one report recommendation line, not a bigger quote bundle or a whole-house package.</li>
                             <li>Name only the openings that belong in the first quote, so every contractor is reacting to the same scope.</li>
                             <li>Use the reply to narrow the next conversation before anyone spends time on measurement or broader pricing.</li>
                         </ul>

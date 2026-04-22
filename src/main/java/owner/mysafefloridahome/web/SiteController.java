@@ -79,38 +79,37 @@ public class SiteController {
 
     @GetMapping("/about/")
     public String about(HttpServletRequest request, Model model) {
-        model.addAttribute("page", pageService.trustPage("about", null, baseUrl(request)));
+        model.addAttribute("page", pageService.trustPage("about", baseUrl(request)));
         return "trust";
     }
 
     @GetMapping("/methodology/")
     public String methodology(HttpServletRequest request, Model model) {
-        model.addAttribute("page", pageService.trustPage("methodology", null, baseUrl(request)));
+        model.addAttribute("page", pageService.trustPage("methodology", baseUrl(request)));
         return "trust";
     }
 
     @GetMapping("/contact/")
-    public String contact(@RequestParam(name = "partner", required = false) String partnerStatus,
-            HttpServletRequest request, Model model) {
-        model.addAttribute("page", pageService.trustPage("contact", partnerStatus, baseUrl(request)));
+    public String contact(HttpServletRequest request, Model model) {
+        model.addAttribute("page", pageService.trustPage("contact", baseUrl(request)));
         return "trust";
     }
 
     @GetMapping("/not-government-affiliated/")
     public String nonAffiliate(HttpServletRequest request, Model model) {
-        model.addAttribute("page", pageService.trustPage("not-government-affiliated", null, baseUrl(request)));
+        model.addAttribute("page", pageService.trustPage("not-government-affiliated", baseUrl(request)));
         return "trust";
     }
 
     @GetMapping("/privacy/")
     public String privacy(HttpServletRequest request, Model model) {
-        model.addAttribute("page", pageService.trustPage("privacy", null, baseUrl(request)));
+        model.addAttribute("page", pageService.trustPage("privacy", baseUrl(request)));
         return "trust";
     }
 
     @GetMapping("/terms/")
     public String terms(HttpServletRequest request, Model model) {
-        model.addAttribute("page", pageService.trustPage("terms", null, baseUrl(request)));
+        model.addAttribute("page", pageService.trustPage("terms", baseUrl(request)));
         return "trust";
     }
 

@@ -4,7 +4,7 @@ import java.util.List;
 import owner.mysafefloridahome.data.ActionLink;
 import owner.mysafefloridahome.data.ContentRepository;
 import owner.mysafefloridahome.data.SourceRecord;
-import owner.mysafefloridahome.leads.PartnerRoutingService;
+import owner.mysafefloridahome.leads.ContractorTypeService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -12,11 +12,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class DecisionEngineService {
 
     private final ContentRepository contentRepository;
-    private final PartnerRoutingService partnerRoutingService;
+    private final ContractorTypeService contractorTypeService;
 
-    public DecisionEngineService(ContentRepository contentRepository, PartnerRoutingService partnerRoutingService) {
+    public DecisionEngineService(ContentRepository contentRepository, ContractorTypeService contractorTypeService) {
         this.contentRepository = contentRepository;
-        this.partnerRoutingService = partnerRoutingService;
+        this.contractorTypeService = contractorTypeService;
     }
 
     public HomeDecisionResult decide(HomeDecisionInput input) {
@@ -37,10 +37,10 @@ public class DecisionEngineService {
             return attachedHomeOverrideResult(input.priority());
         }
 
-        String partnerType = partnerRoutingService.resolvePartnerType(
+        String contractorType = contractorTypeService.resolveContractorType(
                 scenarioFor(input.recommendationType()), input.recommendationType(), input.homeType());
 
-        return switch (partnerType) {
+        return switch (contractorType) {
             case "opening-protection-contractor" -> openingProtectionResult(input);
             case "roof-retrofit-specialist" -> roofRetrofitResult(input.recommendationType(), input.priority());
             case "roofing-contractor" -> roofingResult(input.recommendationType(), input.priority());

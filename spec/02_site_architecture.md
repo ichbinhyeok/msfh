@@ -41,7 +41,7 @@ Core families:
 ### County overlay
 A local page that only exists when contractor density, income-threshold interpretation, or commercial reality materially changes the answer.
 
-### Partner type
+### Contractor type
 - opening-protection contractor
 - roofing contractor
 - roof retrofit specialist

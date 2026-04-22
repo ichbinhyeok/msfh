@@ -1,9 +1,7 @@
-@import owner.mysafefloridahome.pages.VendorHandoffDocumentPageView
-@param VendorHandoffDocumentPageView page
-!{var caseReference = page.handoff().handoffId().substring(0, 8).toUpperCase();}
-!{var preparedDate = page.handoff().createdAt().toLocalDate().toString();}
-!{var preparedBy = page.handoff().officeLabel().isBlank() ? "Homeowner-prepared brief" : page.handoff().officeLabel();}
-!{var senderName = page.handoff().senderName().isBlank() ? "Homeowner" : page.handoff().senderName();}
+@import owner.mysafefloridahome.pages.QuotePrepBriefDocumentPageView
+@param QuotePrepBriefDocumentPageView page
+!{var caseReference = page.brief().briefId().substring(0, 8).toUpperCase();}
+!{var preparedDate = page.brief().createdAt().toLocalDate().toString();}
 !{var replyGuidance = page.replyGuidance();}
 !{var missingItems = page.narrative().missingItems();}
 !{var scenarioModules = page.narrative().scenarioModules().stream().limit(2).toList();}
@@ -12,16 +10,16 @@
     meta = page.meta(),
     siteName = "My Safe Florida Home Verdict",
     currentPath = "/tools/opening-protection/quote-prep-brief/",
-    bodyClass = "vendor-handoff-page vendor-handoff-page--public",
+    bodyClass = "quote-prep-brief-page quote-prep-brief-page--public",
     content = @`
         <main class="brief-export brief-export--web">
             <div class="section-shell brief-export-shell"
-                 data-track-view="vendor_handoff_brief_open"
+                 data-track-view="quote_prep_brief_open"
                  data-route-path="${page.meta().canonicalUrl().replace(page.meta().siteBaseUrl(), "")}"
-                 data-route-family="vendor-handoff"
+                 data-route-family="quote-prep-brief"
                  data-scenario="opening-protection"
                  data-improvement-type="opening-protection"
-                 data-detail="handoffId=${page.handoff().handoffId()};surface=public-brief">
+                 data-detail="briefId=${page.brief().briefId()};surface=public-brief">
                 <div class="brief-export-toolbar brief-export-toolbar--web">
                     <div class="brief-export-toolbar__intro">
                         <p class="micro-tag">Shareable quote-prep brief</p>
@@ -39,7 +37,7 @@
                         </div>
                         <div class="brief-export-header__title-row">
                             <div class="brief-export-header__title">
-                                <h2>${page.handoff().siteLabel()}</h2>
+                                <h2>${page.brief().siteLabel()}</h2>
                                 <p>This is a first-pass quote request tied to one MSFH report recommendation. It is meant to keep the first quote narrow, readable, and out of whole-house pricing drift.</p>
                             </div>
                             <div class="brief-export-stamp">
@@ -50,15 +48,7 @@
                         <div class="brief-export-meta">
                             <div class="brief-export-meta__item">
                                 <span>Property</span>
-                                <strong>${page.handoff().siteLabel()}</strong>
-                            </div>
-                            <div class="brief-export-meta__item">
-                                <span>Prepared by</span>
-                                <strong>${preparedBy}</strong>
-                            </div>
-                            <div class="brief-export-meta__item">
-                                <span>Sender</span>
-                                <strong>${senderName}</strong>
+                                <strong>${page.brief().siteLabel()}</strong>
                             </div>
                             <div class="brief-export-meta__item">
                                 <span>First quote focus</span>
@@ -82,9 +72,9 @@
                         </section>
                     </div>
 
-                    <section class="brief-export-section">
-                        <p class="brief-export-label">Reply quality</p>
-                        <h2>Please answer these 3 points</h2>
+                        <section class="brief-export-section">
+                            <p class="brief-export-label">Reply quality</p>
+                            <h2>Please answer these 3 points</h2>
                         <ol class="brief-export-list brief-export-list--ordered">
                             @for(var item : page.narrative().homeownerReplyChecklist())
                                 <li>${item}</li>
@@ -110,8 +100,8 @@
                             <p class="brief-export-label">What is not included yet</p>
                             <h2>What stays outside this first quote for now</h2>
                             <ul class="brief-export-list">
-                                <li>${page.handoff().boundaryScopeNote().isBlank() ? "Any opening not named in this brief stays outside the first quote path until the scope is restated clearly in writing." : page.handoff().boundaryScopeNote()}</li>
-                                @if(page.handoff().broadPackageRequested())
+                                <li>${page.brief().boundaryScopeNote().isBlank() ? "Any opening not named in this brief stays outside the first quote path until the scope is restated clearly in writing." : page.brief().boundaryScopeNote()}</li>
+                                @if(page.brief().broadPackageRequested())
                                     <li>Do not compare this brief to a broad whole-house package until the narrower opening-protection scope is restated clearly in writing.</li>
                                 @endif
                             </ul>
@@ -119,7 +109,7 @@
                         <section class="brief-export-section">
                             <p class="brief-export-label">What still needs confirmation</p>
                             <h2>What this brief does not ask you to assume yet</h2>
-                            <p>${page.handoff().permitHandlingNote().isBlank() ? "Permit and inspection handling still need to be confirmed before signing." : page.handoff().permitHandlingNote()}</p>
+                            <p>${page.brief().permitHandlingNote().isBlank() ? "Permit and inspection handling still need to be confirmed before signing." : page.brief().permitHandlingNote()}</p>
                             <ul class="brief-export-list">
                                 @for(var item : watchouts)
                                     <li>${item}</li>
@@ -145,7 +135,7 @@
                     @endif
 
                     <footer class="brief-export-footer">
-                        <span>${preparedBy}${page.handoff().senderName().isBlank() ? "" : " | " + page.handoff().senderName()}</span>
+                        <span>Homeowner quote-prep brief</span>
                         <span>Opening protection quote-prep brief | Case ${caseReference}</span>
                     </footer>
                 </article>

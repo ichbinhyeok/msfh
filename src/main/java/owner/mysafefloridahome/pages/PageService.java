@@ -107,13 +107,13 @@ public class PageService {
                 leadStatus);
     }
 
-    public TrustPageView trustPage(String slug, String partnerStatus, String requestBaseUrl) {
+    public TrustPageView trustPage(String slug, String requestBaseUrl) {
         TrustPageContent page = contentRepository.trustPage(slug)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         RouteRecord route = routeById(page.routeId());
         List<SourceRecord> sourceStack = contentRepository.sourcesFor(page.sourceIds());
         return new TrustPageView(metaFor(route, sourceStack, requestBaseUrl), route, page, detailCardsForLinks(page.relatedLinks()),
-                sourceStack, partnerStatus);
+                sourceStack);
     }
 
     public FamilyPageView familyPage(String family, String requestBaseUrl) {

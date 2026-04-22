@@ -9,7 +9,7 @@
 !{var improvementActive = currentPath.startsWith("/improvements/");}
 !{var guideActive = currentPath.startsWith("/guides/");}
 !{var trustActive = currentPath.startsWith("/about/") || currentPath.startsWith("/methodology/") || currentPath.startsWith("/contact/") || currentPath.startsWith("/not-government-affiliated/") || currentPath.startsWith("/privacy/") || currentPath.startsWith("/terms/");}
-!{var publicBriefLayout = bodyClass.contains("vendor-handoff-page--public");}
+!{var publicBriefLayout = bodyClass.contains("quote-prep-brief-page--public");}
 <!DOCTYPE html>
 <html lang="en">
 <head>

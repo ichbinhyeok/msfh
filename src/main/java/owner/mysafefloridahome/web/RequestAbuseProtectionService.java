@@ -15,17 +15,12 @@ public class RequestAbuseProtectionService {
 
     private static final Duration WINDOW = Duration.ofMinutes(15);
     private static final int LEAD_FORM_LIMIT = 12;
-    private static final int PARTNER_FORM_LIMIT = 8;
     private static final int EVENT_LIMIT = 120;
 
     private final Map<String, Deque<Long>> requestBuckets = new ConcurrentHashMap<>();
 
     public boolean allowLeadForm(HttpServletRequest request) {
         return sameSiteRequest(request) && withinRateLimit(request, "lead-form", LEAD_FORM_LIMIT);
-    }
-
-    public boolean allowPartnerForm(HttpServletRequest request) {
-        return sameSiteRequest(request) && withinRateLimit(request, "partner-form", PARTNER_FORM_LIMIT);
     }
 
     public boolean allowEventCapture(HttpServletRequest request) {

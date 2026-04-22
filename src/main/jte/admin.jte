@@ -24,11 +24,6 @@
                         <p>Stored lead submissions</p>
                     </article>
                     <article class="route-card">
-                        <p class="card-tag">Partners</p>
-                        <h3>${page.leadSummary().partnerInquiryCount()}</h3>
-                        <p>Stored pilot inquiries</p>
-                    </article>
-                    <article class="route-card">
                         <p class="card-tag">Events</p>
                         <h3>${page.leadSummary().eventCount()}</h3>
                         <p>Tracked CTA and form events</p>
@@ -58,27 +53,14 @@
                     </div>
                     <div>
                         <div class="section-heading">
-                            <p class="eyebrow">Leads by partner type</p>
-                            <h2>Commercial routing output</h2>
+                            <p class="eyebrow">Leads by contractor type</p>
+                            <h2>What homeowners are being pointed toward</h2>
                         </div>
                         <div class="stacked-links compact">
-                        @for(var item : page.leadSummary().leadsByPartnerType().entrySet())
+                        @for(var item : page.leadSummary().leadsByContractorType().entrySet())
                             <div class="text-link-card static-row"><span>${item.getKey()}</span><strong>${item.getValue()}</strong></div>
                         @else
-                            <div class="text-link-card static-row"><span>No partner routing yet</span><strong>0</strong></div>
-                        @endfor
-                        </div>
-                    </div>
-                    <div>
-                        <div class="section-heading">
-                            <p class="eyebrow">Partner inquiries by route focus</p>
-                            <h2>What contractors want to sponsor</h2>
-                        </div>
-                        <div class="stacked-links compact">
-                        @for(var item : page.leadSummary().partnerInquiriesByRouteFocus().entrySet())
-                            <div class="text-link-card static-row"><span>${item.getKey()}</span><strong>${item.getValue()}</strong></div>
-                        @else
-                            <div class="text-link-card static-row"><span>No pilot inquiries yet</span><strong>0</strong></div>
+                            <div class="text-link-card static-row"><span>No contractor-type signals yet</span><strong>0</strong></div>
                         @endfor
                         </div>
                     </div>

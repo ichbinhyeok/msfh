@@ -27,10 +27,7 @@ import org.springframework.test.util.ReflectionTestUtils;
         "app.admin.username=admin",
         "app.admin.password=test-admin-password",
         "app.storage.leads-path=target/test-storage/leads.csv",
-        "app.storage.events-path=target/test-storage/lead_events.csv",
-        "app.storage.partner-inquiries-path=target/test-storage/partner_inquiries.csv",
-        "app.storage.vendor-handoffs-path=target/test-storage/opening_protection_handoffs.csv",
-        "app.storage.vendor-presets-path=target/test-storage/opening_protection_office_presets.csv"
+        "app.storage.events-path=target/test-storage/lead_events.csv"
 })
 @AutoConfigureMockMvc
 class SiteControllerTests {
@@ -244,10 +241,10 @@ class SiteControllerTests {
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        assertThat(contact).contains("Request a route-specific pilot review");
-        assertThat(contact).contains("$390 for 30 days");
-        assertThat(contact).contains("Licensed Florida contractors only.");
-        assertThat(contact).contains("Request pilot review");
+        assertThat(contact).contains("Use this contact path for homeowner questions about the site's guidance, factual corrections, or editorial feedback, not for official program case handling.");
+        assertThat(contact).contains("This inbox is for the editorial product, not for official program case management.");
+        assertThat(contact).contains("Use official program support channels for application status, reimbursement, inspections, and portal-case handling.");
+        assertThat(contact).contains("Return to the contractor quote route");
     }
 
     @Test
@@ -307,9 +304,10 @@ class SiteControllerTests {
         assertThat(preQuote).contains("Create Quote-Prep Brief");
         assertThat(preQuote).contains("Specific openings inside the first quote");
         assertThat(preQuote).contains("Current quote focus");
-        assertThat(preQuote).contains("Add this only if a contractor already asked for it");
-        assertThat(preQuote).contains("Contractor label (optional)");
-        assertThat(preQuote).contains("Contact name (optional)");
+        assertThat(preQuote).contains("Home label");
+        assertThat(preQuote).contains("County or ZIP");
+        assertThat(preQuote).contains("What you already have ready");
+        assertThat(preQuote).contains("Keep the first ask narrow");
         assertThat(preQuote).contains("Shareable brief preview");
         assertThat(preQuote).contains("A useful reply should stay inside 3 things");
         assertThat(preQuote).contains("Confirm the first quote can stay inside this focus and these openings");
@@ -399,7 +397,7 @@ class SiteControllerTests {
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        assertThat(html).contains("Homeowner-prepared brief");
+        assertThat(html).contains("No sender home");
         assertThat(html).contains("Open Shareable Brief");
         assertThat(html).doesNotContain("blockingError=missing_required_scope");
     }
@@ -426,13 +424,13 @@ class SiteControllerTests {
     void legacyVendorPostEndpointsAreGone() throws Exception {
         mockMvc.perform(post("/vendor-handoffs/opening-protection")
                         .param("siteLabel", "Legacy alias home"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isForbidden());
         mockMvc.perform(post("/vendor-presets/opening-protection/save")
                         .param("presetName", "Legacy preset"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isForbidden());
         mockMvc.perform(post("/vendor-presets/opening-protection/delete")
                         .param("presetId", "legacy"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isForbidden());
     }
 
     @Test
@@ -462,8 +460,6 @@ class SiteControllerTests {
                         .param("scopeLane", "mixed")
                         .param("recommendationLine", "Opening protection recommendation from the report")
                         .param("scopeOpenings", "front windows and rear slider")
-                        .param("officeLabel", "Palm Coast Openings Desk")
-                        .param("senderName", "Amanda from intake")
                         .param("replyInstructions", "Reply with the report page and opening photos in one email before scheduling.")
                         .param("serviceAreaNote", "Serving Miami-Dade and Broward only.")
                         .param("permitHandlingNote", "Permit and inspection handling still need to be confirmed before signing.")
@@ -490,10 +486,10 @@ class SiteControllerTests {
         assertThat(resultHtml).contains("Shareable brief link");
         assertThat(resultHtml).contains("Copy Message");
         assertThat(resultHtml).contains("Copy Brief Link");
-        assertThat(resultHtml).contains("data-track-event=\"vendor_handoff_brief_copy\"");
-        assertThat(resultHtml).contains("data-track-event=\"vendor_handoff_send_note_copy\"");
+        assertThat(resultHtml).contains("data-track-event=\"quote_prep_brief_copy\"");
+        assertThat(resultHtml).contains("data-track-event=\"quote_prep_message_copy\"");
         assertThat(resultHtml).contains("Open PDF Export");
-        assertThat(resultHtml).contains("Prepared by");
+        assertThat(resultHtml).doesNotContain("Prepared by");
         assertThat(resultHtml).contains("What a useful contractor reply should answer");
         assertThat(resultHtml).contains("Open Shareable Brief");
         assertThat(resultHtml).contains("Share signals");
@@ -505,9 +501,9 @@ class SiteControllerTests {
         assertThat(resultHtml).contains("Mark Narrower Response");
         assertThat(resultHtml).contains("Mark Report Page Signal");
         assertThat(resultHtml).contains("Mark Opening Photo Signal");
-        assertThat(resultHtml).contains("data-track-event=\"vendor_handoff_reply_narrowed\"");
-        assertThat(resultHtml).contains("data-track-event=\"vendor_handoff_reply_report_page\"");
-        assertThat(resultHtml).contains("data-track-event=\"vendor_handoff_reply_photos\"");
+        assertThat(resultHtml).contains("data-track-event=\"quote_prep_reply_narrowed\"");
+        assertThat(resultHtml).contains("data-track-event=\"quote_prep_reply_report_page\"");
+        assertThat(resultHtml).contains("data-track-event=\"quote_prep_reply_photos\"");
         assertThat(resultHtml).contains("Keep the next move narrow");
         assertThat(resultHtml).contains("Keep the free layer to the brief, the link, and the reply target.");
         assertThat(resultHtml).doesNotContain("Ready-to-send bundle");
@@ -535,8 +531,7 @@ class SiteControllerTests {
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        assertThat(briefHtml).contains("Prepared by");
-        assertThat(briefHtml).contains("Palm Coast Openings Desk");
+        assertThat(briefHtml).contains("123 Palm Avenue home");
         assertThat(briefHtml).contains("Reply with the report page and opening photos in one email before scheduling.");
         assertThat(briefHtml).contains("What stays outside this first quote for now");
         assertThat(briefHtml).contains("What to slow down in this quote request");
@@ -551,6 +546,7 @@ class SiteControllerTests {
         assertThat(briefHtml).contains("Please answer these 3 points");
         assertThat(briefHtml).contains("Example reply:");
         assertThat(briefHtml).contains("Case ");
+        assertThat(briefHtml).doesNotContain("Prepared by");
         assertThat(briefHtml).doesNotContain("Want a second check?");
         assertThat(briefHtml).doesNotContain("Use the next link that fits this exact situation");
         assertThat(briefHtml).doesNotContain("Contractor quote checklist");
@@ -656,8 +652,6 @@ class SiteControllerTests {
                         .param("scopeLane", "windows")
                         .param("recommendationLine", "Opening protection recommendation from the report")
                         .param("scopeOpenings", "front windows only")
-                        .param("officeLabel", "Reply Signal Desk")
-                        .param("senderName", "Dana from intake")
                         .param("reportPageReceived", "true")
                         .param("photosReceived", "true"))
                 .andExpect(status().is3xxRedirection())
@@ -671,11 +665,11 @@ class SiteControllerTests {
                 .getResponse()
                 .getContentAsString();
 
-        String handoffId = extractBetween(resultHtml, "handoffId=", ";surface=result");
+        String handoffId = extractBetween(resultHtml, "briefId=", ";surface=result");
 
-        logVendorEvent("vendor_handoff_reply_narrowed", location, handoffId, "reply-narrowed");
-        logVendorEvent("vendor_handoff_reply_report_page", location, handoffId, "report-page");
-        logVendorEvent("vendor_handoff_reply_photos", location, handoffId, "opening-photos");
+        logVendorEvent("quote_prep_reply_narrowed", location, handoffId, "reply-narrowed");
+        logVendorEvent("quote_prep_reply_report_page", location, handoffId, "report-page");
+        logVendorEvent("quote_prep_reply_photos", location, handoffId, "opening-photos");
 
         String refreshedHtml = mockMvc.perform(get(location))
                 .andExpect(status().isOk())
@@ -898,7 +892,8 @@ class SiteControllerTests {
                 .getResponse()
                 .getContentAsString();
 
-        assertThat(html).contains("Commercial routing output");
+        assertThat(html).contains("Leads by contractor type");
+        assertThat(html).contains("What homeowners are being pointed toward");
         assertThat(html).contains("Which route family is earning action");
         assertThat(html).contains("Current route board");
     }
@@ -1041,10 +1036,10 @@ class SiteControllerTests {
                 {
                   "eventType": "%s",
                   "routePath": "%s",
-                  "routeFamily": "vendor-handoff",
+                  "routeFamily": "quote-prep-brief",
                   "scenario": "opening-protection",
                   "improvementType": "opening-protection",
-                  "detail": "handoffId=%s;surface=result;signal=%s"
+                  "detail": "briefId=%s;surface=result;signal=%s"
                 }
                 """.formatted(eventType, routePath, handoffId, signal);
 

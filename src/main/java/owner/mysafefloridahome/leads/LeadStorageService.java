@@ -19,19 +19,15 @@ import org.springframework.stereotype.Service;
 public class LeadStorageService {
 
     private static final String LEADS_HEADER =
-            "captured_at,route_path,route_family,scenario,improvement_type,partner_type,county,zip,report_received,home_type,budget_range,timeline,email,phone,consent";
-    private static final String PARTNER_INQUIRIES_HEADER =
-            "captured_at,inquiry_type,route_focus,contact_name,company,email,phone,license_number,counties_served,message,consent";
+            "captured_at,route_path,route_family,scenario,improvement_type,contractor_type,county,zip,report_received,home_type,budget_range,timeline,email,phone,consent";
     private static final String EVENTS_HEADER =
             "captured_at,event_type,route_path,route_family,scenario,improvement_type,detail";
 
     private final Path leadsPath;
-    private final Path partnerInquiriesPath;
     private final Path eventsPath;
 
     public LeadStorageService(AppProperties appProperties) {
         this.leadsPath = Path.of(appProperties.getStorage().getLeadsPath());
-        this.partnerInquiriesPath = Path.of(appProperties.getStorage().getPartnerInquiriesPath());
         this.eventsPath = Path.of(appProperties.getStorage().getEventsPath());
     }
 
@@ -43,7 +39,7 @@ public class LeadStorageService {
                 sanitize(request.getRouteFamily()),
                 sanitize(request.getScenario()),
                 sanitize(request.getImprovementType()),
-                sanitize(request.getPartnerType()),
+                sanitize(request.getContractorType()),
                 sanitize(request.getCounty()),
                 sanitize(request.getZip()),
                 sanitize(request.getReportReceived()),
@@ -56,25 +52,6 @@ public class LeadStorageService {
         appendRow(leadsPath, row);
         logEvent(internalEvent("lead_submit_success", request.getRoutePath(), request.getRouteFamily(),
                 request.getScenario(), request.getImprovementType(), "form_submit"));
-    }
-
-    public synchronized void capturePartnerInquiry(PartnerInquiryRequest request) {
-        ensureFile(partnerInquiriesPath, PARTNER_INQUIRIES_HEADER);
-        String row = String.join(",",
-                sanitize(OffsetDateTime.now().toString()),
-                sanitize(request.getInquiryType()),
-                sanitize(request.getRouteFocus()),
-                sanitize(request.getContactName()),
-                sanitize(request.getCompany()),
-                sanitize(request.getEmail()),
-                sanitize(request.getPhone()),
-                sanitize(request.getLicenseNumber()),
-                sanitize(request.getCountiesServed()),
-                sanitize(request.getMessage()),
-                sanitize(Boolean.toString(request.isConsent())));
-        appendRow(partnerInquiriesPath, row);
-        logEvent(internalEvent("partner_inquiry_submit_success", "/contact/", "trust",
-                request.getInquiryType(), request.getRouteFocus(), request.getCompany()));
     }
 
     public synchronized void logEvent(LeadEventRequest request) {
@@ -92,28 +69,22 @@ public class LeadStorageService {
 
     public LeadDashboardSummary dashboardSummary() {
         List<String[]> leadRows = readRows(leadsPath);
-        List<String[]> partnerInquiryRows = readRows(partnerInquiriesPath);
         List<String[]> eventRows = readRows(eventsPath);
         Map<String, Long> leadsByImprovement = leadRows.stream()
                 .collect(Collectors.groupingBy(row -> blankToUnknown(column(row, 4)), LinkedHashMap::new,
                         Collectors.counting()));
-        Map<String, Long> leadsByPartnerType = leadRows.stream()
+        Map<String, Long> leadsByContractorType = leadRows.stream()
                 .collect(Collectors.groupingBy(row -> blankToUnknown(column(row, 5)), LinkedHashMap::new,
-                        Collectors.counting()));
-        Map<String, Long> partnerInquiriesByRouteFocus = partnerInquiryRows.stream()
-                .collect(Collectors.groupingBy(row -> blankToUnknown(column(row, 2)), LinkedHashMap::new,
                         Collectors.counting()));
         Map<String, Long> eventsByType = eventRows.stream()
                 .collect(Collectors.groupingBy(row -> blankToUnknown(column(row, 1)), LinkedHashMap::new,
                         Collectors.counting()));
         Map<String, Long> ctaClicksByRouteFamily = eventRows.stream()
-                .filter(row -> "route_cta_click".equals(column(row, 1)) || "lead_form_open".equals(column(row, 1))
-                        || "partner_outbound_click".equals(column(row, 1)))
+                .filter(row -> "route_cta_click".equals(column(row, 1)) || "lead_form_open".equals(column(row, 1)))
                 .collect(Collectors.groupingBy(row -> blankToUnknown(column(row, 3)), LinkedHashMap::new,
                         Collectors.counting()));
-        return new LeadDashboardSummary(leadRows.size(), partnerInquiryRows.size(), eventRows.size(),
-                sortDescending(leadsByImprovement), sortDescending(leadsByPartnerType),
-                sortDescending(partnerInquiriesByRouteFocus),
+        return new LeadDashboardSummary(leadRows.size(), eventRows.size(),
+                sortDescending(leadsByImprovement), sortDescending(leadsByContractorType),
                 sortDescending(eventsByType), sortDescending(ctaClicksByRouteFamily));
     }
 

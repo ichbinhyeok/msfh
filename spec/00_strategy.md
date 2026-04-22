@@ -92,7 +92,7 @@ The main product should stay homeowner-first.
 
 - Core layer: report understanding, project choice, and homeowner quote prep
 - First workflow asset: homeowner-built opening-protection quote-prep brief
-- Optional layer: contractor-office reuse of the same brief when an office wants a customer-facing first-send asset
+- Optional layer: reuse of the same brief across homeowner email or text outreach when the same first-send explanation is needed again
 
 ## Interaction rule
 The product should feel like a next-step assistant, not an organized information shelf.
@@ -106,9 +106,9 @@ The product should feel like a next-step assistant, not an organized information
 
 This means the product should not behave like a broad contractor suite.
 
-- The homeowner should be able to build and carry the brief without vendor setup.
-- Vendor workflow insertion is still valid, but it is secondary.
-- Internal vendor setup, presets, and handoff sheets stay behind the free homeowner brief.
+- The homeowner should be able to build and carry the brief without extra setup.
+- Any behind-the-scenes follow-up is secondary and should never define the public product.
+- Internal-only notes, reusable checklists, and follow-up aids stay behind the free homeowner brief.
 
 ## 90-day objective
 Within 90 days, the site should prove three things:

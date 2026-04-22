@@ -29,7 +29,7 @@ This matrix defines what must work before the first public release can be consid
 - Lead form opens from every core program and improvement route
 - Lead submit success writes storage
 - Lead submit error state renders cleanly
-- Improvement type changes partner-type routing correctly
+- Improvement type changes contractor-type routing correctly
 
 ## Analytics tests
 - CTA click logging records route family and improvement type
@@ -45,10 +45,10 @@ This matrix defines what must work before the first public release can be consid
 - home, core program routes, and improvement routes open with a visible `do now / have ready / do not do yet` frame before longer explanation
 - forms stay email-first and do not require phone
 - home provides a clear path into the opening-protection quote-prep tool
-- home opening-protection handoff can open the quote-prep builder with report, home-type, and scope hints already filled in
+- home opening-protection decision output can open the quote-prep builder with report, home-type, and scope hints already filled in
 - contractor-quotes program route provides a clear path into the same quote-prep tool when the narrow first quote is really opening protection
 - opening-protection improvement route provides a clear path into the same quote-prep tool
-- quote-prep builder, result, and share surfaces remain readable and usable without exposing internal office tools on the public-facing path
+- quote-prep builder, result, and share surfaces remain readable and usable without exposing internal-only helper surfaces on the public-facing path
 
 ## Source freshness tests
 - stale official sources block index promotion

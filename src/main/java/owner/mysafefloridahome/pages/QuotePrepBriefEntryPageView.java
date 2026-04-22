@@ -2,7 +2,7 @@ package owner.mysafefloridahome.pages;
 
 import java.util.List;
 
-public record VendorWorkflowPageView(
+public record QuotePrepBriefEntryPageView(
         PageMeta meta,
         String eyebrow,
         String title,
@@ -13,6 +13,5 @@ public record VendorWorkflowPageView(
         List<String> workflowSteps,
         List<String> fitPoints,
         List<String> guardrails,
-        List<RouteDetailCard> artifactCards,
-        String officePresetPath) {
+        List<RouteDetailCard> artifactCards) {
 }

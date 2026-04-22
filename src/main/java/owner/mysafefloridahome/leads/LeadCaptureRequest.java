@@ -33,7 +33,7 @@ public class LeadCaptureRequest {
     @NotBlank
     private String homeType;
 
-    private String partnerType;
+    private String contractorType;
 
     @NotBlank
     private String budgetRange;
@@ -125,12 +125,12 @@ public class LeadCaptureRequest {
         this.homeType = homeType;
     }
 
-    public String getPartnerType() {
-        return partnerType;
+    public String getContractorType() {
+        return contractorType;
     }
 
-    public void setPartnerType(String partnerType) {
-        this.partnerType = partnerType;
+    public void setContractorType(String contractorType) {
+        this.contractorType = contractorType;
     }
 
     public String getBudgetRange() {

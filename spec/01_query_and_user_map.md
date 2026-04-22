@@ -132,7 +132,6 @@ The site should always classify the user into one of these trigger states:
 
 ### Tier 3
 - county overlays
-- partner finder pages
 - final inspection and draw-request help pages
 
 ## Query-to-route mapping

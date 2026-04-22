@@ -405,7 +405,7 @@
     "sourceFreshnessStatus": "fresh",
     "dominantImprovementType": "",
     "triggerState": "report_received_need_next_step",
-    "summary": "How to send corrections or partner inquiries."
+    "summary": "How to send corrections or homeowner-facing questions about the site's guidance."
   },
   {
     "routeId": "trust-not-government-affiliated",

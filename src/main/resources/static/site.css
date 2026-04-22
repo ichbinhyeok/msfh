@@ -836,42 +836,6 @@ p {
   grid-column: 1 / -1;
 }
 
-.partner-section {
-  align-items: start;
-}
-
-.partner-panel {
-  gap: 16px;
-}
-
-.partner-offer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.partner-offer-card {
-  display: grid;
-  gap: 10px;
-  padding: 20px;
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.82);
-  border-left: 3px solid rgba(0, 32, 70, 0.12);
-  box-shadow: 0 14px 24px rgba(0, 32, 70, 0.04);
-}
-
-.partner-offer-card h3 {
-  margin: 0;
-  color: var(--text-heading);
-  font-size: 1.28rem;
-  line-height: 1.12;
-}
-
-.partner-offer-card p:last-child {
-  color: var(--muted);
-}
-
 .console-stage {
   padding-top: 54px;
 }
@@ -1184,7 +1148,7 @@ p {
   background: linear-gradient(180deg, rgba(215, 235, 229, 0.58), rgba(255, 255, 255, 0.96));
 }
 
-.signal-card--handoff {
+.signal-card--path {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(228, 237, 233, 0.94));
 }
 
@@ -1635,9 +1599,7 @@ th {
 }
 
 .quote-prep-page .action-row,
-.vendor-workflow-page .action-row,
-.vendor-packet-page .action-row,
-.vendor-handoff-page .action-row {
+.quote-prep-brief-page .action-row {
   flex-wrap: wrap;
 }
 
@@ -2457,43 +2419,43 @@ th {
   margin-top: 4px;
 }
 
-.vendor-handoff-page--public .packet-hero {
+.quote-prep-brief-page--public .packet-hero {
   padding-top: 54px;
   padding-bottom: 12px;
 }
 
-.vendor-handoff-page--public .route-hero-main {
+.quote-prep-brief-page--public .route-hero-main {
   gap: 14px;
 }
 
-.vendor-handoff-page--public .route-hero-main .lead {
+.quote-prep-brief-page--public .route-hero-main .lead {
   max-width: 42rem;
   color: var(--muted-strong);
 }
 
-.vendor-handoff-page--public .route-hero-panel {
+.quote-prep-brief-page--public .route-hero-panel {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 244, 242, 0.94));
   color: var(--text);
   border: 1px solid rgba(24, 59, 74, 0.1);
   box-shadow: 0 18px 34px rgba(12, 39, 67, 0.05);
 }
 
-.vendor-handoff-page--public .route-hero-panel .micro-tag,
-.vendor-handoff-page--public .route-hero-fact span {
+.quote-prep-brief-page--public .route-hero-panel .micro-tag,
+.quote-prep-brief-page--public .route-hero-fact span {
   color: var(--muted-strong);
 }
 
-.vendor-handoff-page--public .route-hero-panel h2,
-.vendor-handoff-page--public .route-hero-fact strong {
+.quote-prep-brief-page--public .route-hero-panel h2,
+.quote-prep-brief-page--public .route-hero-fact strong {
   color: var(--text-heading);
 }
 
-.vendor-handoff-page--public .route-hero-panel__summary,
-.vendor-handoff-page--public .route-hero-fact p {
+.quote-prep-brief-page--public .route-hero-panel__summary,
+.quote-prep-brief-page--public .route-hero-fact p {
   color: var(--muted);
 }
 
-.vendor-handoff-page--public .route-hero-facts {
+.quote-prep-brief-page--public .route-hero-facts {
   border-top-color: rgba(24, 59, 74, 0.12);
 }
 
@@ -2603,11 +2565,11 @@ th {
   font-weight: 700;
 }
 
-.vendor-handoff-page--public {
+.quote-prep-brief-page--public {
   background: #dfe6e8;
 }
 
-.vendor-handoff-page--pdf {
+.quote-prep-brief-page--pdf {
   background: #dfe6e8;
 }
 
@@ -2954,8 +2916,7 @@ th {
   .home-page .card-grid,
   .home-page .console-band .image-band-shell,
   .home-alert-grid,
-  .home-page .source-stack .source-list,
-  .partner-offer-grid {
+  .home-page .source-stack .source-list {
     grid-template-columns: 1fr;
   }
 
@@ -3209,39 +3170,39 @@ th {
   }
 }
 
-.vendor-handoff-page--pdf .brief-export-shell {
+.quote-prep-brief-page--pdf .brief-export-shell {
   gap: 12px;
 }
 
-.vendor-handoff-page--pdf .brief-export-sheet {
+.quote-prep-brief-page--pdf .brief-export-sheet {
   gap: 10px;
   padding: 0.38in;
   line-height: 1.38;
 }
 
-.vendor-handoff-page--pdf .brief-export-header {
+.quote-prep-brief-page--pdf .brief-export-header {
   gap: 10px;
   padding-bottom: 10px;
 }
 
-.vendor-handoff-page--pdf .brief-export-meta,
-.vendor-handoff-page--pdf .brief-export-grid,
-.vendor-handoff-page--pdf .brief-export-module-list {
+.quote-prep-brief-page--pdf .brief-export-meta,
+.quote-prep-brief-page--pdf .brief-export-grid,
+.quote-prep-brief-page--pdf .brief-export-module-list {
   gap: 10px;
 }
 
-.vendor-handoff-page--pdf .brief-export-meta__item,
-.vendor-handoff-page--pdf .brief-export-section,
-.vendor-handoff-page--pdf .brief-export-module {
+.quote-prep-brief-page--pdf .brief-export-meta__item,
+.quote-prep-brief-page--pdf .brief-export-section,
+.quote-prep-brief-page--pdf .brief-export-module {
   gap: 6px;
   padding: 10px 12px;
 }
 
-.vendor-handoff-page--pdf .brief-export-list {
+.quote-prep-brief-page--pdf .brief-export-list {
   gap: 6px;
 }
 
-.vendor-handoff-page--pdf .brief-export-header__title h1 {
+.quote-prep-brief-page--pdf .brief-export-header__title h1 {
   font-size: 1.62rem;
 }
 
@@ -3259,15 +3220,15 @@ th {
     display: none !important;
   }
 
-  body.vendor-packet-page {
+  body.quote-prep-page {
     background: #ffffff;
   }
 
-  body.vendor-handoff-page--public {
+  body.quote-prep-brief-page--public {
     background: #ffffff;
   }
 
-  body.vendor-handoff-page--pdf {
+  body.quote-prep-brief-page--pdf {
     background: #ffffff;
   }
 
@@ -3296,32 +3257,32 @@ th {
     break-inside: avoid;
   }
 
-  .vendor-handoff-page--public .route-hero-main {
+  .quote-prep-brief-page--public .route-hero-main {
     padding-bottom: 14px;
     margin-bottom: 12px;
     border-bottom: 2px solid rgba(24, 59, 74, 0.16);
   }
 
-  .vendor-handoff-page--public .route-hero-panel {
+  .quote-prep-brief-page--public .route-hero-panel {
     margin-top: 12px;
   }
 
-  .vendor-handoff-page--public .page-hero h1 {
+  .quote-prep-brief-page--public .page-hero h1 {
     font-size: 28pt;
     line-height: 1.02;
   }
 
-  .vendor-handoff-page--pdf .section-shell,
-  .vendor-handoff-page--pdf .brief-export-shell,
-  .vendor-handoff-page--pdf .brief-export-sheet {
+  .quote-prep-brief-page--pdf .section-shell,
+  .quote-prep-brief-page--pdf .brief-export-shell,
+  .quote-prep-brief-page--pdf .brief-export-sheet {
     width: auto;
   }
 
-  .vendor-handoff-page--pdf .brief-export {
+  .quote-prep-brief-page--pdf .brief-export {
     padding: 0;
   }
 
-  .vendor-handoff-page--pdf .brief-export-sheet {
+  .quote-prep-brief-page--pdf .brief-export-sheet {
     padding: 0;
     border: none;
     border-radius: 0;
@@ -3329,20 +3290,20 @@ th {
     gap: 14px;
   }
 
-  .vendor-handoff-page--pdf .brief-export-header__topline,
-  .vendor-handoff-page--pdf .brief-export-header__title-row,
-  .vendor-handoff-page--pdf .brief-export-footer {
+  .quote-prep-brief-page--pdf .brief-export-header__topline,
+  .quote-prep-brief-page--pdf .brief-export-header__title-row,
+  .quote-prep-brief-page--pdf .brief-export-footer {
     display: flex;
   }
 
-  .vendor-handoff-page--pdf .brief-export-meta,
-  .vendor-handoff-page--pdf .brief-export-grid {
+  .quote-prep-brief-page--pdf .brief-export-meta,
+  .quote-prep-brief-page--pdf .brief-export-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .vendor-handoff-page--pdf .brief-export-meta__item,
-  .vendor-handoff-page--pdf .brief-export-section,
-  .vendor-handoff-page--pdf .brief-export-module {
+  .quote-prep-brief-page--pdf .brief-export-meta__item,
+  .quote-prep-brief-page--pdf .brief-export-section,
+  .quote-prep-brief-page--pdf .brief-export-module {
     border-color: rgba(24, 59, 74, 0.16);
     box-shadow: none;
   }

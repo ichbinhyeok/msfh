@@ -1,10 +1,10 @@
-package owner.mysafefloridahome.vendor;
+package owner.mysafefloridahome.quoteprep;
 
-public record OpeningProtectionHandoffMetrics(
+public record OpeningProtectionBriefMetrics(
         long createdCount,
         long resultOpenCount,
         long publicBriefOpenCount,
-        long officeRecordOpenCount,
+        long recordOpenCount,
         long briefCopyCount,
         long sendNoteCopyCount,
         long replyNarrowedCount,

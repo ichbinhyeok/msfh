@@ -8,7 +8,7 @@ The moat is not broad MSFH prose. The moat is a verified, current decision datas
 - `data/raw/improvements/improvement-rules.csv`
 - `data/raw/guides/guides.json`
 - `data/raw/counties/county-overlays.csv`
-- `data/raw/partners/partner-types.csv`
+- `data/raw/contractors/contractor-types.csv`
 - `data/raw/sources/*.json`
 
 ## Recommended normalized outputs
@@ -64,10 +64,10 @@ Fields:
 - contractor density score
 - route families allowed
 
-## Partner type schema
+## Contractor type schema
 Fields:
 
-- partner type slug
+- contractor type slug
 - display label
 - what problem it solves
 - what trigger state it matches
@@ -119,7 +119,7 @@ Each review artifact should capture:
   - no decision value
   - weak CTA behavior
   - weak lead evidence
-  - weak partner coverage
+  - weak contractor-path clarity
 
 ## Source workflow
 1. Capture raw official source URLs and notes
@@ -137,7 +137,7 @@ Each review artifact should capture:
 ## Review cadence
 - core program routes: every `30` days
 - held support routes: every `45` days
-- partner roster: every `30` days once launched
+- contractor-type notes: every `30` days once launched
 - county overlays: only after statewide traction
 
 ## Operational principles

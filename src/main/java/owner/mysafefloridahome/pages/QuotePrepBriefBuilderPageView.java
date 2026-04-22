@@ -2,12 +2,12 @@ package owner.mysafefloridahome.pages;
 
 import java.util.List;
 
-public record VendorPacketPageView(
+public record QuotePrepBriefBuilderPageView(
         PageMeta meta,
         String eyebrow,
         String title,
         String description,
-        String vendorEntryPath,
+        String entryPath,
         String quickAnswer,
         String roleTitle,
         String roleSummary,
@@ -19,6 +19,5 @@ public record VendorPacketPageView(
         List<String> secondaryItems,
         String cautionTitle,
         List<String> cautionItems,
-        String blockingMessage,
-        List<RouteDetailCard> siblingCards) {
+        String blockingMessage) {
 }

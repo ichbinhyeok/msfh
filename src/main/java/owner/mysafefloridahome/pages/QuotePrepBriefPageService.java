@@ -5,18 +5,18 @@ import owner.mysafefloridahome.AppProperties;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VendorPacketService {
+public class QuotePrepBriefPageService {
     private static final String OPENING_PROTECTION_TOOL_ENTRY_PATH = "/tools/opening-protection/quote-prep-brief/";
-    private static final String OPENING_PROTECTION_PACKET_PATH = "/tools/opening-protection/quote-prep-brief/build/";
+    private static final String OPENING_PROTECTION_BRIEF_BUILDER_PATH = "/tools/opening-protection/quote-prep-brief/build/";
 
     private final AppProperties appProperties;
 
-    public VendorPacketService(AppProperties appProperties) {
+    public QuotePrepBriefPageService(AppProperties appProperties) {
         this.appProperties = appProperties;
     }
 
-    public VendorWorkflowPageView openingProtectionWorkflowEntry(String requestBaseUrl) {
-        return new VendorWorkflowPageView(
+    public QuotePrepBriefEntryPageView openingProtectionWorkflowEntry(String requestBaseUrl) {
+        return new QuotePrepBriefEntryPageView(
                 meta(
                         "Opening Protection Quote-Prep Brief",
                         "Shareable brief for narrowing an opening-protection quote request before price shopping or measurements.",
@@ -36,29 +36,28 @@ public class VendorPacketService {
                 List.of(
                         "Build the shareable quote-prep brief and send it with the first contractor outreach.",
                         "Use the reply to narrow scope before phone calls, measurements, or broad price comparison starts.",
-                        "Keep estimator notes, quote-boundary language, and office setup behind the free layer unless a contractor office is reusing this repeatedly."),
+                        "Keep the first share to the public brief so every contractor is reacting to the same named openings and the same limits."),
                 List.of(
                         "Homeowner already has the report and wants the first contractor reply to stay narrow",
                         "Opening-protection scope keeps drifting into broad whole-house pricing",
                         "Attached-home or HOA caveats may change what belongs in the first quote",
-                        "A contractor office wants one customer-facing brief instead of rewriting the same first-send explanation"),
+                        "You want one reusable public brief instead of rewriting the same first-send explanation"),
                 List.of(
                         "This is not a whole-house package request",
                         "This does not replace permits, approvals, reimbursement decisions, or grant closeout",
                         "This should not blur attached-home caution into detached-home assumptions",
-                        "This should not turn into office persistence, branding, dashboards, or estimator software"),
-                List.of(preQuoteBriefCard()),
-                "");
+                        "This should not turn into a dashboard, internal ops bundle, or staff console"),
+                List.of(preQuoteBriefCard()));
     }
 
-    public VendorPacketPageView openingProtectionPreQuote(
+    public QuotePrepBriefBuilderPageView openingProtectionPreQuote(
             String requestBaseUrl,
             String blockingMessage) {
-        return new VendorPacketPageView(
+        return new QuotePrepBriefBuilderPageView(
                 meta(
                         "Opening Protection Quote-Prep Brief Builder",
                         "Shareable quote-prep brief for narrowing an opening-protection request before pricing.",
-                        OPENING_PROTECTION_PACKET_PATH,
+                        OPENING_PROTECTION_BRIEF_BUILDER_PATH,
                         requestBaseUrl),
                 "Shareable brief builder",
                 "Build the first quote request before you ask for price",
@@ -91,8 +90,7 @@ public class VendorPacketService {
                         "Do not assume a contractor mentioning the program means the scope is correct",
                         "Do not assume attached-home cases follow detached-home scope",
                         "Do not assume broad whole-house pricing is the same thing as the report recommendation"),
-                blockingMessage,
-                List.of());
+                blockingMessage);
     }
 
     private PageMeta meta(String title, String description, String path, String requestBaseUrl) {
@@ -114,7 +112,7 @@ public class VendorPacketService {
                 "Start here",
                 "Quote-Prep Brief Builder",
                 "Create the shareable brief you can send before a contractor widens the first quote conversation.",
-                OPENING_PROTECTION_PACKET_PATH,
-                "Build brief");
+                        OPENING_PROTECTION_BRIEF_BUILDER_PATH,
+                        "Build brief");
     }
 }

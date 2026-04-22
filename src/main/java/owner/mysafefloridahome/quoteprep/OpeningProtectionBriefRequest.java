@@ -1,6 +1,6 @@
-package owner.mysafefloridahome.vendor;
+package owner.mysafefloridahome.quoteprep;
 
-public class OpeningProtectionHandoffRequest {
+public class OpeningProtectionBriefRequest {
 
     private String siteLabel;
     private String countyZip;
@@ -8,7 +8,7 @@ public class OpeningProtectionHandoffRequest {
     private String recommendationLine;
     private String scopeOpenings;
     private String scopeLane;
-    private String officeLabel;
+    private String contactLabel;
     private String senderName;
     private String replyInstructions;
     private String serviceAreaNote;
@@ -70,12 +70,12 @@ public class OpeningProtectionHandoffRequest {
         this.scopeLane = scopeLane;
     }
 
-    public String getOfficeLabel() {
-        return officeLabel;
+    public String getContactLabel() {
+        return contactLabel;
     }
 
-    public void setOfficeLabel(String officeLabel) {
-        this.officeLabel = officeLabel;
+    public void setContactLabel(String contactLabel) {
+        this.contactLabel = contactLabel;
     }
 
     public String getSenderName() {

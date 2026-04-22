@@ -10,6 +10,5 @@ public record TrustPageView(
         RouteRecord route,
         TrustPageContent page,
         List<RouteDetailCard> relatedRouteCards,
-        List<SourceRecord> sourceStack,
-        String partnerStatus) {
+        List<SourceRecord> sourceStack) {
 }

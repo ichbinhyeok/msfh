@@ -29,7 +29,7 @@ public class AdminService {
     public AdminDashboardView dashboard(String requestBaseUrl) {
         PageMeta meta = new PageMeta(
                 "Admin | " + appProperties.getSiteName(),
-                "Operations review for route status, source freshness, and lead activity.",
+                "Operations review for route status, source freshness, and homeowner lead activity.",
                 appProperties.absoluteUrl("/admin/", requestBaseUrl),
                 "noindex,nofollow",
                 List.of(new BreadcrumbItem("Home", "/"), new BreadcrumbItem("Admin", "/admin/")),

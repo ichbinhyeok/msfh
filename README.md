@@ -4,7 +4,7 @@ Working internal project: `MySafeFloridaHomeVerdict`
 Suggested package root: `owner.mysafefloridahome`
 
 **Date:** 2026-04-13 (Asia/Seoul)  
-**Purpose:** This folder now contains a working Spring Boot prototype plus the design packet for a Florida-focused **post-inspection decision and contractor-routing site** around the My Safe Florida Home program workflow.
+**Purpose:** This folder now contains a working Spring Boot prototype plus the design notes for a Florida-focused **post-inspection decision and homeowner quote-prep site** around the My Safe Florida Home program workflow.
 
 ## What you are building
 A Florida-only decision site for homeowners who already touched the program and now need the next step:
@@ -70,22 +70,20 @@ Current official and quasi-official program materials indicate:
 - Florida Senate and CFO materials describe the program as already very large in inspections, grants, and reimbursements
 
 ## File map
-- `AGENT_START_HERE.md` - read order and handoff rules for any future agent
+- `AGENT_START_HERE.md` - read order and continuity notes for any future agent
 - `ops/context_tracker.md` - current status, decisions, and next tasks
 - `ops/wedge_focus_2026-04-13.md` - current primary wedge and narrow operating loop for the first build phase
 - `ops/source_audit_2026-04-13.md` - official-source anchor map and how each source should shape the product
-- `ops/persona_council_2026-04-13.md` - forced debate across demand, SERP, funnel, risk, sponsor, and portfolio perspectives
+- `ops/persona_council_2026-04-13.md` - forced debate across demand, SERP, funnel, risk, and portfolio perspectives
 - `ops/promotion_review_system_2026-04-13.md` - how future agents should review metrics and recommend route promotion
 - `ops/route_promotion_board.md` - current held-route board and recommendation status
 - `spec/00_strategy.md` - market thesis, positioning, wedge, and rollout philosophy
 - `spec/01_query_and_user_map.md` - jobs-to-be-done, trigger states, query families, and first user map
 - `spec/02_site_architecture.md` - canonical entities, URL graph, route families, and internal linking
 - `spec/03_data_and_operations.md` - data model, source hierarchy, verification workflow, and refresh cadence
-- `spec/04_commercial_model.md` - CTA logic, partner types, lead intake, and sponsor packaging
 - `spec/05_editorial_rules_and_execution.md` - writing rules, trust guardrails, and page-family ship criteria
 - `spec/06_indexing_quality_and_analytics.md` - indexing gates, route quality rules, and measurement plan
 - `spec/07_technical_architecture.md` - system boundaries, package map, rendering model, and services
-- `spec/08_delivery_and_handoff.md` - workstreams, milestones, and implementation order
 - `spec/09_launch_surface_and_route_inventory.md` - first launch-surface page inventory
 - `spec/10_acceptance_test_matrix.md` - launch-critical tests and definition of done
 
@@ -101,15 +99,14 @@ Current official and quasi-official program materials indicate:
 - File-backed normalized and derived content seeds in place
 - Core public routes, held support routes, sitemap, robots, and trust pages rendering
 - Lead form storage and event logging writing to local CSV files
-- Acceptance pass tightened around phase-1 route coverage, partner-type routing, source-stack presence, and route-health review
+- Acceptance pass tightened around phase-1 route coverage, contractor-type routing, source-stack presence, and route-health review
 - Acceptance coverage now sweeps all non-admin public routes, event context storage, error-state rendering, stale-source fail-closed behavior, and redirect safety
 - Home, program, improvement, and guide routes now share an explicit decision-engine frame: interpret, choose, then prepare the quote path
 - Home plus core program and improvement routes now open with assistant-style next-move guidance: `do now`, `have ready`, and `do not do yet` come before the longer explanation
-- Home now uses a progressive four-step intake on the live page, and opening-protection decision results can hand off directly into a prefilled quote-prep builder instead of making the homeowner restate the same context
-- Home, the `contractor-quotes` program route, and the opening-protection improvement route now all link into a B2C-facing `quote-prep brief` utility for narrowing the first contractor request
+- Home now uses a progressive four-step intake on the live page, and opening-protection decision results can move directly into a prefilled quote-prep builder instead of making the homeowner restate the same context
+- Home, the `contractor-quotes` program route, and the opening-protection improvement route now all link into a `quote-prep brief` utility for narrowing the first contractor request
 - The quote-prep entry, builder, result, shareable brief, and PDF export are intentionally `noindex` utility surfaces and stay out of the public sitemap
-- Vendor-era helper functions still exist behind the scenes: internal office record, estimator handoff worksheet, quote boundary worksheet, office preset storage, and event-backed reply-quality metrics remain live
-- Public-facing surfaces now hide those internal helper routes so the homeowner experience stays narrow even though the underlying office tooling still exists
+- The active product direction is B2C-only: keep the homeowner quote-prep brief and remove or retire older internal helper layers
 
 ## Persistent CSV storage in production
 - Runtime CSV data should not live inside the deployed release folder.
@@ -118,7 +115,7 @@ Current official and quasi-official program materials indicate:
   - `APP_BASE_URL=https://scopeverdict.com`
   - `APP_STORAGE_LEADS_PATH`
   - `APP_STORAGE_EVENTS_PATH`
-  - `APP_STORAGE_PARTNER_INQUIRIES_PATH`
+  - `APP_STORAGE_QUOTE_PREP_BRIEFS_PATH`
 - Keep GitHub Actions deploy output under something like `/opt/mysafefloridahome/current`, but keep CSV files under `/var/lib/mysafefloridahome`.
 - Detailed server notes: `ops/oracle_vm_persistent_storage_2026-04-14.md`
 
@@ -175,11 +172,11 @@ Reason:
 
 Everything else should start as support-layer or `noindex` inventory until the first wedge proves traction.
 
-## Recommended monetization order
-1. Opening protection contractor leads
-2. Roofing and SWR-related leads
-3. Roof-to-wall and retrofit-specialist leads
-4. Metro or county sponsor packages once route-level demand is proven
+## Recommended product expansion order
+1. opening-protection quote-prep
+2. roofing and SWR comparison guidance
+3. roof-to-wall and retrofit-specialist decision support
+4. metro or county overlays only if route-level demand is proven
 
 ## Portfolio position
 This is a strong `priority-2` build candidate behind `BuriedOilTankVerdict`.
@@ -200,7 +197,7 @@ Why:
 ## Build principles
 - This is a post-inspection decision product, not a general MSFH explainer.
 - The winning moment starts after the homeowner sees the report.
-- Program facts and contractor routing must stay visibly separate.
+- Program facts and contractor decision support must stay visibly separate.
 - Every page must answer:
   - what this report or recommendation probably means
   - what the homeowner should verify next

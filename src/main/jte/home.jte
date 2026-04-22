@@ -155,8 +155,8 @@
                             </div>
                         </article>
                         @if(quickStartAction != null)
-                            <article class="signal-card signal-card--handoff">
-                                <p class="micro-tag">Fastest handoff</p>
+                            <article class="signal-card signal-card--path">
+                                <p class="micro-tag">Fastest path</p>
                                 <h3>Start the first contractor request with these answers already carried forward</h3>
                                 <ul class="signal-list">
                                     <li>Home type is carried into the opening-protection builder.</li>

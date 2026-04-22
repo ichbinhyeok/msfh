@@ -3,7 +3,7 @@
 !{var slug = page.page().slug();}
 !{var panelTitle = "about".equals(slug) ? "This site exists between the report and the quote"
         : "methodology".equals(slug) ? "Current sources outrank stale PDFs"
-        : "contact".equals(slug) ? "Use this inbox for editorial issues, not case handling"
+        : "contact".equals(slug) ? "Use this inbox for homeowner questions and editorial corrections"
         : "not-government-affiliated".equals(slug) ? "Independent site, not the program"
         : "privacy".equals(slug) ? "Route data helps improve next-step guidance"
         : "terms".equals(slug) ? "Decision aid, not approval or legal advice"
@@ -78,10 +78,6 @@
                     @endfor
                 </div>
             </section>
-
-            @if("contact".equals(slug))
-                @template.shared.partnerInquiryForm(partnerStatus = page.partnerStatus())
-            @endif
 
             <section class="section">
                 <div class="section-shell">

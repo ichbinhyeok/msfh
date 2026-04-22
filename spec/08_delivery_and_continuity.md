@@ -1,7 +1,7 @@
-# 08 Delivery And Handoff
+# 08 Delivery And Continuity
 
 ## Delivery objective
-Ship a narrow but commercially credible first version that can:
+Ship a narrow but credible first version that can:
 
 - render program and improvement pages
 - route users by report or recommendation state
@@ -22,7 +22,7 @@ Ship a narrow but commercially credible first version that can:
 - generate route inventory
 - wire canonical and robots behavior
 
-### Workstream 3 - Commercial routing
+### Workstream 3 - Lead and decision routing
 - create CTA logic
 - create lead form and persistence
 - create event logging
@@ -67,7 +67,7 @@ Ship a narrow but commercially credible first version that can:
 ### Gate 4
 - first launch surface passes acceptance matrix
 
-## Handoff checklist for any future agent
+## Continuity checklist for any future agent
 - update `ops/context_tracker.md`
 - update route inventory if route families change
 - update source audit when official anchor sources change

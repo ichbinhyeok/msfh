@@ -17,7 +17,7 @@
             <div class="info-panel">
                 <p class="eyebrow">What this page is not</p>
                 <h3>Independent guidance, not official approval</h3>
-                <p>This page is an independent guide. It is not the program, not a government office, and not legal, insurance, or contractor advice.</p>
+                <p>This page is an independent guide. It is not the program, not a government agency, and not legal, insurance, or contractor advice.</p>
                 @if(reviewedOn != null)
                     <p class="meta-line">Last reviewed against the source stack: ${reviewedOn}</p>
                 @endif

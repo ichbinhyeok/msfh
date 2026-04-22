@@ -1,8 +1,8 @@
-package owner.mysafefloridahome.vendor;
+package owner.mysafefloridahome.quoteprep;
 
 import java.util.List;
 
-public record OpeningProtectionHandoffNarrative(
+public record OpeningProtectionBriefNarrative(
         String headline,
         String customerSummary,
         String requestLine,
@@ -18,7 +18,7 @@ public record OpeningProtectionHandoffNarrative(
         List<String> homeownerReplyChecklist,
         String homeownerReplyExample,
         List<String> watchouts,
-        List<OpeningProtectionScenarioModule> scenarioModules,
+        List<OpeningProtectionBriefScenarioModule> scenarioModules,
         List<String> customerSteps,
-        List<String> officeSteps) {
+        List<String> followUpSteps) {
 }

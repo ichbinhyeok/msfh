@@ -1,9 +1,9 @@
-package owner.mysafefloridahome.vendor;
+package owner.mysafefloridahome.quoteprep;
 
 import java.time.OffsetDateTime;
 
-public record OpeningProtectionHandoffRecord(
-        String handoffId,
+public record OpeningProtectionBriefRecord(
+        String briefId,
         String internalToken,
         String publicToken,
         OffsetDateTime createdAt,
@@ -13,7 +13,7 @@ public record OpeningProtectionHandoffRecord(
         String recommendationLine,
         String scopeOpenings,
         String scopeLane,
-        String officeLabel,
+        String contactLabel,
         String senderName,
         String replyInstructions,
         String serviceAreaNote,
