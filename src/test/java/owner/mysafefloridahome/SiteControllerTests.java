@@ -339,37 +339,16 @@ class SiteControllerTests {
         assertThat(preQuote.indexOf("Shareable brief preview"))
                 .isLessThan(preQuote.indexOf("A useful reply should stay inside 3 things"));
 
-        String estimator = mockMvc.perform(get("/vendor-packets/opening-protection/estimator-handoff/"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-        assertThat(estimator).contains("Estimator handoff after the first brief");
-        assertThat(estimator).contains("Internal review");
-        assertThat(estimator).contains("Estimator handoff worksheet");
-        assertThat(estimator).contains("Relevant openings are explicitly listed");
-        assertThat(estimator).contains("Copy Summary");
-
-        String boundary = mockMvc.perform(get("/vendor-packets/opening-protection/quote-boundary/"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-        assertThat(boundary).contains("Front-page quote boundary note");
-        assertThat(boundary).contains("Quote boundary note");
-        assertThat(boundary).contains("Copy Boundary Note");
-
-        String preset = mockMvc.perform(get("/vendor-packets/opening-protection/office-preset/"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-        assertThat(preset).contains("Optional office setup after repeat sends");
-        assertThat(preset).contains("Save Office Preset");
-        assertThat(preset).contains("Copy Brief Setup URL");
-        assertThat(preset).doesNotContain("Copy Boundary Preset URL");
-        assertThat(preset).doesNotContain("Open Boundary");
-        assertThat(preset).doesNotContain("Office Record");
+        mockMvc.perform(get("/vendors/opening-protection/quote-ready-packets/"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/vendor-packets/opening-protection/quote-ready-packet/"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/vendor-packets/opening-protection/estimator-handoff/"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/vendor-packets/opening-protection/quote-boundary/"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/vendor-packets/opening-protection/office-preset/"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -426,48 +405,7 @@ class SiteControllerTests {
     }
 
     @Test
-    void officePresetCanBeSavedAndReloaded() throws Exception {
-        String location = mockMvc.perform(post("/vendor-presets/opening-protection/save")
-                        .param("presetName", "Palm Coast default")
-                        .param("officeLabel", "Palm Coast Openings Desk")
-                        .param("senderName", "Amanda from intake")
-                        .param("replyInstructions", "Reply with the report page and opening photos in one email before scheduling.")
-                        .param("serviceAreaNote", "Serving Flagler only.")
-                        .param("permitHandlingNote", "Permit filing is quoted separately unless stated in writing.")
-                        .param("attachedScopeNote", "Attached openings are reviewed separately and may require HOA approval.")
-                        .param("boundaryScopeNote", "Only listed openings are included in this quote-ready packet."))
-                .andExpect(status().is3xxRedirection())
-                .andReturn()
-                .getResponse()
-                .getHeader("Location");
-
-        assertThat(location).startsWith("/vendor-packets/opening-protection/office-preset/?preset=");
-        assertThat(location).contains("saved=1");
-
-        String presetHtml = mockMvc.perform(get(location))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-
-        assertThat(presetHtml).contains("Office preset saved. Reuse it only after the public brief starts repeating.");
-        assertThat(presetHtml).contains("Palm Coast default");
-        assertThat(presetHtml).contains("Update Office Preset");
-        assertThat(presetHtml).contains("Editing Now");
-        assertThat(presetHtml).contains("Open Quote-Prep Brief");
-        assertThat(presetHtml).doesNotContain("Open Boundary");
-    }
-
-    @Test
     void preQuotePageKeepsFreeBuilderFocusedOnFirstSend() throws Exception {
-        mockMvc.perform(post("/vendor-presets/opening-protection/save")
-                        .param("presetName", "Inline preset")
-                        .param("officeLabel", "Inline Openings Desk")
-                        .param("senderName", "Morgan from intake")
-                        .param("replyInstructions", "Reply with the report page and opening photos in one message.")
-                        .param("boundaryScopeNote", "Only listed openings belong in the first quote."))
-                .andExpect(status().is3xxRedirection());
-
         String html = mockMvc.perform(get("/tools/opening-protection/quote-prep-brief/build/"))
                 .andExpect(status().isOk())
                 .andReturn()
@@ -485,122 +423,16 @@ class SiteControllerTests {
     }
 
     @Test
-    void officePresetCanBeUpdatedAndDeleted() throws Exception {
-        String saveLocation = mockMvc.perform(post("/vendor-presets/opening-protection/save")
-                        .param("presetName", "Treasure Coast default")
-                        .param("officeLabel", "Treasure Coast Intake Desk")
-                        .param("senderName", "Chris from intake")
-                        .param("replyInstructions", "Reply with the report page first.")
-                        .param("serviceAreaNote", "Serving Martin County only.")
-                        .param("permitHandlingNote", "Permit handling must be restated before signing.")
-                        .param("attachedScopeNote", "Attached homes stay narrower.")
-                        .param("boundaryScopeNote", "Only listed openings stay in scope."))
-                .andExpect(status().is3xxRedirection())
-                .andReturn()
-                .getResponse()
-                .getHeader("Location");
-
-        String presetId = extractQueryParam(saveLocation, "preset");
-
-        String updateLocation = mockMvc.perform(post("/vendor-presets/opening-protection/save")
-                        .param("presetId", presetId)
-                        .param("presetName", "Treasure Coast revised")
-                        .param("officeLabel", "Treasure Coast Scope Desk")
-                        .param("senderName", "Chris from intake")
-                        .param("replyInstructions", "Reply with the report page and the opening photos together.")
-                        .param("serviceAreaNote", "Serving Martin and St. Lucie only.")
-                        .param("permitHandlingNote", "Permit handling is confirmed separately before signing.")
-                        .param("attachedScopeNote", "Attached homes stay narrower.")
-                        .param("boundaryScopeNote", "Only listed openings stay in scope."))
-                .andExpect(status().is3xxRedirection())
-                .andReturn()
-                .getResponse()
-                .getHeader("Location");
-
-        assertThat(updateLocation).contains("updated=1");
-        assertThat(updateLocation).contains("preset=" + presetId);
-
-        String updatedHtml = mockMvc.perform(get(updateLocation))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-
-        assertThat(updatedHtml).contains("Office preset updated. Use it only if the same public brief wording is repeating.");
-        assertThat(updatedHtml).contains("Treasure Coast revised");
-        assertThat(updatedHtml).contains("Treasure Coast Scope Desk");
-        assertThat(updatedHtml).doesNotContain("Treasure Coast Intake Desk");
-
-        String deleteLocation = mockMvc.perform(post("/vendor-presets/opening-protection/delete")
-                        .param("presetId", presetId))
-                .andExpect(status().is3xxRedirection())
-                .andReturn()
-                .getResponse()
-                .getHeader("Location");
-
-        assertThat(deleteLocation).contains("deleted=1");
-
-        String deletedHtml = mockMvc.perform(get(deleteLocation))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-
-        assertThat(deletedHtml).contains("Office preset deleted. Keep setup only where the public brief is actually repeating.");
-        assertThat(deletedHtml).doesNotContain("Treasure Coast revised");
-    }
-
-    @Test
-    void officePresetPageKeepsPresetReuseSeparateFromRecentPacketActivity() throws Exception {
-        String presetLocation = mockMvc.perform(post("/vendor-presets/opening-protection/save")
-                        .param("presetName", "Broward default")
-                        .param("officeLabel", "Broward Openings Desk"))
-                .andExpect(status().is3xxRedirection())
-                .andReturn()
-                .getResponse()
-                .getHeader("Location");
-
+    void legacyVendorPostEndpointsAreGone() throws Exception {
         mockMvc.perform(post("/vendor-handoffs/opening-protection")
-                        .param("siteLabel", "Broward packet home")
-                        .param("countyZip", "Broward 33301")
-                        .param("homeType", "detached")
-                        .param("scopeLane", "windows")
-                        .param("recommendationLine", "Opening protection recommendation")
-                        .param("scopeOpenings", "front windows")
-                        .param("officeLabel", "Broward Openings Desk")
-                        .param("senderName", "Bri from intake")
-                        .param("reportPageReceived", "true")
-                        .param("photosReceived", "true"))
-                .andExpect(status().is3xxRedirection());
-
-        mockMvc.perform(post("/vendor-handoffs/opening-protection")
-                        .param("siteLabel", "Unrelated office home")
-                        .param("countyZip", "Palm Beach 33480")
-                        .param("homeType", "detached")
-                        .param("scopeLane", "doors")
-                        .param("recommendationLine", "Opening protection recommendation")
-                        .param("scopeOpenings", "rear slider")
-                        .param("officeLabel", "Palm Beach Openings Desk")
-                        .param("senderName", "Pat from intake")
-                        .param("reportPageReceived", "true")
-                        .param("photosReceived", "true"))
-                .andExpect(status().is3xxRedirection());
-
-        String html = mockMvc.perform(get(presetLocation))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-
-        assertThat(html).contains("Load reusable office wording back into the quote-prep brief");
-        assertThat(html).contains("Broward default");
-        assertThat(html).contains("Open Quote-Prep Brief");
-        assertThat(html).contains("Do not let setup become the visible product");
-        assertThat(html).contains("Recent public brief sends");
-        assertThat(html).contains("Broward packet home");
-        assertThat(html).doesNotContain("Unrelated office home");
-        assertThat(html).contains("Result Console");
-        assertThat(html).doesNotContain("Office Record");
+                        .param("siteLabel", "Legacy alias home"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(post("/vendor-presets/opening-protection/save")
+                        .param("presetName", "Legacy preset"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(post("/vendor-presets/opening-protection/delete")
+                        .param("presetId", "legacy"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -622,7 +454,7 @@ class SiteControllerTests {
     }
 
     @Test
-    void openingProtectionHandoffFlowCreatesResultBriefAndOfficeRecord() throws Exception {
+    void openingProtectionHandoffFlowKeepsOnlyResultBriefAndPdfSurfaces() throws Exception {
         String location = mockMvc.perform(post("/tools/opening-protection/quote-prep-brief/create")
                         .param("siteLabel", "123 Palm Avenue home")
                         .param("countyZip", "Miami-Dade 33176")
@@ -697,7 +529,6 @@ class SiteControllerTests {
 
         String briefPath = extractFirst(resultHtml, "/tools/opening-protection/quote-prep-brief/share/");
         String internalToken = location.substring("/tools/opening-protection/quote-prep-brief/result/".length(), location.length() - 1);
-        String recordPath = "/tools/opening-protection/quote-prep-brief/internal/" + internalToken + "/";
 
         String briefHtml = mockMvc.perform(get(briefPath))
                 .andExpect(status().isOk())
@@ -768,21 +599,18 @@ class SiteControllerTests {
         assertThat(pdfHtml).doesNotContain("/vendor-packets/opening-protection/quote-boundary/");
         assertThat(pdfHtml).doesNotContain("/vendor-packets/opening-protection/office-preset/");
 
-        String recordHtml = mockMvc.perform(get(recordPath))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString();
-        assertThat(recordHtml).contains("Office record");
-        assertThat(recordHtml).contains("Stored intake");
-        assertThat(recordHtml).contains("123 Palm Avenue home");
-        assertThat(recordHtml).contains("front windows and rear slider");
-        assertThat(recordHtml).contains("Current focus: A small mixed openings quote");
-        assertThat(recordHtml).contains("Palm Coast Openings Desk");
-        assertThat(recordHtml).contains("Amanda from intake");
-        assertThat(recordHtml).contains("Serving Miami-Dade and Broward only.");
-        assertThat(recordHtml).contains("Open Prefilled Estimator Handoff");
-        assertThat(recordHtml).contains("Open Prefilled Quote Boundary");
+        mockMvc.perform(get("/tools/opening-protection/quote-prep-brief/internal/" + internalToken + "/"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/vendor-handoffs/opening-protection/" + internalToken + "/"))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get(briefPath.replace(
+                        "/tools/opening-protection/quote-prep-brief/share/",
+                        "/vendor-handoffs/opening-protection/brief/")))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get(pdfPath.replace(
+                        "/tools/opening-protection/quote-prep-brief/share/",
+                        "/vendor-handoffs/opening-protection/brief/")))
+                .andExpect(status().isNotFound());
     }
 
     @Test

@@ -31,7 +31,7 @@ public class VendorHandoffController {
         this.appProperties = appProperties;
     }
 
-    @PostMapping({"/tools/opening-protection/quote-prep-brief/create", "/vendor-handoffs/opening-protection"})
+    @PostMapping("/tools/opening-protection/quote-prep-brief/create")
     public String createHandoff(OpeningProtectionHandoffRequest request) {
         List<String> blockingItems = handoffService.publicBriefBlockingItems(request);
         if (!blockingItems.isEmpty()) {
@@ -41,7 +41,7 @@ public class VendorHandoffController {
         return "redirect:" + handoffService.resultPath(handoff.internalToken());
     }
 
-    @GetMapping({"/tools/opening-protection/quote-prep-brief/result/{internalToken}/", "/vendor-handoffs/opening-protection/{internalToken}/"})
+    @GetMapping("/tools/opening-protection/quote-prep-brief/result/{internalToken}/")
     public String handoffResult(@PathVariable String internalToken, HttpServletRequest request, Model model) {
         OpeningProtectionHandoffRecord handoff = handoffService.findByInternalToken(internalToken)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -78,7 +78,7 @@ public class VendorHandoffController {
         return "vendorHandoffResult";
     }
 
-    @GetMapping({"/tools/opening-protection/quote-prep-brief/share/{publicToken}/", "/vendor-handoffs/opening-protection/brief/{publicToken}/"})
+    @GetMapping("/tools/opening-protection/quote-prep-brief/share/{publicToken}/")
     public String publicBrief(@PathVariable String publicToken, HttpServletRequest request, Model model) {
         OpeningProtectionHandoffRecord handoff = handoffService.findByPublicToken(publicToken)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -105,7 +105,7 @@ public class VendorHandoffController {
         return "vendorHandoffBrief";
     }
 
-    @GetMapping({"/tools/opening-protection/quote-prep-brief/share/{publicToken}/export/pdf/", "/vendor-handoffs/opening-protection/brief/{publicToken}/export/pdf/"})
+    @GetMapping("/tools/opening-protection/quote-prep-brief/share/{publicToken}/export/pdf/")
     public String publicBriefPdfExport(@PathVariable String publicToken, HttpServletRequest request, Model model) {
         OpeningProtectionHandoffRecord handoff = handoffService.findByPublicToken(publicToken)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -131,32 +131,6 @@ public class VendorHandoffController {
                 pdfExportPath,
                 handoffService.replyGuidance(handoff)));
         return "vendorHandoffBriefPdf";
-    }
-
-    @GetMapping({"/tools/opening-protection/quote-prep-brief/internal/{internalToken}/", "/vendor-handoffs/opening-protection/record/{internalToken}/"})
-    public String officeRecord(@PathVariable String internalToken, HttpServletRequest request, Model model) {
-        OpeningProtectionHandoffRecord handoff = handoffService.findByInternalToken(internalToken)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        model.addAttribute("page", new VendorHandoffDocumentPageView(
-                meta(
-                        "Opening Protection Office Record",
-                        "Internal record that stays behind the shareable quote-prep brief in the opening-protection workflow.",
-                        handoffService.officeRecordPath(handoff.internalToken()),
-                        request),
-                handoff,
-                handoffService.narrative(handoff),
-                handoffService.resultPath(handoff.internalToken()),
-                handoffService.absoluteUrl(handoffService.publicBriefPath(handoff.publicToken()), baseUrl(request)),
-                handoffService.workflowEntryPath(),
-                handoffService.improvementGuidePath(),
-                handoffService.quoteChecklistPath(),
-                List.of(),
-                handoffService.prefilledEstimatorSheetPath(handoff),
-                handoffService.prefilledQuoteBoundaryPath(handoff),
-                handoffService.publicBriefPath(handoff.publicToken()),
-                handoffService.publicBriefPdfExportPath(handoff.publicToken()),
-                handoffService.replyGuidance(handoff)));
-        return "vendorHandoffRecord";
     }
 
     private PageMeta meta(String title, String description, String path, HttpServletRequest request) {
