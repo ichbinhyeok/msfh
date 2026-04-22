@@ -8,7 +8,7 @@ Pressure-test whether the `MySafeFloridaHomeVerdict` package is actually ready f
 - SERP realist
 - Program realist
 - Funnel operator
-- Sponsor seller
+- Route realist
 - Risk operator
 - Content strategist
 - Technical architect
@@ -52,9 +52,9 @@ Action taken:
   - get the quote checklist
   - route to the right contractor type
 
-### Sponsor seller
+### Route realist
 - Pass.
-- Opening protection and roof-related work are commercially meaningful enough for low-volume lead-gen.
+- Opening protection and roof-related work are meaningful enough to justify a narrow homeowner-support wedge.
 
 ### Risk operator
 - Pass.

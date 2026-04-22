@@ -40,7 +40,7 @@ If the first release does not feel like a `post-inspection decision engine`, it 
 - The state program already creates demand and urgency.
 - Official pages explain process but do not fully solve contractor-side decision work.
 - The program explicitly leaves contractor choice to the homeowner.
-- The improvement categories are commercially strong:
+- The improvement categories create strong homeowner decision demand:
   - opening protection
   - roof-to-wall
   - roof deck
@@ -49,7 +49,7 @@ If the first release does not feel like a `post-inspection decision engine`, it 
 ## Why now
 - Current program pages still show active inspections and grants.
 - Recent official updates show large program scale and continuing policy interest.
-- Search results already show contractor marketers crowding the category, which proves commercial intent.
+- Search results already show contractor marketers crowding the category, which proves strong post-report homeowner demand.
 - A decision-layer product can sit between official process content and contractor sales pages.
 
 ## The strategic bet
@@ -124,7 +124,7 @@ Success is:
 
 - a narrow report-to-project wedge
 - clear improvement-specific routing
-- sponsor-ready lead quality by improvement type
+- clear homeowner decision intent by improvement type
 
 ## Failure condition
 Failure is:

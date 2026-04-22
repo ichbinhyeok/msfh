@@ -31,7 +31,7 @@ Action taken:
 
 - added explicit attached-home branching to the agent rules
 - added an `attached_home_scope_constraint` trigger state
-- updated architecture, editorial, and commercial docs so attached-home cases are surfaced early
+- updated architecture, editorial, and growth docs so attached-home cases are surfaced early
 
 ### P1 - Roof-replacement route name was too broad
 The public route was still written as `/improvements/roof-replacement/`.
@@ -52,7 +52,7 @@ A few lines in the source audit had broken characters.
 Risk:
 
 - low direct strategic risk
-- but it weakens trust in a handoff packet
+- but it weakens trust in a homeowner support packet
 
 Action taken:
 
@@ -62,7 +62,7 @@ Action taken:
 
 ### Demand realist
 - Pass.
-- The main pain is still real and commercial after the report.
+- The main pain is still real and urgent after the report.
 
 ### SERP realist
 - Pass.

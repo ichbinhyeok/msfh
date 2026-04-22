@@ -9,8 +9,8 @@
 ## Latest decisions
 - Canonical page unit is `Florida + post-inspection decision route`.
 - Phase 1 public focus is not eligibility. It is `report understanding + project choice + quote preparation`.
-- The opening-protection packet is now a `homeowner-first quote-prep brief`, with vendor reuse kept as an optional secondary layer.
-- The main question is no longer `what should a contractor office send first?`; it is `what can a homeowner carry into the first quote conversation to keep it narrow?`
+- The opening-protection flow is now a `homeowner-first quote-prep brief`.
+- The main question is `what can a homeowner carry into the first quote conversation to keep it narrow?`
 - Opening-protection free-layer repeatability should be judged on only three signals: public brief open, brief link/message copy, and homeowner reply with the requested report page, photos, or clarified scope.
 - Ignore internal estimator navigation, boundary-sheet clicks, PDF export opens, and other secondary route activity when validating first-send repetition.
 - Current program facts should be grounded in the live website, Support Center, and recent official state materials before old PDFs.
@@ -21,15 +21,15 @@
 - Purchased production domain is `scopeverdict.com`, and production canonical URLs should resolve through `APP_BASE_URL=https://scopeverdict.com`.
 
 ## What changed this session
-- Reframed the opening-protection packet from `vendor-first pre-quote brief` into a `homeowner-first quote-prep brief`.
-- Added homeowner-first canonical tool paths while keeping old vendor paths as compatibility aliases.
-- Demoted estimator handoff, quote boundary, and office setup behind the shareable brief so the free layer stays one sendable asset.
-- Exposed first-send signals on the result surface and wired send-note copy plus brief-link copy tracking toward the same handoff record.
+- Reframed the opening-protection flow into a `homeowner-first quote-prep brief`.
+- Added homeowner-first canonical tool paths.
+- Demoted estimator-only setup work behind the shareable brief so the free layer stays one sendable asset.
+- Exposed first-send signals on the result surface and wired send-note copy plus brief-link copy tracking toward the same brief record.
 - Scaffolded the Spring Boot `4.0.5` plus `jte` application with Maven wrapper under `owner.mysafefloridahome`.
 - Added normalized source, program, improvement, guide, trust, route, and ops seed files under `src/main/resources/data`.
 - Implemented server-rendered home, program, improvement, guide, trust, sitemap, robots, and admin routes.
 - Implemented file-backed lead capture and event logging to `storage/leads/leads.csv` and `storage/leads/lead_events.csv`.
-- Added partner-type routing, stale-route fail-closed review logic, and admin route-health summaries.
+- Added contractor-type routing, stale-route fail-closed review logic, and admin route-health summaries.
 - Tightened improvement-route copy so phase-1 public pages now expose the `Quick answer` and `What not to assume` blocks explicitly.
 - Expanded MockMvc coverage to sweep all phase-1 public routes for acceptance blocks, metadata, email-first lead forms, admin summaries, and stale-source fail-closed behavior.
 - Expanded acceptance coverage again to all non-admin public routes, guide-to-program entry paths, lead error flash rendering, event-context storage, admin signal visibility, and risky redirect rejection.
@@ -46,6 +46,6 @@
 ## Open questions
 - Should the public-facing brand reference `My Safe Florida Home` directly or stay one level more neutral to reduce trust friction?
 - Should county overlays start with South Florida opening-protection demand or remain statewide until real lead data exists?
-- Should the first commercial emphasis be `opening protection` or `roof + SWR`?
+- Should the first public-growth emphasis be `opening protection` or `roof + SWR`?
 - Should low-income no-match scenarios get their own UX fork later, or stay merged into one decision engine at launch?
 - Should production keep runtime jte compilation enabled or switch to precompiled templates before deployment?

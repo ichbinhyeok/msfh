@@ -51,7 +51,7 @@ Only after that wedge starts working:
 - county overlays with no route evidence
 - pure status pages that duplicate the Support Center
 
-## Commercial focus for the first 4 to 6 weeks
+## Public-growth focus for the first 4 to 6 weeks
 Primary CTA order:
 
 1. `Get the contractor quote checklist for your recommended improvement`

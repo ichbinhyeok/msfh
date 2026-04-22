@@ -11,7 +11,6 @@ services:
       APP_BASE_URL: ${APP_BASE_URL:-https://scopeverdict.com}
       APP_STORAGE_LEADS_PATH: /app/storage/leads/leads.csv
       APP_STORAGE_EVENTS_PATH: /app/storage/leads/lead_events.csv
-      APP_STORAGE_PARTNER_INQUIRIES_PATH: /app/storage/leads/partner_inquiries.csv
       APP_ADMIN_USERNAME: ${APP_ADMIN_USERNAME:-}
       APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-}
       GG_JTE_DEVELOPMENT_MODE: "false"

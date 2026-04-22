@@ -9,7 +9,7 @@ Use this order:
 2. current MSFH Support Center operational articles
 3. official Florida Senate or DFS/CFO program updates
 4. older homeowner guide PDFs for background only
-5. secondary contractor or media pages only for SERP and commercial pattern checks
+5. secondary contractor or media pages only for SERP and homeowner-demand pattern checks
 
 ## Official anchors
 
@@ -104,7 +104,7 @@ Use this order:
 - Why it matters:
   - if there are no recommended improvements, the homeowner cannot proceed with the grant application
 - Product consequence:
-  - this is a real confusion route, but it is not a phase-1 revenue wedge
+- this is a real confusion route, but it is not a phase-1 public-growth wedge
 
 ### Reviewing and selecting eligible mitigation projects
 - URL: `https://support.mysafeflhome.com/en/support/solutions/articles/156000279740-where-do-i-review-and-select-my-eligible-mitigation-projects-in-the-applicant-portal-`

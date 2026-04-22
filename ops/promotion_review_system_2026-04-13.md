@@ -18,7 +18,7 @@ This is a recommendation system, not an auto-publish system.
 - impressions and clicks
 - CTA behavior
 - lead submissions by improvement type
-- partner availability
+- contractor-path availability
 
 ## Required review outputs
 Every review should produce one of these for each held route family:
@@ -36,7 +36,7 @@ And every decision must include a reason.
 - `RFI and portal-status routes`
 - `final inspection and draw-request routes`
 - `county overlays`
-- `partner finder pages`
+- `contractor-type pages`
 
 ## Promotion recommendation logic
 
@@ -46,7 +46,7 @@ Use this only when:
 - the route already exists but is held `noindex`
 - source freshness is green
 - indexed parent routes show repeated evidence that users want this next step
-- the route has a real editorial and commercial purpose
+- the route has a real editorial and homeowner-purpose role
 
 ### Recommend build
 Use this when:
@@ -66,7 +66,7 @@ Use this when:
 
 - an indexed route family attracts weak-intent traffic
 - the route duplicates the official Support Center too closely
-- or the route lost its source or commercial justification
+- or the route lost its source or public-growth justification
 
 ## Review cadence
 - at the start of any later strategy or implementation session once metrics exist
@@ -83,5 +83,5 @@ When a route qualifies, the agent should tell the user:
 ## Fail-closed rules
 - stale sources mean no promotion
 - no scenario evidence means no promotion
-- no partner path means no promotion
+- no contractor path means no promotion
 - exact-FAQ curiosity alone means no promotion

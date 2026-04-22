@@ -5,7 +5,7 @@
 - SERP realist
 - Program realist
 - Funnel operator
-- Sponsor seller
+- Route realist
 - Risk operator
 - Content strategist
 - Technical architect
@@ -43,10 +43,10 @@ If a solo founder is choosing whether to productize a Florida lead-gen asset aro
   - contractor confusion -> quote checklist first
 - No phone-heavy brokerage is required.
 
-## Sponsor seller
+## Route realist
 - Yes.
-- Windows, shutters, roofing, and retrofit work can all support meaningful lead values.
-- The commercial trap is pretending every page should immediately sell a quote.
+- Windows, shutters, roofing, and retrofit work can all support a strong homeowner decision wedge.
+- The trap is pretending every page should immediately push a quote.
 
 ## Risk operator
 - Yes, with heavy guardrails.

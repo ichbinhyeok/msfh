@@ -85,7 +85,7 @@ These routes are part of the product, not part of the indexed SERP surface.
 - captures the strongest post-report trigger states
 - stays out of pure eligibility clutter
 - gives enough pages to test internal linking
-- supports multiple commercial paths without bloating the surface
+- supports multiple homeowner decision paths without bloating the surface
 
 ## Expansion order after launch
 1. Promote the best-performing support route if evidence appears

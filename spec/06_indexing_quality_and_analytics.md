@@ -6,7 +6,7 @@ Index only pages that are:
 - post-inspection specific
 - current-rule aware
 - source-backed
-- commercially meaningful or strategically clarifying
+- meaningful for homeowner decisions or strategically clarifying
 
 ## Promotion recommendation principle
 Held routes should not auto-promote just because they exist in the system.

@@ -9,7 +9,7 @@ Questions:
 - Which recommendation should I do first?
 - What is the smartest project if I cannot do everything?
 
-Commercial value:
+Homeowner urgency:
 
 - very high
 
@@ -20,7 +20,7 @@ Questions:
 - What should I ask in quotes?
 - What should I avoid signing too early?
 
-Commercial value:
+Homeowner urgency:
 
 - very high
 
@@ -32,7 +32,7 @@ Questions:
 - What if some openings are already compliant?
 - Does my attached home or townhouse change what can be funded?
 
-Commercial value:
+Homeowner urgency:
 
 - high
 
@@ -43,7 +43,7 @@ Questions:
 - Is SWR the real reason roof work is being covered?
 - Can roof-to-wall be done without full reroofing?
 
-Commercial value:
+Homeowner urgency:
 
 - high to very high
 
@@ -54,7 +54,7 @@ Questions:
 - Why is my case group 5?
 - What do I do with an RFI?
 
-Commercial value:
+Homeowner urgency:
 
 - low to medium
 

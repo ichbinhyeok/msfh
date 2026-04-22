@@ -39,7 +39,7 @@ Core families:
 - county-overlay
 
 ### County overlay
-A local page that only exists when contractor density, income-threshold interpretation, or commercial reality materially changes the answer.
+A local page that only exists when contractor density, income-threshold interpretation, or real homeowner decision conditions materially change the answer.
 
 ### Contractor type
 - opening-protection contractor

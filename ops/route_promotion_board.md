@@ -50,14 +50,14 @@ Default state for all held route families is `hold`.
 - Promote when:
   - statewide routes prove demand
   - county-specific contractor density or threshold differences justify the page
-  - maintenance burden is justified by commercial density
+  - maintenance burden is justified by route-level homeowner demand
 
-### Partner finder pages
+### Contractor-type pages
 - Current status: `hold`
 - Current surface: not built or `noindex`
 - Promote when:
   - improvement-specific routes already have demand
-  - partner coverage exists
+- contractor-path coverage exists
   - the page adds routing value rather than becoming a thin directory
 
 ## First agent instruction once metrics exist

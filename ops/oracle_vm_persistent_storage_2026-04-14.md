@@ -12,12 +12,10 @@ Do not store runtime CSV data inside the app release folder.
 Use a persistent absolute path on the Oracle VM such as:
 - `/var/lib/mysafefloridahome/leads.csv`
 - `/var/lib/mysafefloridahome/lead_events.csv`
-- `/var/lib/mysafefloridahome/partner_inquiries.csv`
 
 ## Required environment variables
 - `APP_STORAGE_LEADS_PATH=/var/lib/mysafefloridahome/leads.csv`
 - `APP_STORAGE_EVENTS_PATH=/var/lib/mysafefloridahome/lead_events.csv`
-- `APP_STORAGE_PARTNER_INQUIRIES_PATH=/var/lib/mysafefloridahome/partner_inquiries.csv`
 - `APP_ADMIN_USERNAME=admin`
 - `APP_ADMIN_PASSWORD=<strong-random-password>`
 - `APP_BASE_URL=https://scopeverdict.com`
@@ -57,7 +55,6 @@ WorkingDirectory=/opt/mysafefloridahome/current
 Environment=APP_BASE_URL=https://scopeverdict.com
 Environment=APP_STORAGE_LEADS_PATH=/var/lib/mysafefloridahome/leads.csv
 Environment=APP_STORAGE_EVENTS_PATH=/var/lib/mysafefloridahome/lead_events.csv
-Environment=APP_STORAGE_PARTNER_INQUIRIES_PATH=/var/lib/mysafefloridahome/partner_inquiries.csv
 Environment=APP_ADMIN_USERNAME=admin
 Environment=APP_ADMIN_PASSWORD=change-this
 ExecStart=/usr/bin/java -jar /opt/mysafefloridahome/current/mysafefloridahome-0.0.1-SNAPSHOT.jar
